@@ -32,3 +32,16 @@ body {
     padding: 0 1rem;
   }
   
+  nav.subnav a {
+    color: #2c3e50;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+  }
+  
+  .timer {
+    font-size: 1.5rem;
+    margin: 2rem 0;
+    color: #d35400;
+  }
+  
