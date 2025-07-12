@@ -6,15 +6,18 @@ body {
     color: #333;
   }
   
-  /* === Header & navigation === */
+  /* === Header (sticky) === */
   header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     background-color: #2c3e50;
     color: white;
     padding: 1rem;
     text-align: center;
   }
   
-  /* Huvudnavigering (Home / Skottland) */
+  /* === Huvudmeny (Home / Skottland) === */
   nav {
     display: flex;
     flex-wrap: wrap;
@@ -32,13 +35,16 @@ body {
     font-weight: bold;
   }
   
-  /* Undermeny för t.ex. Skottland-sidor */
+  /* === Undermeny (Skottland-sektioner) – också sticky === */
   .subnav {
+    position: sticky;
+    top: 60px;  /* Justeras om headern ändras i höjd */
+    z-index: 999;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
-    background-color: #ffffff;  /* Ljus bakgrund för kontrast */
+    background-color: #ffffff;
     padding: 0.5rem 1rem;
     border-bottom: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -94,7 +100,7 @@ body {
   }
   
   .fact-card {
-    background-color: #eaf2f8;  /* Mjuk ljusblå för att matcha temat */
+    background-color: #eaf2f8;
     border-radius: 12px;
     padding: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
