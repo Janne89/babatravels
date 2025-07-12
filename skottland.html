@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
   <meta charset="UTF-8" />
-  <title>Baba Travels - Skottland</title>
+  <title>Skottland – Baba Travels</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="scripts/countdown.js" defer></script>
 </head>
 <body>
   <header>
@@ -12,10 +13,18 @@
       <a href="index.html">Home</a>
       <a href="skottland.html">Skottland</a>
     </nav>
+    <nav class="subnav">
+      <a href="skottland.html">Huvudsida</a>
+      <a href="goodtoknow.html">Good to know</a>
+      <a href="packlista.html">Packlista</a>
+      <a href="schema.html">Schema</a>
+    </nav>
   </header>
 
   <main>
-    <p>Stories and photos from our Scotland trip will go here. Highland cows, whisky, rain, and glory!</p>
+    <h2>Nedräkning till flyget</h2>
+    <p class="timer" id="countdown">Laddar timer...</p>
+    <p>Flyg: 07:10 från Arlanda Terminal 5 till Edinburgh. Måndag 28 juli.</p>
   </main>
 </body>
 </html>
