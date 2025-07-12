@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <title>Steven – Historik</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <style>
+    .timeline {
+      position: relative;
+      margin: 2rem auto;
+      padding: 2rem 0;
+      max-width: 800px;
+    }
+    .event {
+      border-left: 3px solid #555;
+      margin-left: 1rem;
+      padding-left: 1rem;
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    .event h3 {
+      margin: 0.3rem 0;
+    }
+    .steven-total {
+      margin-top: 0.5rem;
+      display: none;
+      font-weight: bold;
+      color: #333;
+    }
+    .show-btn {
+      margin-top: 0.5rem;
+      background-color: #eee;
+      padding: 0.3rem 0.6rem;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Historik – Stevenresor</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="skottland.html">Skottland</a>
+      <a href="historik.html">Historik</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="timeline">
+
+      <div class="event">
+        <h3>Stockholm – Ellery Beach Club</h3>
+        <p><em>Hellman 30-årspresent – april 2025</em></p>
+        <button class="show-btn" onclick="toggle(this)">Visa Stevenkostnad</button>
+        <p class="steven-total">23197,34 kr</p>
+      </div>
+
+      <div class="event">
+        <h3>Malaga</h3>
+        <p><em>Hellman 30 – januari 2025</em></p>
+        <button class="show-btn" onclick="toggle(this)">Visa Stevenkostnad</button>
+        <p class="steven-total">123520,59 kr</p>
+      </div>
+
+      <div class="event">
+        <h3>Stockholm – Emil Babyshower</h3>
+        <p><em>april 2024</em></p>
+        <button class="show-btn" onclick="toggle(this)">Visa Stevenkostnad</button>
+        <p class="steven-total">17711,47 kr</p>
+      </div>
+
+      <div class="event">
+        <h3>Dublin - Jojje 30 </h3>
+        <p><em>april 2024</em></p>
+        <button class="show-btn" onclick="toggle(this)">Visa Stevenkostnad</button>
+        <p class="steven-total">81207,92 kr</p>
+      </div>
+
+      <div class="event">
+        <h3>Söderbärke (Panga)</h3>
+        <p><em>Oktober 2023</em></p>
+        <button class="show-btn" onclick="toggle(this)">Visa Stevenkostnad</button>
+        <p class="steven-total">12246 kr</p>
+      </div>
+
+      <div class="event">
+        <h3>Uppsalastuga – Oskar, Adde, Ponlu 30 (efter covid)</h3>
+        <p><em>Maj 2023 </em></p>
+        <button class="show-btn" onclick="toggle(this)">Visa Stevenkostnad</button>
+        <p class="steven-total">41905 kr</p>
+      </div>
+
+      <div class="event">
+        <h3>Malmö/CPH</h3>
+        <p><em>Affe babyshower – november 2022</em></p>
+        <button class="show-btn" onclick="toggle(this)">Visa Stevenkostnad</button>
+        <p class="steven-total">20888,38 kr</p>
+      </div>
+
+      <div class="event">
+        <h3>Tjeckien/Slovenien/Italien</h3>
+        <p><em>Sommarsemester – augusti 2022 (5 pers)</em></p>
+        <button class="show-btn" onclick="toggle(this)">Visa Stevenkostnad</button>
+        <p class="steven-total">104275,87 kr</p>
+      </div>
+
+      <div class="event">
+        <h3>Kaunas</h3>
+        <p><em>Kalle 30 – januari 2022</em></p>
+        <button class="show-btn" onclick="toggle(this)">Visa Stevenkostnad</button>
+        <p class="steven-total">37755,54 kr</p>
+      </div>
+
+      <div class="event">
+        <h3>Jämtlandstriangeln</h3>
+        <p><em>Vandring – augusti 2021</em></p>
+        <button class="show-btn" onclick="toggle(this)">Visa Stevenkostnad</button>
+        <p class="steven-total">23187 kr</p>
+      </div>
+
+      <div class="event">
+        <h3>Malmö</h3>
+        <p><em>Affe 30 – juni 2021</em></p>
+        <button class="show-btn" onclick="toggle(this)">Visa Stevenkostnad</button>
+        <p class="steven-total">28159 kr</p>
+      </div>
+
+      <div class="event">
+        <h3>Femöre (Gubbmys hos Emil)</h3>
+        <p><em>April 2021</em></p>
+        <button class="show-btn" onclick="toggle(this)">Visa Stevenkostnad</button>
+        <p class="steven-total">6072 kr</p>
+      </div>
+
+      <div class="event">
+        <h3>Malmö/CPH</h3>
+        <p><em>Babyshower Affe – aug 2019</em></p>
+        <button class="show-btn" onclick="toggle(this)">Visa Stevenkostnad</button>
+        <p class="steven-total">14197 kr</p>
+      </div>
+
+      <div class="event">
+        <h3>Belgrad</h3>
+        <p><em>Janne 30 – juni 2019</em></p>
+        <button class="show-btn" onclick="toggle(this)">Visa Stevenkostnad</button>
+        <p class="steven-total">39502,08 kr</p>
+      </div>
+
+      <div class="event">
+        <h3>Istanbul</h3>
+        <p><em>Sommarsemester – aug 2019</em></p>
+        <button class="show-btn" onclick="toggle(this)">Visa Stevenkostnad</button>
+        <p class="steven-total">80857,7 kr</p>
+      </div>
+
+      <div class="event">
+        <h3>Gdansk</h3>
+        <p><em>Krökresa – maj 2019</em></p>
+        <button class="show-btn" onclick="toggle(this)">Visa Stevenkostnad</button>
+        <p class="steven-total">19380,46 kr</p>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    function toggle(btn) {
+      const p = btn.nextElementSibling;
+      p.style.display = p.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>
