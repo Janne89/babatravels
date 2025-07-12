@@ -14,7 +14,8 @@ body {
     text-align: center;
   }
   
-  nav, .subnav {
+  /* Huvudnavigering (Home / Skottland) */
+  nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -22,7 +23,7 @@ body {
     margin: 0.5rem 0;
   }
   
-  nav a, .subnav a {
+  nav a {
     color: white;
     background-color: #34495e;
     padding: 0.5rem 1rem;
@@ -31,9 +32,25 @@ body {
     font-weight: bold;
   }
   
+  /* Undermeny för t.ex. Skottland-sidor */
+  .subnav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    background-color: #ffffff;  /* Ljus bakgrund för kontrast */
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
   .subnav a {
-    background-color: #ecf0f1;
     color: #2c3e50;
+    background-color: #ecf0f1;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
   }
   
   /* === Main content === */
