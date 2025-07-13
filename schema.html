@@ -21,11 +21,19 @@
       cursor: pointer;
       font-size: 0.9rem;
     }
+    .map-section {
+      margin-top: 2rem;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 480px;
+      border: 0;
+    }
   </style>
   <script>
-    function toggleInfo(btn) {
-      const info = btn.nextElementSibling;
-      info.style.display = info.style.display === "block" ? "none" : "block";
+    function toggleHotelInfo(button) {
+      const info = button.nextElementSibling;
+      info.style.display = info.style.display === 'block' ? 'none' : 'block';
     }
   </script>
 </head>
@@ -35,6 +43,7 @@
     <nav>
       <a href="index.html">Home</a>
       <a href="skottland.html">Skottland</a>
+      <a href="historik.html">Historik</a>
     </nav>
     <nav class="subnav">
       <a href="skottland.html">Huvudsida</a>
@@ -49,6 +58,7 @@
 
     <div class="facts-grid">
 
+      <!-- Dag 1 -->
       <div class="fact-card">
         <h3>Dag 1 – Måndag 28 juli<br><small>Edinburgh → Inverness</small></h3>
         <ul>
@@ -58,12 +68,12 @@
           <li>12:30 – Lunchstopp förslag (Pitlochry / House of Bruar)</li>
           <li>14:30 – <a href="https://en.wikipedia.org/wiki/Clava_cairn" target="_blank">Clava Cairns</a></li>
           <li>15:00 – <a href="https://www.nts.org.uk/visit/places/culloden" target="_blank">Culloden Battlefield</a></li>
-          <li>16:15 – Incheckning: <a href="https://www.glen-mhor.com/" target="_blank">Glen Mhor Hotel</a> <button class="info-btn" onclick="toggleInfo(this)">Mer info</button>
+          <li>16:15 – Incheckning: <a href="https://www.glen-mhor.com/" target="_blank">Glen Mhor Hotel</a>
+            <button class="info-btn" onclick="toggleHotelInfo(this)">Mer info</button>
             <div class="hotel-info">
-              4x rum (Janne, Jojje, Karl, Ulrik)<br>
-              Incheckning: 16:00<br>
-              Utcheckning: 11:00<br>
-              Frukost: Ja
+              4x rum – (Janne, Jojje, Karl, Ulrik)<br>
+              Incheckning: 16:00, Utcheckning: 11:00, Frukost: Ja<br>
+              Parkering: Finns på plats, gratis för gäster.
             </div>
           </li>
           <li>17:00 – <a href="https://www.explore-inverness.com/what-to-do/outdoors/ness-island-walk/" target="_blank">River Ness Walk</a></li>
@@ -71,17 +81,18 @@
         </ul>
       </div>
 
+      <!-- Dag 2 -->
       <div class="fact-card">
         <h3>Dag 2 – Tisdag 29 juli<br><small>Inverness → Skye</small></h3>
         <ul>
           <li>07:00 – Frukost</li>
           <li>09:00 – Avfärd till Broadford (ca 2h 45min)</li>
-          <li>11:45 – Lunch & check-in: <a href="https://www.isleofskye.com/accommodation/hotels/broadford/hebridean-inn" target="_blank">Hebridean Inn</a> <button class="info-btn" onclick="toggleInfo(this)">Mer info</button>
+          <li>11:45 – Lunch & check-in: <a href="https://www.isleofskye.com/accommodation/hotels/broadford/hebridean-inn" target="_blank">Hebridean Inn</a>
+            <button class="info-btn" onclick="toggleHotelInfo(this)">Mer info</button>
             <div class="hotel-info">
               1x semesterhus<br>
-              Incheckning: 16:00<br>
-              Utcheckning: 10:00<br>
-              Frukost: Nej
+              Incheckning: 16:00, Utcheckning: 10:00, Frukost: Nej<br>
+              Parkering: Gratis på plats.
             </div>
           </li>
           <li>13:30 – Taxi till Carbost</li>
@@ -93,6 +104,7 @@
         </ul>
       </div>
 
+      <!-- Dag 3 -->
       <div class="fact-card">
         <h3>Dag 3 – Onsdag 30 juli<br><small>Skye-utflykt</small></h3>
         <ul>
@@ -101,13 +113,14 @@
           <li>10:00 – Vandring (1,5–2h)</li>
           <li>12:00 – <a href="https://www.isleofskye.com/skye-guide/skye-places/kilt-rock" target="_blank">Kilt Rock & Mealt Falls</a></li>
           <li>12:45 – Lunch mot Uig</li>
-          <li>13:30 – Eventuellt <a href="https://www.skyebrewery.co.uk/" target="_blank">Isle of Skye Brewery</a></li>
-          <li>15:00 – <a href="https://www.isleofskye.com/skye-guide/top-ten-skye-walks/fairy-glen" target="_blank">Fairy Glen</a> (ev.)</li>
+          <li>13:30 – <a href="https://www.skyebrewery.co.uk/" target="_blank">Isle of Skye Brewery</a> (eventuellt)</li>
+          <li>15:00 – <a href="https://www.isleofskye.com/skye-guide/top-ten-skye-walks/fairy-glen" target="_blank">Fairy Glen</a> (eventuellt)</li>
           <li>17:00 – Tillbaka till Broadford</li>
           <li>18:30 – Middag</li>
         </ul>
       </div>
 
+      <!-- Dag 4 -->
       <div class="fact-card">
         <h3>Dag 4 – Torsdag 31 juli<br><small>Broadford → Glasgow</small></h3>
         <ul>
@@ -117,12 +130,12 @@
           <li>13:30 – <a href="https://en.wikipedia.org/wiki/Glencoe" target="_blank">Glencoe – Three Sisters</a></li>
           <li>14:30 – <a href="https://en.wikipedia.org/wiki/Falls_of_Dochart" target="_blank">Falls of Dochart</a></li>
           <li>15:30 – Fika i Callander/Loch Lubnaig</li>
-          <li>17:30 – Check-in: <a href="https://www.apexhotels.co.uk/city-of-glasgow-welcome-to-apex-hotels/" target="_blank">Apex Hotel, Glasgow</a> <button class="info-btn" onclick="toggleInfo(this)">Mer info</button>
+          <li>17:30 – Check-in: <a href="https://www.apexhotels.co.uk/city-of-glasgow-welcome-to-apex-hotels/" target="_blank">Apex Hotel, Glasgow</a>
+            <button class="info-btn" onclick="toggleHotelInfo(this)">Mer info</button>
             <div class="hotel-info">
-              4x rum (Janne, Jojje, Kalle, Ulrik)<br>
-              Incheckning: 15:00<br>
-              Utcheckning: 11:00<br>
-              Frukost: Nej
+              4x rum – (Janne, Jojje, Kalle, Ulrik)<br>
+              Incheckning: 15:00, Utcheckning: 11:00, Frukost: Nej<br>
+              Parkering: Ingen på hotellet, rabatterat på Q-Park Sauchiehall Street.
             </div>
           </li>
           <li>19:00 – Middag</li>
@@ -130,6 +143,7 @@
         </ul>
       </div>
 
+      <!-- Dag 5 -->
       <div class="fact-card">
         <h3>Dag 5 – Fredag 1 augusti<br><small>Glasgow → Stirling → Edinburgh</small></h3>
         <ul>
@@ -139,15 +153,15 @@
           <li>11:00 – <a href="https://en.wikipedia.org/wiki/Battle_of_Stirling_Bridge" target="_blank">Stirling Bridge</a></li>
           <li>11:30 – Lunchförslag: The Birds and the Bees</li>
           <li>13:00 – Bil till Edinburgh</li>
-          <li>14:00 – Check-in: <a href="https://www.pointahotels.com/hotels/edinburgh-haymarket/" target="_blank">Point A Hotel Edinburgh Haymarket</a> <button class="info-btn" onclick="toggleInfo(this)">Mer info</button>
+          <li>14:00 – Check-in: <a href="https://www.pointahotels.com/hotels/edinburgh-haymarket/" target="_blank">Point A Hotel</a>
+            <button class="info-btn" onclick="toggleHotelInfo(this)">Mer info</button>
             <div class="hotel-info">
-              4x rum (Janne, Jojje, Oskar, Ulrik)<br>
-              Incheckning: 15:00<br>
-              Utcheckning: 11:00<br>
-              Frukost: Nej
+              4x rum – (Janne, Jojje, Oskar, Ulrik)<br>
+              Incheckning: 15:00, Utcheckning: 11:00, Frukost: Nej<br>
+              Parkering: Ingen på plats, rabatt hos närliggande Q-Park/NCP.
             </div>
           </li>
-          <li>15:00 – Fri tid/återkommer</li>
+          <li>15:00 – Fri tid</li>
           <li>18:30 – Middag</li>
         </ul>
       </div>
