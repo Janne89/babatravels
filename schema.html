@@ -5,6 +5,29 @@
   <title>Schema – Skottland</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <style>
+    .hotel-info {
+      margin-top: 0.5rem;
+      display: none;
+      background-color: #f0f0f0;
+      padding: 0.5rem;
+      border-left: 3px solid #888;
+    }
+    .info-btn {
+      margin-top: 0.3rem;
+      background-color: #eee;
+      padding: 0.3rem 0.6rem;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+  </style>
+  <script>
+    function toggleInfo(btn) {
+      const info = btn.nextElementSibling;
+      info.style.display = info.style.display === "block" ? "none" : "block";
+    }
+  </script>
 </head>
 <body>
   <header>
@@ -22,7 +45,7 @@
   </header>
 
   <main>
-    <h2>📅 Reseschema dag för dag</h2>
+    <h2>🗓️ Reseschema dag för dag</h2>
 
     <div class="facts-grid">
 
@@ -35,7 +58,14 @@
           <li>12:30 – Lunchstopp förslag (Pitlochry / House of Bruar)</li>
           <li>14:30 – <a href="https://en.wikipedia.org/wiki/Clava_cairn" target="_blank">Clava Cairns</a></li>
           <li>15:00 – <a href="https://www.nts.org.uk/visit/places/culloden" target="_blank">Culloden Battlefield</a></li>
-          <li>16:15 – Incheckning: <a href="https://www.glen-mhor.com/" target="_blank">Glen Mhor Hotel</a></li>
+          <li>16:15 – Incheckning: <a href="https://www.glen-mhor.com/" target="_blank">Glen Mhor Hotel</a> <button class="info-btn" onclick="toggleInfo(this)">Mer info</button>
+            <div class="hotel-info">
+              4x rum (Janne, Jojje, Karl, Ulrik)<br>
+              Incheckning: 16:00<br>
+              Utcheckning: 11:00<br>
+              Frukost: Ja
+            </div>
+          </li>
           <li>17:00 – <a href="https://www.explore-inverness.com/what-to-do/outdoors/ness-island-walk/" target="_blank">River Ness Walk</a></li>
           <li>18:30 – Middagsförslag: The Kitchen Brasserie</li>
         </ul>
@@ -46,7 +76,14 @@
         <ul>
           <li>07:00 – Frukost</li>
           <li>09:00 – Avfärd till Broadford (ca 2h 45min)</li>
-          <li>11:45 – Lunch & check-in: <a href="https://www.isleofskye.com/accommodation/hotels/broadford/hebridean-inn" target="_blank">Hebridean Inn</a></li> The Hebridean</li>
+          <li>11:45 – Lunch & check-in: <a href="https://www.isleofskye.com/accommodation/hotels/broadford/hebridean-inn" target="_blank">Hebridean Inn</a> <button class="info-btn" onclick="toggleInfo(this)">Mer info</button>
+            <div class="hotel-info">
+              1x semesterhus<br>
+              Incheckning: 16:00<br>
+              Utcheckning: 10:00<br>
+              Frukost: Nej
+            </div>
+          </li>
           <li>13:30 – Taxi till Carbost</li>
           <li>14:30 – <a href="https://www.malts.com/en-row/distilleries/talisker" target="_blank">Talisker Distillery</a></li>
           <li>15:30 – Promenad vid vattnet</li>
@@ -80,7 +117,14 @@
           <li>13:30 – <a href="https://en.wikipedia.org/wiki/Glencoe" target="_blank">Glencoe – Three Sisters</a></li>
           <li>14:30 – <a href="https://en.wikipedia.org/wiki/Falls_of_Dochart" target="_blank">Falls of Dochart</a></li>
           <li>15:30 – Fika i Callander/Loch Lubnaig</li>
-          <li>17:30 – Check-in: <a href="https://www.apexhotels.co.uk/city-of-glasgow-welcome-to-apex-hotels/" target="_blank">Apex Hotel, Glasgow</a></li>
+          <li>17:30 – Check-in: <a href="https://www.apexhotels.co.uk/city-of-glasgow-welcome-to-apex-hotels/" target="_blank">Apex Hotel, Glasgow</a> <button class="info-btn" onclick="toggleInfo(this)">Mer info</button>
+            <div class="hotel-info">
+              4x rum (Janne, Jojje, Kalle, Ulrik)<br>
+              Incheckning: 15:00<br>
+              Utcheckning: 11:00<br>
+              Frukost: Nej
+            </div>
+          </li>
           <li>19:00 – Middag</li>
           <li>Kväll – Pub</li>
         </ul>
@@ -95,35 +139,19 @@
           <li>11:00 – <a href="https://en.wikipedia.org/wiki/Battle_of_Stirling_Bridge" target="_blank">Stirling Bridge</a></li>
           <li>11:30 – Lunchförslag: The Birds and the Bees</li>
           <li>13:00 – Bil till Edinburgh</li>
-          <li>14:00 – Check-in: <a href="https://www.pointahotels.com/hotels/edinburgh-haymarket/" target="_blank">Point A Hotel Edinburgh Haymarket</a></li>
+          <li>14:00 – Check-in: <a href="https://www.pointahotels.com/hotels/edinburgh-haymarket/" target="_blank">Point A Hotel Edinburgh Haymarket</a> <button class="info-btn" onclick="toggleInfo(this)">Mer info</button>
+            <div class="hotel-info">
+              4x rum (Janne, Jojje, Oskar, Ulrik)<br>
+              Incheckning: 15:00<br>
+              Utcheckning: 11:00<br>
+              Frukost: Nej
+            </div>
+          </li>
           <li>15:00 – Fri tid/återkommer</li>
           <li>18:30 – Middag</li>
         </ul>
       </div>
 
-      <div class="fact-card">
-        <h3>Dag 6 – Lördag 2 augusti<br><small>Utforska Edinburgh</small></h3>
-        <ul>
-          <li>08:00 – Frukost</li>
-          <li>09:00 – <a href="https://www.edinburghcastle.scot/" target="_blank">Edinburgh Castle</a></li>
-          <li>11:00 – <a href="https://en.wikipedia.org/wiki/Royal_Mile" target="_blank">Royal Mile</a> & <a href="https://www.stgilescathedral.org.uk/" target="_blank">St Giles’ Cathedral</a></li>
-          <li>12:30 – Lunch: The Witchery</li>
-          <li>14:00 – <a href="https://en.wikipedia.org/wiki/Arthur%27s_Seat" target="_blank">Arthur’s Seat</a></li>
-          <li>16:00 – <a href="https://www.scotchwhiskyexperience.co.uk/" target="_blank">Scotch Whisky Experience</a></li>
-          <li>19:00 – Middag</li>
-        </ul>
-      </div>
-
-      <div class="fact-card">
-        <h3>Dag 7 – Söndag 3 augusti<br><small>Hemresa</small></h3>
-        <ul>
-          <li>08:00 – Frukost</li>
-          <li>09:00 – Fri tid (shopping, museum)</li>
-          <li>12:00 – Lunch/fika</li>
-          <li>13:00 – Återlämning hyrbil</li>
-          <li>15:35 – Flyg hem</li>
-        </ul>
-      </div>
 
     </div>
 <section class="map-section">
