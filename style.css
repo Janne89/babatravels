@@ -159,16 +159,21 @@ body {
   }
 
 .facts-grid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 1.5rem;
 }
-@media (min-width: 768px) {
+
+@media (min-width: 500px) {
   .facts-grid {
-    flex-direction: row;
-    flex-wrap: wrap;
+    grid-template-columns: 1fr 1fr;
   }
-  .fact-card {
-    width: 48%;
-  }
+}
+
+.fact-card {
+  background-color: #fff;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
