@@ -5,43 +5,39 @@
   <title>Julbord 2025</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
-<style>
-  .container {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1rem;
-  }
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
 
-  iframe {
-    width: 100%;
-    border: none;
-    display: block; 
-    margin: 0 auto;
-  }
+    iframe {
+      width: 100%;
+      border: none;
+      display: block;
+      margin: 0 auto;
+    }
 
-  h1, h2 {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-  }
+    h1, h2 {
+      text-align: center;
+    }
 
-.chart-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-}
+    .chart-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
 
-.chart-inner {
-  width: 600px;
-  max-width: 100%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  padding-left: 10px; 
-}
-
-</style>
+    .chart-inner {
+      width: 600px;
+      max-width: 100%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      padding: 0 1rem;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -56,32 +52,28 @@
 
   <main class="container">
     <h2>🎄 Julbord 2025 – Rösta på datum</h2>
-    <p>Välj vilka datum som passar dig. Du kan kryssa i flera alternativ.</p>
+    <p style="text-align: center;">Välj vilka datum som passar dig. Du kan kryssa i flera alternativ.</p>
 
     <!-- Google Form -->
     <iframe 
       src="https://docs.google.com/forms/d/e/1FAIpQLSd5-IPJ_extqQi1XjROE5PjrSa5aZVOitByWvaKLT_oFDvn6w/viewform?embedded=true" 
       height="1000">
-    Läser in…
+      Läser in…
     </iframe>
 
-<h2 style="margin-top: 3rem; text-align: center;">📊 Resultat hittills</h2>
+    <h2 style="margin-top: 3rem;">📊 Resultat hittills</h2>
 
-<div class="chart-wrapper">
-  <div class="chart-inner">
-    <iframe 
-      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSTcNr4tjJcqExlqGOi7zNmf73x6bh-M6wO19oZVzBHeesVDWAhj73KJtTA--udN6cpq42sF9LQdQGA/pubchart?oid=1667534772&amp;format=interactive" 
-      width="600" 
-      height="400" 
-      frameborder="0" 
-      scrolling="no">
-    </iframe>
-  </div>
-</div>
-
-</div>
-
-
+    <div class="chart-wrapper">
+      <div class="chart-inner">
+        <iframe 
+          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSTcNr4tjJcqExlqGOi7zNmf73x6bh-M6wO19oZVzBHeesVDWAhj73KJtTA--udN6cpq42sF9LQdQGA/pubchart?oid=1667534772&amp;format=interactive" 
+          width="600" 
+          height="400" 
+          frameborder="0" 
+          scrolling="no">
+        </iframe>
+      </div>
+    </div>
   </main>
 </body>
 </html>
