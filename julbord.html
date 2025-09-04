@@ -26,13 +26,21 @@
     max-width: 100%;
   }
 
-  .chart-wrapper {
+.chart-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
   margin-bottom: 2rem;
 }
+
+.chart-inner {
+  width: 600px;
+  max-width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  padding-left: 10px; 
+}
+
 </style>
 </head>
 <body>
@@ -59,13 +67,20 @@
 
 <h2 style="margin-top: 3rem;">📊 Resultat hittills</h2>
 <div class="chart-wrapper">
-  <iframe 
-    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSTcNr4tjJcqExlqGOi7zNmf73x6bh-M6wO19oZVzBHeesVDWAhj73KJtTA--udN6cpq42sF9LQdQGA/pubchart?oid=1667534772&amp;format=interactive" 
-    width="600" 
-    height="400" 
-    frameborder="0" 
-    scrolling="no">
-  </iframe>
+<h2 style="margin-top: 3rem; text-align: center;">📊 Resultat hittills</h2>
+
+<div class="chart-wrapper">
+  <div class="chart-inner">
+    <iframe 
+      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSTcNr4tjJcqExlqGOi7zNmf73x6bh-M6wO19oZVzBHeesVDWAhj73KJtTA--udN6cpq42sF9LQdQGA/pubchart?oid=1667534772&amp;format=interactive" 
+      width="600" 
+      height="400" 
+      frameborder="0" 
+      scrolling="no">
+    </iframe>
+  </div>
+</div>
+
 </div>
 
 
