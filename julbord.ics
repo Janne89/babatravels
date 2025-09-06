@@ -9,5 +9,7 @@ DTEND:20251212T230000
 SUMMARY:Julbord 2025 - Baba Travels
 DESCRIPTION:Julbord med Julklappslek. Ta med 2 julklappar per person (~200kr totalt). Mat: knytis.
 LOCATION:Babas Lounge
+STATUS:CONFIRMED
+SEQUENCE:0
 END:VEVENT
 END:VCALENDAR
