@@ -45,6 +45,24 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
       padding: 0 1rem;
     }
+
+    .calendar-button {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #b22222;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .calendar-button:hover {
+      background-color: #800000;
+    }
   </style>
 </head>
 <body>
@@ -62,6 +80,20 @@
     <h2>🎄 Julbord 2025 - Fredag 12e Dec. 17:00.</h2>
     <p id="countdown">Laddar nedräkning…</p>
 
+    <!-- Julklappslek -->
+    <h2 style="margin-top: 3rem;">🎁 Julklappslek</h2>
+    <p>Alla tar med sig <strong>2 julklappar</strong> vardera, med ett ackumulerat värde på cirka <strong>200 kr</strong>.</p>
+
+    <!-- Matfördelning -->
+    <h2 style="margin-top: 3rem;">🍽️ Matfördelning</h2>
+    <p>Info kommer senare. Men i vanlig ordning kör vi lite knytis!</p>
+
+    <!-- Kalenderimport -->
+    <h2 style="margin-top: 3rem;">📅 Lägg till i kalender</h2>
+    <p>Klicka på knappen för att lägga till julbordet i din kalender:</p>
+    <a href="julbord.ics" download="Julbord_2025.ics" class="calendar-button">Ladda ner kalenderfil (.ics)</a>
+
+    <!-- Tidigare röstning -->
     <h2 style="margin-top: 3rem;">📊 Resultat av tidigare röstning</h2>
     <div class="chart-wrapper">
       <div class="chart-inner">

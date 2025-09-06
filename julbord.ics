@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Baba Travels//Julbord 2025//SV
+BEGIN:VEVENT
+UID:julbord2025@example.com
+DTSTAMP:20250906T120000Z
+DTSTART:20251212T170000
+DTEND:20251212T230000
+SUMMARY:Julbord 2025 - Baba Travels
+DESCRIPTION:Julbord med Julklappslek. Ta med 2 julklappar per person (~200kr totalt). Mat: knytis.
+LOCATION:Babas Lounge
+END:VEVENT
+END:VCALENDAR
