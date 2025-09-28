@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <title>Projekt 35 - Baba Travels</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    #countdown {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 1.5rem 0;
+      color: #d35400; /* orange accent som i din style.css */
+    }
+
+    .calendar-button {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #2c3e50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .calendar-button:hover {
+      background-color: #34495e;
+    }
+
+    .surprise-box {
+      background-color: #f8f9fa;
+      border: 2px dashed #d35400;
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    .birthday-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .secret-info {
+      background-color: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 1rem;
+      margin: 2rem 0;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Baba Travels</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="skottland.html">Skottland</a>
+      <a href="historik.html">Historik</a>
+      <a href="julbord.html">Julbord 2025</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="surprise-box">
+      <div class="birthday-icon">🎂</div>
+      <h2>🎉 Projekt 35 - HEMLIG ÖVERRASKNING! 🎉</h2>
+      <p><strong>Save the Date: 12-14 juni 2026</strong></p>
+      <p id="countdown">Laddar nedräkning…</p>
+    </div>
+
+    <div class="secret-info">
+      <h3>🤫 Viktig information</h3>
+      <p><strong>Detta är en hemlig överraskningsresa för våra vänner som fyller 35!</strong></p>
+      <p>Håll det här hemligt tills vi avslöjar mer detaljer.</p>
+    </div>
+
+    <!-- Kalenderimport -->
+    <h2 style="margin-top: 3rem;">📅 Spara datumet</h2>
+    <p>Lägg till i din kalender så du inte glömmer bort:</p>
+    <a href="projekt35.ics" download="Projekt35_SaveTheDate.ics" class="calendar-button">Lägg till i kalendern</a>
+
+    <!-- Kommande info -->
+    <h2 style="margin-top: 3rem;">ℹ️ Mer information kommer</h2>
+    <p>Destination, aktiviteter och andra detaljer kommer att avslöjas närmare inpå datumet.</p>
+    <p><em>Håll ögonen öppna för uppdateringar!</em></p>
+
+    <!-- Kontakt -->
+    <h2 style="margin-top: 3rem;">📞 Frågor?</h2>
+    <p>Om du har frågor om den hemliga resan, kontakta arrangörerna direkt.</p>
+  </main>
+
+  <script src="scripts/countdown-projekt35.js"></script>
+</body>
+</html>

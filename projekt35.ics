@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Baba Travels//Projekt 35//SV
+BEGIN:VEVENT
+UID:projekt35@babatravels.com
+DTSTAMP:20250928T120000Z
+DTSTART:20260612T090000
+DTEND:20260614T180000
+SUMMARY:Projekt 35 - Hemlig överraskningsresa 🎂
+DESCRIPTION:Hemlig överraskningsresa för 35-årsjubilarer! Destination och detaljer kommer senare. Håll datumet fritt!
+LOCATION:TBA - Hemligt!
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Påminnelse: Projekt 35 överraskningsresa imorgon!
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+END:VCALENDAR
