@@ -87,6 +87,11 @@
     .names-list.show {
       display: block;
     }
+    .left-align {
+      text-align: left;
+      max-width: 700px;
+      margin: 0.25rem auto 1rem auto;
+    }
   </style>
 </head>
 <body>
@@ -110,32 +115,34 @@
 
     <!-- Matfördelning -->
     <h2 style="margin-top: 3rem;">🍽️ Matfördelning</h2>
-    <p>
-      Dryck: Medtag egen dryck. Det kommer finnas glögg och lite i spritskåpet att rensa ur mot småtimmarna om intresse finns.
-    </p>
-    <p>Jag fixar i vanlig ordning:</p>
-    <ul>
-      <li>Janssons frestelse</li>
-      <li>Glögg och tillbehör (pepparkakor, skumtomtar)</li>
-      <li>Lite snacks</li>
-    </ul>
-    <p>I övrigt kör vi knytis — ta med det ni vill bidra med. Det är helt okej med inköpta rätter som tillagas här hemma hos mig.</p>
-
-    <p style="margin-top:0.25rem;">Inspo från förra året: <button class="info-btn" onclick="toggleNames(this)">Visa fördelning</button></p>
-    <div class="names-list" aria-hidden="true">
+    <div class="left-align">
+      <p>
+        Dryck: Medtag egen dryck. Det kommer finnas glögg och lite i spritskåpet att rensa ur mot småtimmarna om intresse finns.
+      </p>
+      <p>Jag fixar i vanlig ordning:</p>
       <ul>
-        <li>Sill (Jonathan Hellman)</li>
-        <li>Prinskörv + köttbullar (Emil Nilsson)</li>
-        <li>Gravlax och hovmästarsås (Johannes Forsberg)</li>
-        <li>Julvört / kex och ostar (Andreas Lindmark)</li>
-        <li>Rödbetssallad / grönkålssallad + smör (Pontus Lundin)</li>
-        <li>Julskinka (Eddie Andersson)</li>
-        <li>Ägghalvor + kokt potatis + gräddfil och gräslök (Lennart Johansson)</li>
-        <li>Veganskt alt (Karl Eriksson)</li>
+        <li>Janssons frestelse</li>
+        <li>Glögg och tillbehör (pepparkakor, skumtomtar)</li>
+        <li>Lite snacks</li>
       </ul>
-    </div>
+      <p>I övrigt kör vi knytis — ta med det ni vill bidra med. Det är helt okej med inköpta rätter som tillagas här hemma hos mig.</p>
 
-    <p style="margin-top:0.25rem;">Fyll i årets bidrag här: <a class="info-btn" href="https://docs.google.com/spreadsheets/d/1bSyR2U_vITmOxLsM2GmoJnapqidhm6LDE8jFM03mqec/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer">Redigera i kalkylark</a></p>
+      <p style="margin-top:0.25rem;">Inspo från förra året: <button class="info-btn" onclick="toggleNames(this)">Visa fördelning</button></p>
+      <div class="names-list" aria-hidden="true">
+        <ul>
+          <li>Sill (Jonathan Hellman)</li>
+          <li>Prinskörv + köttbullar (Emil Nilsson)</li>
+          <li>Gravlax och hovmästarsås (Johannes Forsberg)</li>
+          <li>Julvört / kex och ostar (Andreas Lindmark)</li>
+          <li>Rödbetssallad / grönkålssallad + smör (Pontus Lundin)</li>
+          <li>Julskinka (Eddie Andersson)</li>
+          <li>Ägghalvor + kokt potatis + gräddfil och gräslök (Lennart Johansson)</li>
+          <li>Veganskt alt (Karl Eriksson)</li>
+        </ul>
+      </div>
+
+      <p style="margin-top:0.25rem;">Fyll i årets bidrag här: <a class="info-btn" href="https://docs.google.com/spreadsheets/d/1bSyR2U_vITmOxLsM2GmoJnapqidhm6LDE8jFM03mqec/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer">Redigera i kalkylark</a></p>
+    </div>
 
     <!-- Kalenderimport -->
     <h2 style="margin-top: 3rem;">📅 Lägg till i kalender</h2>
