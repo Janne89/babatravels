@@ -216,9 +216,10 @@ body.christmas::after {
   left: 0;
   right: 0;
   bottom: -10%;
-  background-image: radial-gradient(rgba(255,255,255,0.9) 2px, transparent 2px);
-  background-size: 25px 25px;
-  opacity: 0.45;
+  /* Use subtle gray flakes so they show on very light backgrounds */
+  background-image: radial-gradient(rgba(0,0,0,0.12) 2.5px, transparent 2.5px);
+  background-size: 36px 36px;
+  opacity: 0.35;
   transform: translateZ(0);
   animation: snow 12s linear infinite;
   z-index: 999;
