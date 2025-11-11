@@ -177,3 +177,62 @@ body {
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
+
+/* === Julig styling för julbordssidan === */
+body.christmas {
+  /* varm bakgrund med svag toning */
+  background: linear-gradient(180deg, #fffaf0 0%, #f0f8ff 100%);
+  color: #222;
+}
+
+/* Festfärger i header och knappar */
+body.christmas header,
+body.christmas nav {
+  background-color: #8b0000; /* mörkröd */
+}
+
+body.christmas nav a {
+  background-color: #6b8f30; /* grön ton */
+  color: #fff;
+}
+
+body.christmas .calendar-button,
+body.christmas .info-btn {
+  background-color: #b22222;
+  color: #fff;
+  border-color: rgba(255,255,255,0.15);
+}
+
+body.christmas header h1::before {
+  content: '🎄 ';
+}
+
+/* Subtil snöeffekt med animerad bakgrund */
+body.christmas::after {
+  content: '';
+  pointer-events: none;
+  position: fixed;
+  top: -10%;
+  left: 0;
+  right: 0;
+  bottom: -10%;
+  background-image: radial-gradient(rgba(255,255,255,0.9) 2px, transparent 2px);
+  background-size: 25px 25px;
+  opacity: 0.45;
+  transform: translateZ(0);
+  animation: snow 12s linear infinite;
+  z-index: 999;
+}
+
+@keyframes snow {
+  from { background-position: 0 0; }
+  to { background-position: 200px 1000px; }
+}
+
+/* Make the left-aligned matfördelning area slightly more festive */
+body.christmas .left-align {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(0,0,0,0.05);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+}
