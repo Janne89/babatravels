@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const diff = eventTime - now;
 
     if (diff <= 0) {
-      countdownElement.textContent = "🎉 Julbordet har börjat!";
+      countdownElement.textContent = "🎉 Julbordet är över!";
       return;
     }
 
