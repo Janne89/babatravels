@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <title>Schema – Alsace 2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    :root {
+      --wine: #6b2737;
+      --gold: #c49a2a;
+      --cream: #faf6ef;
+      --dark: #2c2016;
+      --mid: #5a4a3a;
+      --light: #f0e8d8;
+      --shadow: rgba(107,39,55,0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--cream);
+      color: var(--dark);
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--wine);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem 0;
+    }
+
+    header::after {
+      content: '';
+      display: block;
+      height: 6px;
+      background: linear-gradient(90deg, var(--gold), #e8c84a, var(--gold));
+      margin-top: 1rem;
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      letter-spacing: 0.04em;
+      font-weight: normal;
+    }
+
+    header .subtitle {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+      font-style: italic;
+      margin-top: 0.3rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 0.9rem 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.92rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    /* ── Main ── */
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2.5rem 1.2rem 4rem;
+    }
+
+    .page-title {
+      font-size: 1.6rem;
+      color: var(--wine);
+      font-weight: normal;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.4rem;
+      text-align: center;
+    }
+
+    .page-sub {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #999;
+      font-family: sans-serif;
+      font-style: italic;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── Day grid ── */
+    .days-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.3rem;
+      margin-bottom: 3rem;
+    }
+
+    .day-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.3rem 1.5rem;
+      box-shadow: 0 2px 10px var(--shadow);
+      border-top: 4px solid var(--wine);
+      text-align: left;
+    }
+
+    .day-card.gold-top { border-top-color: var(--gold); }
+    .day-card.travel { border-top-color: #888; }
+
+    .day-card h3 {
+      font-size: 0.98rem;
+      color: var(--wine);
+      margin-bottom: 0.15rem;
+      line-height: 1.35;
+    }
+
+    .day-card h3 small {
+      display: block;
+      font-size: 0.78rem;
+      color: #999;
+      font-weight: normal;
+      font-family: sans-serif;
+      font-style: italic;
+      margin-top: 0.1rem;
+    }
+
+    .day-card ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 0.8rem;
+    }
+
+    .day-card li {
+      font-size: 0.83rem;
+      color: var(--mid);
+      line-height: 1.7;
+      font-family: sans-serif;
+      padding-left: 0.1rem;
+    }
+
+    .day-card li strong {
+      color: var(--dark);
+      font-family: 'Georgia', serif;
+    }
+
+    .stay-badge {
+      display: inline-block;
+      margin-top: 0.9rem;
+      background: var(--light);
+      border-left: 3px solid var(--wine);
+      padding: 0.28rem 0.7rem;
+      font-size: 0.75rem;
+      font-family: sans-serif;
+      color: var(--mid);
+      border-radius: 4px;
+    }
+
+    /* ── Map ── */
+    .section-title {
+      font-size: 1.3rem;
+      color: var(--wine);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 0.4rem;
+      margin: 0 0 1rem;
+      font-weight: normal;
+      letter-spacing: 0.03em;
+    }
+
+    .map-section { margin-top: 1rem; }
+
+    .map-note {
+      font-size: 0.85rem;
+      color: #777;
+      font-family: sans-serif;
+      margin-bottom: 0.8rem;
+    }
+
+    .map-container {
+      height: 440px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    .map-btn-wrap {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .map-btn-wrap a {
+      display: inline-block;
+      background: var(--wine);
+      color: #fff;
+      padding: 0.6rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-family: sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+      transition: background 0.2s;
+    }
+
+    .map-btn-wrap a:hover { background: #4e1a27; }
+
+    .foot-note {
+      text-align: center;
+      margin-top: 3rem;
+      font-style: italic;
+      color: #999;
+      font-size: 0.9rem;
+      font-family: sans-serif;
+    }
+
+    @media (max-width: 500px) {
+      header h1 { font-size: 1.7rem; }
+      .map-container { height: 300px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Alsace 2025</h1>
+  <p class="subtitle">Strasbourg · Colmar · Route des Vins</p>
+  <nav>
+    <a href="alsace.html">Översikt</a>
+    <a href="alsace_schema.html">Schema</a>
+  </nav>
+</header>
+
+<main>
+
+  <h2 class="page-title">🗓️ Reseschema dag för dag</h2>
+  <p class="page-sub">4 aug – 9 aug 2025 &nbsp;·&nbsp; 5 nätter</p>
+
+  <div class="days-grid">
+
+    <!-- Dag 1 -->
+    <div class="day-card travel">
+      <h3>Dag 1 – Måndag 4 aug<small>ARN → Frankfurt → Strasbourg</small></h3>
+      <ul>
+        <li>✈ Flyg ARN → Frankfurt (Lufthansa)</li>
+        <li>🚄 Tåg Frankfurt Fernbahnhof → Strasbourg</li>
+        <li>Avgång ca 14:51, ~2,5 tim marginal efter landning</li>
+        <li>Ankomst Strasbourg sen eftermiddag</li>
+        <li>Check-in: BOMA easy living hotel</li>
+        <li>🌆 Kväll: Promenad i Petite France</li>
+        <li>🍷 Middag / vinbar i gamla stan</li>
+      </ul>
+      <span class="stay-badge">🏨 Strasbourg – natt 1</span>
+    </div>
+
+    <!-- Dag 2 -->
+    <div class="day-card">
+      <h3>Dag 2 – Tisdag 5 aug<small>Strasbourg – Stadens pärlor</small></h3>
+      <ul>
+        <li>⛪ Notre-Dame-katedralen</li>
+        <li>🚣 Båttur på Ill-kanalerna</li>
+        <li>🏘️ Petite France – korsvirkeshus &amp; kanaler</li>
+        <li>🏛️ Neustadt – Wilhelmstil-kvarteret</li>
+        <li>🍽️ Kväll: Middag på winstub (alsacisk krogklassiker)</li>
+      </ul>
+      <span class="stay-badge">🏨 Strasbourg – natt 2</span>
+    </div>
+
+    <!-- Dag 3 -->
+    <div class="day-card gold-top">
+      <h3>Dag 3 – Onsdag 6 aug<small>Strasbourg → Colmar + elcykel</small></h3>
+      <ul>
+        <li>🚄 Tåg Strasbourg → Colmar (~30 min)</li>
+        <li>Check-in: hotell i centrala Colmar</li>
+        <li>🚴 Hämta elcyklar (Lokabike eller Colmar Vélo)</li>
+        <li>🍇 Eftermiddagstur:</li>
+        <li>&nbsp;&nbsp;Colmar → <strong>Eguisheim</strong> → Colmar</li>
+        <li>Eguisheim: ett av Frankrikes vackraste byar</li>
+        <li>Vinprovning längs vägen</li>
+      </ul>
+      <span class="stay-badge">🏨 Colmar – natt 1</span>
+    </div>
+
+    <!-- Dag 4 -->
+    <div class="day-card gold-top">
+      <h3>Dag 4 – Torsdag 7 aug<small>Route des Vins – heldag</small></h3>
+      <ul>
+        <li>🚴 Heldag med elcykel längs Route des Vins</li>
+        <li>Förslag på rutt:</li>
+        <li>&nbsp;&nbsp;🍇 <strong>Eguisheim</strong></li>
+        <li>&nbsp;&nbsp;🍇 <strong>Ribeauvillé</strong></li>
+        <li>&nbsp;&nbsp;🍇 <strong>Riquewihr</strong></li>
+        <li>🥂 Vinprovningar längs vägen</li>
+        <li>🥗 Lunch i vinby</li>
+        <li>🚴 Cykling mellan vingårdar</li>
+        <li>Hemfärd till Colmar på kvällen</li>
+      </ul>
+      <span class="stay-badge">🏨 Colmar – natt 2</span>
+    </div>
+
+    <!-- Dag 5 -->
+    <div class="day-card">
+      <h3>Dag 5 – Fredag 8 aug<small>Kaysersberg + åter Strasbourg</small></h3>
+      <ul>
+        <li>🌅 Kortare cykeltur eller lugn morgon i Colmar</li>
+        <li>🏡 <strong>Kaysersberg</strong> – medeltida by med vinslott</li>
+        <li>🛍️ Vinshopping / caféer</li>
+        <li>Tidig kväll: Tåg Colmar → Strasbourg</li>
+        <li>Check-in på hotell nära stationen</li>
+        <li>🍽️ Sista middagen i Strasbourg</li>
+      </ul>
+      <span class="stay-badge">🏨 Strasbourg – natt 3</span>
+    </div>
+
+    <!-- Dag 6 -->
+    <div class="day-card travel">
+      <h3>Dag 6 – Lördag 9 aug<small>Hemresa – Strasbourg → ARN</small></h3>
+      <ul>
+        <li>Morgon – Checkout &amp; frukost i Strasbourg</li>
+        <li>🚄 Tåg Strasbourg → Frankfurt Airport</li>
+        <li>Ankomst ca 11:38 – ~2 tim 20 min marginal</li>
+        <li>✈ Flyg FRA → ARN (Lufthansa)</li>
+        <li>Ankomst Stockholm</li>
+      </ul>
+      <span class="stay-badge">🏠 Hemma</span>
+    </div>
+
+  </div>
+
+  <!-- ── Karta ── -->
+  <div class="map-section">
+    <h2 class="section-title">🗺️ Karta – Alsace-rutten</h2>
+    <p class="map-note">Översikt: Frankfurt flygplats, Strasbourg, Colmar och vinbyarna längs Route des Vins.</p>
+    <div class="map-container">
+      <div id="alsace-map" style="width:100%; height:100%;"></div>
+    </div>
+    <div class="map-btn-wrap">
+      <a href="https://www.google.com/maps/dir/Frankfurt+Airport+FRA/Strasbourg+France/Colmar+France/Eguisheim+France/Ribeauville+France/Riquewihr+France/Kaysersberg+France" target="_blank">
+        🗺️ Öppna rutten i Google Maps
+      </a>
+    </div>
+  </div>
+
+  <p class="foot-note">💡 Preliminärt schema – tider och aktiviteter justeras efter önskemål och väder.</p>
+
+</main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  const map = L.map('alsace-map').setView([48.15, 7.45], 9);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(map);
+
+  const stopp = [
+    { namn: "1. Frankfurt Airport (FRA)", lat: 50.0333, lng: 8.5706, color: '#888' },
+    { namn: "2. Strasbourg",              lat: 48.5734, lng: 7.7521, color: '#6b2737' },
+    { namn: "3. Colmar",                  lat: 48.0793, lng: 7.3586, color: '#6b2737' },
+    { namn: "4. Eguisheim",               lat: 47.9767, lng: 7.3079, color: '#c49a2a' },
+    { namn: "5. Ribeauvillé",             lat: 48.1944, lng: 7.3225, color: '#c49a2a' },
+    { namn: "6. Riquewihr",               lat: 48.1669, lng: 7.2989, color: '#c49a2a' },
+    { namn: "7. Kaysersberg",             lat: 48.1393, lng: 7.2625, color: '#c49a2a' },
+  ];
+
+  // Rutt-linje
+  const latlngs = stopp.map(p => [p.lat, p.lng]);
+  L.polyline(latlngs, { color: '#6b2737', weight: 3, dashArray: '8,6' }).addTo(map);
+
+  // Elcykelrutt (Colmar → vinbyar, blå)
+  const bikeRoute = [
+    [48.0793, 7.3586], // Colmar
+    [47.9767, 7.3079], // Eguisheim
+    [48.1669, 7.2989], // Riquewihr
+    [48.1944, 7.3225], // Ribeauvillé
+    [48.1393, 7.2625], // Kaysersberg
+    [48.0793, 7.3586], // tillbaka Colmar
+  ];
+  L.polyline(bikeRoute, { color: '#2980b9', weight: 2.5, dashArray: '5,7', opacity: 0.7 }).addTo(map);
+
+  stopp.forEach((p, i) => {
+    const icon = L.divIcon({
+      className: '',
+      html: `<div style="background:${p.color};color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:12px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.35)">${i+1}</div>`,
+      iconSize: [28,28],
+      iconAnchor: [14,14],
+    });
+    L.marker([p.lat, p.lng], { icon }).addTo(map).bindPopup(p.namn);
+  });
+
+  // Kartlegend
+  const legend = L.control({ position: 'bottomright' });
+  legend.onAdd = () => {
+    const d = L.DomUtil.create('div');
+    d.style.cssText = 'background:#fff;padding:8px 12px;border-radius:8px;font-family:sans-serif;font-size:12px;box-shadow:0 2px 8px rgba(0,0,0,0.15);line-height:1.9';
+    d.innerHTML = `
+      <div><span style="color:#6b2737">——</span> Tågresa</div>
+      <div><span style="color:#2980b9">- - -</span> 🚴 Elcykelrutt</div>
+    `;
+    return d;
+  };
+  legend.addTo(map);
+</script>
+
+</body>
+</html>
