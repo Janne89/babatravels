@@ -386,7 +386,13 @@
   </main>
 
   <script src="scripts/countdown-projekt35.js"></script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" onload="initMap()"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  initMap();
+});
+</script>
   <script>
     function initMap() {
     const map = L.map('berlin-map').setView([52.515, 13.395], 13);
