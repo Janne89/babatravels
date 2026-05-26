@@ -5,6 +5,7 @@
   <title>Projekt 35 - Baba Travels</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     .container {
       max-width: 800px;
@@ -21,7 +22,7 @@
       font-size: 1.5rem;
       font-weight: bold;
       margin: 1.5rem 0;
-      color: #d35400; /* orange accent som i din style.css */
+      color: #d35400;
     }
 
     .calendar-button {
@@ -86,6 +87,14 @@
       border: none;
       cursor: pointer;
       font-size: 0.9rem;
+    }
+
+    #berlin-map {
+      width: 100%;
+      height: 480px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 1rem 0 2rem 0;
     }
   </style>
   <script>
@@ -243,6 +252,11 @@
       </div>
     </div>
 
+    <!-- Karta -->
+    <h2 style="margin-top: 3rem;">🗺️ Karta över resan</h2>
+    <p>Klicka på markörerna för mer info. Färgerna visar vilken dag varje stopp är.</p>
+    <div id="berlin-map"></div>
+
     <!-- Good to know -->
     <h2 style="margin-top: 3rem;">Good to know – Berlin</h2>
 
@@ -325,7 +339,6 @@
       </div>
     </div>
 
-
     <h2 style="margin-top: 3rem;">🧳 Packlista för Berlin-resan</h2>
     <p>Enkla och viktiga saker att ha med sig i Berlin.</p>
 
@@ -370,6 +383,76 @@
       </div>
     </div>
 
+  </main>
+
   <script src="scripts/countdown-projekt35.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" onload="initMap()"></script>
+  <script>
+    function initMap() {
+    const map = L.map('berlin-map').setView([52.515, 13.395], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    const dag1 = [
+      { nr: 1, namn: "1. The Social Hub Berlin (Hotell)", lat: 52.5163, lng: 13.4177 },
+      { nr: 2, namn: "2. Prater Garten – Landningsöl!", lat: 52.5393, lng: 13.4150 },
+      { nr: 3, namn: "3. Hofbräu Wirtshaus – Middag", lat: 52.5216, lng: 13.4099 },
+      { nr: 4, namn: "4. Rosenthaler Platz – Bar-hop", lat: 52.5297, lng: 13.4023 },
+    ];
+
+    const dag2 = [
+      { nr: 5, namn: "5. Cafe am Neuen See – Brunch", lat: 52.5132, lng: 13.3491 },
+      { nr: 6, namn: "6. Brandenburger Tor", lat: 52.5163, lng: 13.3777 },
+      { nr: 7, namn: "7. Reichstag", lat: 52.5186, lng: 13.3762 },
+      { nr: 8, namn: "8. Holocaust Memorial", lat: 52.5138, lng: 13.3783 },
+      { nr: 9, namn: "9. Checkpoint Charlie", lat: 52.5075, lng: 13.3904 },
+      { nr: 10, namn: "10. BRLO Brwhouse – Eftermiddag", lat: 52.5018, lng: 13.3841 },
+      { nr: 11, namn: "11. East Side Gallery", lat: 52.5052, lng: 13.4397 },
+      { nr: 12, namn: "12. Kreuzberg – Middag & bar-hop", lat: 52.4972, lng: 13.4266 },
+    ];
+
+    const dag3 = [
+      { nr: 13, namn: "13. Mauerpark – Söndagsvibe", lat: 52.5414, lng: 13.4015 },
+    ];
+
+    const farger = { 1: '#e74c3c', 2: '#2980b9', 3: '#27ae60' };
+    const dagLabel = { 1: 'Dag 1 – Fredag 12/6', 2: 'Dag 2 – Lördag 13/6', 3: 'Dag 3 – Söndag 14/6' };
+
+    function makeIcon(nr, farg) {
+      return L.divIcon({
+        className: '',
+        html: `<div style="background:${farg};color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:12px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.4)">${nr}</div>`,
+        iconSize: [28, 28],
+        iconAnchor: [14, 14],
+      });
+    }
+
+    [[dag1, 1], [dag2, 2], [dag3, 3]].forEach(([dag, dagNr]) => {
+      const farg = farger[dagNr];
+      const coords = dag.map(p => [p.lat, p.lng]);
+      L.polyline(coords, { color: farg, weight: 3, dashArray: '8, 6' }).addTo(map);
+      dag.forEach(p => {
+        L.marker([p.lat, p.lng], { icon: makeIcon(p.nr, farg) })
+          .addTo(map)
+          .bindPopup(`<strong>${p.namn}</strong><br><em>${dagLabel[dagNr]}</em>`);
+      });
+    });
+
+    const legende = L.control({ position: 'bottomright' });
+    legende.onAdd = function() {
+      const div = L.DomUtil.create('div', '');
+      div.style.cssText = 'background:white;padding:10px 14px;border-radius:8px;font-size:13px;box-shadow:0 2px 8px rgba(0,0,0,0.2);line-height:1.8';
+      div.innerHTML = `
+        <div><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#e74c3c;margin-right:6px;vertical-align:middle"></span>Dag 1 – Fredag 12/6</div>
+        <div><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#2980b9;margin-right:6px;vertical-align:middle"></span>Dag 2 – Lördag 13/6</div>
+        <div><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#27ae60;margin-right:6px;vertical-align:middle"></span>Dag 3 – Söndag 14/6</div>
+      `;
+      return div;
+    };
+    legende.addTo(map);
+    }
+  </script>
 </body>
 </html>
