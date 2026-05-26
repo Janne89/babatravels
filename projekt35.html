@@ -22,7 +22,7 @@
       font-size: 1.5rem;
       font-weight: bold;
       margin: 1.5rem 0;
-      color: #d35400;
+      color: #d35400; /* orange accent som i din style.css */
     }
 
     .calendar-button {
@@ -135,7 +135,6 @@
       <p><strong>Ankomst:</strong> 17:00 Stockholm-Arlanda (ARN) Terminal 5</p>
     </div>
 
-    <!-- Reseschema -->
     <h2 style="margin-top: 3rem;">🗓️ Reseschema dag för dag</h2>
 
     <div style="background-color: #d4edda; border-left: 4px solid #28a745; padding: 1.5rem; margin: 2rem 0; border-radius: 0 5px 5px 0; text-align: left;">
@@ -162,7 +161,6 @@
     </div>
 
     <div class="facts-grid">
-      <!-- Dag 1 -->
       <div class="fact-card">
         <h3>Dag 1 – Fredag 12 juni<br><small>Berlin</small></h3>
         <ul>
@@ -180,19 +178,15 @@
           <li>18:45–21:30 – Middag på Hofbräu Wirtshaus. Tänk enlitersöl, schnitzel och stökigt liveband från 19!
             <button class="info-btn" onclick="toggleHotelInfo(this)">Reservation</button>
             <div class="hotel-info">
-              <br><strong>Preliminär reservation:</strong><br>
-              12 personer<br>
+              <br><strong>Bekräftad bokning:</strong><br>
+              12 personer (Referens: 7568C9)<br>
               Fredag 12 juni 2026<br>
               Kl. 18:45<br><br>
-              Reservationen är mottagen och kommer att bekräftas inom kort via e-post!<br><br>
-              <strong>Kontakta vid behov:</strong><br>
-              Telefon: +49 (0) 30 679 66 55 20<br>
-              E-post: veranstaltung@berlin-hofbraeu.de<br>
-              Adress: Karl-Liebknecht-Str. 30, 10178 Berlin
+              <em>Obs: Bordet hålls i max 15 minuter, var i tid!</em>
             </div>
           </li>
           <li>22:00–sent – Bar-hop i Mitte / Prenzlauer Berg (runt Rosenthaler Platz).
-            <button class="info-btn" onclick="toggleHotelInfo(this)">Sköna hak </button>
+            <button class="info-btn" onclick="toggleHotelInfo(this)">Sköna hak</button>
             <div class="hotel-info">
               <br> Några sköna ställen vi kan sikta på ikväll:<br>
               • <strong>Mein Haus am See (Rosenthaler Platz):</strong> Skönt hak öppet dygnet runt med en stor "trappläktare" där alla får plats att sitta. Blir bra drag framåt natten.<br>
@@ -208,34 +202,40 @@
       <div class="fact-card">
         <h3>Dag 2 – Lördag 13 juni<br><small>Berlin</small></h3>
         <ul>
-          <li>10:30–12:30 – Brunch/Återställare på Cafe am Neuen See (Sjukt fin biergarten i en park, bra start på dagen)</li>
-          <li>12:30–14:30 – Sightseeing-promenad "Bocka av"-edition för er som inte sett detta innan. Vi promenerar bort bakfyllan och betar av det viktigaste. Givetvis med ett pitstop för en "Wegbier" (promenad-öl) på vägen!
+          <li>10:00–11:45 – Frukost i Bergmannkiez! Vi tar U-bahn från hotellet ner till Kreuzberg och käkar en rejäl frukost/brunch i krokarna kring Tempelhofer Berg för att bygga en stabil grund.</li>
+          <li>11:45–13:00 – <strong>BOKAD AKTIVITET: Mampe Manufaktur (kl 12:00).</strong> Vi firar födelsedagsbarnet genom att starta dagen med starksprit! Privat "Little Liquor Stories"-provning på engelska och rundtur i Berlins äldsta spritfabrik. Räkna med galna historier!</li>
+          <li>13:00–15:30 – Sightseeing-promenad "Bocka av"-edition (Söder till Norr). Nu är vi runda under fötterna, dags att promenera!
             <button class="info-btn" onclick="toggleHotelInfo(this)">Det vi ska se</button>
             <div class="hotel-info">
-              Vi tar allt i ett snabbt svep:<br>
-              • Promenad genom parken (Tiergarten) till Brandenburger Tor<br>
-              • Reichstag (parlamentet)<br>
+              Vi tar U-bahn (U6) två snabba stopp upp till Checkpoint Charlie och betar sedan av allt i ett snabbt svep norrut:<br>
+              • Checkpoint Charlie & Topography of Terror<br>
+              • <strong>Späti-stopp!</strong> Kiosk-stopp för en "Wegbier" (promenad-öl).<br>
               • Holocaust Memorial<br>
-              • <strong>Späti-stopp!</strong> På vägen ner mot Checkpoint Charlie hugger vi en Späti (kiosk) och löser varsin Wegbier för promenaden.<br>
-              • Checkpoint Charlie & Topography of Terror
+              • Brandenburger Tor<br>
+              • Reichstag (parlamentet)
             </div>
           </li>
-          <li>14:30–18:00 – Eftermiddagshäng på BRLO Brwhouse! Sjukt schysst utomhusbryggeri byggt av gamla containrar (ligger precis vid slutet av vår promenad). Här sitter vi i solen och laddar om.</li>
-          <li>18:30–19:30 – East Side Gallery de som vill! Vi tar U-bahn från bryggeriet österut och promenerar längs Berlinmuren (längsta bevarade delen fylld med gatukonst).</li>
-          <li>19:30–21:30 – Middag i Kreuzberg. Muren slutar perfekt vid bron till Kreuzberg. Här klipper vi en burgare på legendariska Burgermeister (ligger i en gammal toa under tågspåren) eller käkar asiatiskt runt Oranienstraße.</li>
-          <li>22:00–sent – Bar-hop & stök i Kreuzberg! Om vi vill ha lite mer klubbkänsla drar vi över bron igen till RAW-Gelände.
+          <li>15:30–18:00 – Eftermiddagshäng på Cafe am Neuen See! Vår promenad slutar perfekt vid kanten av parken Tiergarten. Vi glider in i parken till Berlins mysigaste biergarten, sätter oss vid vattnet och dricker enorma pilsner i eftermiddagssolen.</li>
+          <li>18:30–19:30 – East Side Gallery! Vi tar S-Bahn från parken (Tiergarten) österut till Ostbahnhof och promenerar längs Berlinmuren (längsta bevarade delen fylld med gatukonst).</li>
+          <li>19:30–21:30 – Middag i Kreuzberg. Muren slutar perfekt vid bron till Kreuzberg. Vi siktar på den anrika institutionen Max und Moritz för lite riktig Berlin-husman!
+            <button class="info-btn" onclick="toggleHotelInfo(this)">Max und Moritz info</button>
+            <div class="hotel-info">
+              <strong>Max und Moritz (Oranienstraße 162)</strong><br>
+              Ett klockrent ställe från 1902. Grym stämning för stora gäng!<br>
+              <em>VIKTIGT:</em> De tar BARA kontanter! Men det ligger en uttagsautomat bokstavligen tvärs över gatan, så vi låter notan komma in, ser vad det kostar, och en får springa över och ta ut stålarna. Inga konstigheter i Berlin!
+            </div>
+          </li>
+          <li>22:00–sent – Bar-hop & stök i Kreuzberg! Vi är redan på Oranienstraße och kan röra oss vidare mot RAW-Gelände.
             <button class="info-btn" onclick="toggleHotelInfo(this)">Kreuzberg & RAW</button>
             <div class="hotel-info">
               <strong>Barer i Kreuzberg (Ruffigt & stökigt):</strong><br>
-              • <strong>Clash:</strong> En massiv, billig punk/rock-krog med biljardbord och noll dresscode. Ska vara bra ställe för 12 pers som bara vill dricka billig bärs.<br>
-              • <strong>Trinkteufel:</strong> Klassisk, skitig dive bar. Öppet typ jämt, mycket lokalt häng.<br>
-              • <strong>Franken Bar:</strong> Rockbar på Oranienstraße, bra stopp på vägen.<br><br>
+              • <strong>Clash:</strong> En massiv, billig punk/rock-krog med biljardbord och noll dresscode.<br>
+              • <strong>Trinkteufel & Franken Bar:</strong> Klassiska rock/dive-bars precis runt knuten från middagen.<br><br>
               <strong>Vad fan är RAW-Gelände?</strong><br>
-              Det är ett gigantiskt övergivet tågstall som är totalt sönderbombat med graffiti och fyllt av barer, klubbar (typ Cassiopeia) och street food. Ska vara en sjuk vibe som bara finns i Berlin.<br><br>
+              Ett gigantiskt övergivet tågstall totalt sönderbombat med graffiti och fyllt av barer, klubbar och street food. En helt sjuk vibe.<br><br>
               <strong>Regler för RAW:</strong><br>
-              1. <em>Cash is king:</em> Nästan ingen tar kort där inne tydligen.<br>
-              2. <em>Dörren:</em>Om vi ska in på en specifik inomhusklubb MÅSTE vi dela upp oss (3-4 pers i stöten). Utomhusbarerna/biergartens där inne är dock bara att glida in på hela gänget.<br>
-              3. <em>Varning:</em> Mycket folk = mycket ficktjuvar på natten.
+              1. <em>Cash is king:</em> Nästan ingen tar kort där inne.<br>
+              2. <em>Dörren:</em> Om vi ska in på en specifik inomhusklubb MÅSTE vi dela upp oss (3-4 pers i stöten). Utomhusbarerna är bara att glida in på hela gänget.
             </div>
           </li>
         </ul>
@@ -245,25 +245,23 @@
         <h3>Dag 3 – Söndag 14 juni<br><small>Berlin</small></h3>
         <ul>
           <li>10:30 – Utcheckning (tyvärr)</li>
-          <li>11:00–13:00 – Söndagsvibe i Mauerpark: Vi köper kaffe, käkar street food från vagnarna och degar i gräset innan hemfärd. </li>
+          <li>11:00–13:00 – Söndagsvibe i Mauerpark: Vi köper kaffe, käkar street food från vagnarna och degar i gräset innan hemfärd.</li>
           <li>13:15 – Taxi till flygplatsen</li>
           <li>15:25 – Flyg hem till verkligheten</li>
         </ul>
       </div>
     </div>
 
-    <!-- Karta -->
     <h2 style="margin-top: 3rem;">🗺️ Karta över resan</h2>
     <p>Klicka på markörerna för mer info. Färgerna visar vilken dag varje stopp är.</p>
     <div id="berlin-map"></div>
 
-    <!-- Good to know -->
     <h2 style="margin-top: 3rem;">Good to know – Berlin</h2>
 
     <div class="facts-grid">
       <div class="fact-card">
         <h3>💶 Valuta & Kontanter</h3>
-        <p>Euro (EUR). <strong>VIKTIGT:</strong> Cash is king i Berlin! Många barer, Spätis och matställen (särskilt i Kreuzberg och RAW) tar <strong>inte</strong> kort. Kan va bra med kontanter.</p>
+        <p>Euro (EUR). <strong>VIKTIGT:</strong> Cash is king i Berlin! Många barer, Spätis och matställen (som Max und Moritz & RAW) tar <strong>inte</strong> kort. Ha alltid kontanter på er.</p>
       </div>
 
       <div class="fact-card">
@@ -409,18 +407,17 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     const dag2 = [
-      { nr: 5, namn: "5. Cafe am Neuen See – Brunch", lat: 52.5132, lng: 13.3491 },
-      { nr: 6, namn: "6. Brandenburger Tor", lat: 52.5163, lng: 13.3777 },
-      { nr: 7, namn: "7. Reichstag", lat: 52.5186, lng: 13.3762 },
-      { nr: 8, namn: "8. Holocaust Memorial", lat: 52.5138, lng: 13.3783 },
-      { nr: 9, namn: "9. Checkpoint Charlie", lat: 52.5075, lng: 13.3904 },
-      { nr: 10, namn: "10. BRLO Brwhouse – Eftermiddag", lat: 52.5018, lng: 13.3841 },
-      { nr: 11, namn: "11. East Side Gallery", lat: 52.5052, lng: 13.4397 },
-      { nr: 12, namn: "12. Kreuzberg – Middag & bar-hop", lat: 52.4972, lng: 13.4266 },
+      { nr: 5, namn: "5. Mampe Manufaktur – Spritprovning", lat: 52.4866, lng: 13.3853 },
+      { nr: 6, namn: "6. Checkpoint Charlie", lat: 52.5075, lng: 13.3904 },
+      { nr: 7, namn: "7. Brandenburger Tor & Reichstag", lat: 52.5163, lng: 13.3777 },
+      { nr: 8, namn: "8. Cafe am Neuen See – Eftermiddagsöl", lat: 52.5132, lng: 13.3491 },
+      { nr: 9, namn: "9. East Side Gallery", lat: 52.5052, lng: 13.4397 },
+      { nr: 10, namn: "10. Middag (Max und Moritz / Kreuzberg)", lat: 52.5035, lng: 13.4144 },
+      { nr: 11, namn: "11. RAW-Gelände – Nattliv", lat: 52.5066, lng: 13.4534 },
     ];
 
     const dag3 = [
-      { nr: 13, namn: "13. Mauerpark – Söndagsvibe", lat: 52.5414, lng: 13.4015 },
+      { nr: 12, namn: "12. Mauerpark – Söndagsvibe", lat: 52.5414, lng: 13.4015 },
     ];
 
     const farger = { 1: '#e74c3c', 2: '#2980b9', 3: '#27ae60' };
