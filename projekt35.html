@@ -137,29 +137,6 @@
 
     <h2 style="margin-top: 3rem;">🗓️ Reseschema dag för dag</h2>
 
-    <div style="background-color: #d4edda; border-left: 4px solid #28a745; padding: 1.5rem; margin: 2rem 0; border-radius: 0 5px 5px 0; text-align: left;">
-      <h3 style="margin-top: 0; color: #155724;">🏨 Boende: The Social Hub Berlin</h3>
-      <p><strong>Adress:</strong> Alexanderstraße 40, 10179 Berlin</p>
-      
-      <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-top: 1rem;">
-        <div style="margin-bottom: 1rem;">
-          <strong>✅ Incheckning:</strong><br>
-          Fredag 12 juni 2026<br>
-          Från kl. 15:00
-        </div>
-        <div>
-          <strong>👋 Utcheckning:</strong><br>
-          Söndag 14 juni 2026<br>
-          Senast kl. 12:00
-        </div>
-      </div>
-
-      <p style="margin-top: 1rem;"><strong>🛏️ Rumsbokningar:</strong><br>
-      Vi har 6 st Twin-rum (separata sängar till alla!). Rummen står bokade på: <strong>Nille, Ulrik, Janne, Adde, Kalle och Oskar.</strong></p>
-      
-      <a href="https://maps.app.goo.gl/PrmN48f4rTnnp1q18" target="_blank" class="calendar-button" style="background-color: #28a745; text-decoration: none;">📍 Visa hotellet på kartan</a>
-    </div>
-
     <div class="facts-grid">
       <div class="fact-card">
         <h3>Dag 1 – Fredag 12 juni<br><small>Berlin</small></h3>
@@ -172,8 +149,34 @@
           <li>11:10 – Arlanda</li>
           <li>12:15 – Boarding Terminal 5 ARN</li>
           <li>12:45 – Avgång Stockholm-Arlanda (ARN)</li>
-          <li>14:20 – ARN-gänget landar på BER (Terminal 1)</li>
-          <li>15:30 – ARN-gänget droppar väskorna på hotellet</li>
+          <li>14:20 – ARN-gänget landar på BER (Terminal 1)
+            <button class="info-btn" onclick="toggleHotelInfo(this)">🚇 Transport till hotellet</button>
+            <div class="hotel-info">
+              <strong>Alt 1 – Tåg </strong><br>
+              1. Landar på Berlin Brandenburg Airport<br>
+              2. Följ skyltar till <em>Train / Bahnhof</em><br>
+              3. Köp biljett Berlin <strong>ABC-zon</strong> (~4–5 € pp) – i appen BVG Fahrinfo eller vid automat<br>
+              4. Gå ner till tågstationen (Terminal 1)<br>
+              5. Ta första bästa tåg mot centrum: <strong>S9 / RE7 / FEX</strong> (alla funkar, ingen byte)<br>
+              6. Kliv av <strong>Alexanderplatz</strong><br>
+              7. Gå ca 5 min till hotellet (Alexanderstraße 40)<br><br>
+              <strong>Alt 2 – Taxi / Uber</strong><br>
+              Uber eller FreeNow från flygplatsen. Räkna med ca <strong>40–55 €</strong> och 30–45 min beroende på trafik.
+            </div>
+          </li>
+          <li>15:30 – ARN-gänget droppar väskorna på hotellet
+            <button class="info-btn" onclick="toggleHotelInfo(this)">🏨 Hotellinfo</button>
+            <div class="hotel-info">
+              <strong>The Social Hub Berlin</strong><br>
+              Alexanderstraße 40, 10179 Berlin<br>
+              <a href="https://maps.app.goo.gl/PrmN48f4rTnnp1q18" target="_blank">📍 Visa på karta</a><br><br>
+              <strong>✅ Incheckning:</strong> Fredag 12 juni, från kl. 15:00<br>
+              <strong>👋 Utcheckning:</strong> Söndag 14 juni, senast kl. 12:00<br><br>
+              <strong>🛏️ Rumsbokningar:</strong><br>
+              Vi har <strong>6 st Twin-rum</strong> (separata sängar till alla!).<br>
+              Rummen står bokade på: <strong>Nille, Ulrik, Janne, Adde, Kalle och Oskar.</strong>
+            </div>
+          </li>
           <li>16:00–18:30 – <b>Landningsöl på Prater Garten!</b> Berlins äldsta biergarten. Vi samlar hela gänget och tar första kalla i solen.</li>
           <li>18:45–21:30 – Middag på Hofbräu Wirtshaus. Tänk enlitersöl, schnitzel och stökigt liveband från 19!
             <button class="info-btn" onclick="toggleHotelInfo(this)">Reservation</button>
@@ -208,7 +211,7 @@
             <button class="info-btn" onclick="toggleHotelInfo(this)">Det vi ska se</button>
             <div class="hotel-info">
               Vi tar U-bahn (U6) två snabba stopp upp till Checkpoint Charlie och betar sedan av allt i ett snabbt svep norrut:<br>
-              • Checkpoint Charlie & Topography of Terror<br>
+              • Checkpoint Charlie &amp; Topography of Terror<br>
               • <strong>Späti-stopp!</strong> Kiosk-stopp för en "Wegbier" (promenad-öl).<br>
               • Holocaust Memorial<br>
               • Brandenburger Tor<br>
@@ -228,7 +231,7 @@
               Ett modernt hantverksbryggeri byggt av 38 gamla fraktcontainrar. De serverar grym egenbryggd öl och prisbelönt "Craft BBQ" rökta ribs, grymt kött (men även kända för sitt vegitariska/veganska) och magiska tillbehör.
             </div>
           </li>
-          <li>23:15–sent – Bar-hop & stök på RAW-Gelände! Efter middagen tar vi U1/U3-linjen direkt tillbaka österut till Warschauer Straße och kliver rakt in i Berlins bästa industriella nattliv.
+          <li>23:15–sent – Bar-hop &amp; stök på RAW-Gelände! Efter middagen tar vi U1/U3-linjen direkt tillbaka österut till Warschauer Straße och kliver rakt in i Berlins bästa industriella nattliv.
             <button class="info-btn" onclick="toggleHotelInfo(this)">RAW-Gelände Info</button>
             <div class="hotel-info">
               <strong>Vad fan är RAW-Gelände?</strong><br>
@@ -244,7 +247,14 @@
       <div class="fact-card">
         <h3>Dag 3 – Söndag 14 juni<br><small>Berlin</small></h3>
         <ul>
-          <li>10:30 – Utcheckning (tyvärr)</li>
+          <li>10:30 – Utcheckning 
+            <button class="info-btn" onclick="toggleHotelInfo(this)">🔑 Utcheckningsinfo</button>
+            <div class="hotel-info">
+              <strong>The Social Hub Berlin</strong><br>
+              Senast kl. <strong>12:00</strong><br><br>
+              Hotellet brukar erbjuda att förvara väskorna efter utcheckning om vi vill hänga kvar lite extra.
+            </div>
+          </li>
           <li>11:00–13:00 – Söndagsvibe i Mauerpark: Vi köper kaffe, käkar street food från vagnarna och degar i gräset innan hemfärd.</li>
           <li>13:15 – Taxi till flygplatsen</li>
           <li>15:25 – Flyg hem till verkligheten</li>
