@@ -205,8 +205,21 @@
       <div class="fact-card">
         <h3>Dag 2 – Lördag 13 juni<br><small>Berlin</small></h3>
         <ul>
-          <li>10:00–11:45 – Frukost i Bergmannkiez! Vi tar U-bahn från hotellet ner till Kreuzberg och käkar en rejäl frukost/brunch i krokarna kring Tempelhofer Berg för att bygga en stabil grund.</li>
-          <li>11:45–13:00 – <strong>BOKAD AKTIVITET: Mampe Manufaktur (kl 12:00).</strong> Vi startar dagen med starksprit! Privat "Little Liquor Stories"-provning på engelska och rundtur i Berlins äldsta spritfabrik. Bokat och betalat!</li>
+          <li>10:00 – Taxi avgår från hotellet</li>
+          <li>10:15–11:45 – <strong>Frukost på Tomasa Villa Kreuzberg!</strong>
+            <button class="info-btn" onclick="toggleHotelInfo(this)">🍳 Bokningsinfo</button>
+            <div class="hotel-info">
+              <strong>Tomasa Villa Kreuzberg</strong><br>
+              Kreuzbergstraße 62, 10965 Berlin<br><br>
+              <strong>📅 Datum:</strong> Lördag 13 juni 2026<br>
+              <strong>🕙 Tid:</strong> 10:15<br>
+              <strong>👥 Sällskap:</strong> 12 personer<br>
+              <strong>👤 Bokningsnamn:</strong> Jan Issa<br>
+              <strong>🪑 Sittplats:</strong> 2 tr upp<br>
+              <strong>🔖 Bokningsnummer:</strong> #163226071<br>
+            </div>
+          </li>
+          <li>11:50–13:00 – <strong>BOKAD AKTIVITET: Mampe Manufaktur (kl 12:00), 5 min från frullehaket.</strong> Vi startar dagen med starksprit! Privat "Little Liquor Stories"-provning på engelska och rundtur i Berlins äldsta spritfabrik. Bokat och betalat!</li>
           <li>13:00–15:30 – Sightseeing-promenad "Bocka av"-edition (Söder till Norr). Nu är vi runda under fötterna, dags att promenera!
             <button class="info-btn" onclick="toggleHotelInfo(this)">Det vi ska se</button>
             <div class="hotel-info">
@@ -404,8 +417,8 @@ document.addEventListener("DOMContentLoaded", function () {
   initMap();
 });
 </script>
-  <script>
-    function initMap() {
+<script>
+  function initMap() {
     const map = L.map('berlin-map').setView([52.515, 13.395], 13);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -420,18 +433,19 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     const dag2 = [
-      { nr: 5,  namn: "5. Mampe Manufaktur – Spritprovning",  lat: 52.4866, lng: 13.3853 },
-      { nr: 6,  namn: "6. Checkpoint Charlie",                lat: 52.5075, lng: 13.3904 },
-      { nr: 7,  namn: "7. Holocaust Memorial",                lat: 52.5138, lng: 13.3783 },
-      { nr: 8,  namn: "8. Brandenburger Tor & Reichstag",     lat: 52.5163, lng: 13.3777 },
-      { nr: 9,  namn: "9. Cafe am Neuen See – Eftermiddagsöl",lat: 52.5132, lng: 13.3491 },
-      { nr: 10, namn: "10. East Side Gallery",                lat: 52.5052, lng: 13.4397 },
-      { nr: 11, namn: "11. Middag (BRLO Brwhouse)",           lat: 52.5018, lng: 13.3841 },
-      { nr: 12, namn: "12. RAW-Gelände – Nattliv",            lat: 52.5066, lng: 13.4534 },
+      { nr: 5,  namn: "5. Tomasa Villa Kreuzberg – Frukost",  lat: 52.4881, lng: 13.3821 },
+      { nr: 6,  namn: "6. Mampe Manufaktur – Spritprovning",  lat: 52.4866, lng: 13.3853 },
+      { nr: 7,  namn: "7. Checkpoint Charlie",                lat: 52.5075, lng: 13.3904 },
+      { nr: 8,  namn: "8. Holocaust Memorial",                lat: 52.5138, lng: 13.3783 },
+      { nr: 9,  namn: "9. Brandenburger Tor & Reichstag",     lat: 52.5163, lng: 13.3777 },
+      { nr: 10, namn: "10. Cafe am Neuen See – Eftermiddagsöl", lat: 52.5132, lng: 13.3491 },
+      { nr: 11, namn: "11. East Side Gallery",                lat: 52.5052, lng: 13.4397 },
+      { nr: 12, namn: "12. Middag (BRLO Brwhouse)",           lat: 52.5018, lng: 13.3841 },
+      { nr: 13, namn: "13. RAW-Gelände – Nattliv",            lat: 52.5066, lng: 13.4534 },
     ];
 
     const dag3 = [
-      { nr: 13, namn: "13. Holzmarkt 25 – Kaffe & Spree-häng", lat: 52.5126, lng: 13.4194 },
+      { nr: 14, namn: "14. Holzmarkt 25 – Kaffe & Spree-häng", lat: 52.5126, lng: 13.4194 },
     ];
 
     const farger = { 1: '#e74c3c', 2: '#2980b9', 3: '#27ae60' };
@@ -469,7 +483,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return div;
     };
     legende.addTo(map);
-    }
-  </script>
+  }
+</script>
 </body>
 </html>
