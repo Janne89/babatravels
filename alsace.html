@@ -24,7 +24,6 @@
       min-height: 100vh;
     }
 
-    /* ── Header ── */
     header {
       background: var(--wine);
       color: #fff;
@@ -78,14 +77,12 @@
       padding: 0.6rem 0 0;
     }
 
-    /* ── Main ── */
     main {
       max-width: 960px;
       margin: 0 auto;
       padding: 2.5rem 1.2rem 4rem;
     }
 
-    /* ── Section headings ── */
     .section-title {
       font-size: 1.3rem;
       color: var(--wine);
@@ -96,7 +93,6 @@
       letter-spacing: 0.03em;
     }
 
-    /* ── Trip card (flights/trains) ── */
     .trip-card {
       background: #fff;
       border-radius: 12px;
@@ -132,7 +128,6 @@
       font-weight: bold;
     }
 
-    /* ── Leg ── */
     .leg {
       display: grid;
       grid-template-columns: 90px 1fr 90px;
@@ -204,6 +199,11 @@
 
     .layover strong { color: var(--dark); }
 
+    .layover.booked {
+      background: #edf7ed;
+      border-left-color: #4caf50;
+    }
+
     .total-duration {
       text-align: right;
       border-top: 1px solid #ede6d8;
@@ -228,7 +228,19 @@
 
     .booking-link:hover { color: var(--gold); border-color: var(--gold); }
 
-    /* ── Info cards grid (elcyklar, boende) ── */
+    .booked-badge {
+      display: inline-block;
+      background: #4caf50;
+      color: #fff;
+      font-size: 0.72rem;
+      font-family: sans-serif;
+      font-weight: bold;
+      padding: 0.2rem 0.6rem;
+      border-radius: 50px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
     .info-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -297,7 +309,6 @@
       box-shadow: 0 2px 10px var(--shadow);
     }
 
-    /* ── Budget table ── */
     .budget-wrap {
       overflow-x: auto;
       margin-top: 0.5rem;
@@ -353,7 +364,6 @@
       text-align: center;
     }
 
-    /* ── Footer note ── */
     .foot-note {
       text-align: center;
       margin-top: 3rem;
@@ -363,7 +373,6 @@
       font-family: sans-serif;
     }
 
-    /* ── Responsive ── */
     @media (max-width: 500px) {
       .leg { grid-template-columns: 68px 1fr 68px; gap: 0.4rem; }
       .time-block .time { font-size: 1.2rem; }
@@ -417,35 +426,35 @@
       </div>
     </div>
 
-    <div class="layover">
-      🚉 <span><strong>~2 tim 46 min</strong> marginal vid Frankfurt innan tåg (avg. ca 14:51)</span>
+    <div class="layover booked">
+      🚉 <span><strong>1 tim 46 min</strong> marginal vid Frankfurt Flughafen innan tåg (avg. 13:51)</span>
     </div>
 
     <div class="leg">
       <div class="time-block">
-        <div class="time">14:51</div>
-        <div class="iata">FRA Hbf</div>
-        <div class="city">Frankfurt Fernbhf</div>
+        <div class="time">13:51</div>
+        <div class="iata">FRA Flugh.</div>
+        <div class="city">Frankfurt Flygplats</div>
       </div>
       <div class="leg-middle">
         <div class="leg-arrow">🚄 ──────── 🚄</div>
         <div class="leg-info">
-          <div class="flight-no">DB / SNCF</div>
-          <div>~1 tim 40 min</div>
-          <div>Frankfurt → Strasbourg</div>
+          <div class="flight-no">DB / SNCF <span class="booked-badge">✅ BOKAD</span></div>
+          <div>2 tim 14 min</div>
+          <div>Frankfurt Flughafen → Strasbourg</div>
+          <div style="margin-top:0.3rem; color: #4caf50; font-weight: bold;">257,94 € · 6 resenärer</div>
         </div>
       </div>
       <div class="time-block">
-        <div class="time">~16:30</div>
+        <div class="time">16:05</div>
         <div class="iata">SXB</div>
         <div class="city">Strasbourg</div>
       </div>
     </div>
 
     <div class="total-duration">
-      Bokas via int.bahn.de &nbsp;·&nbsp; Obs: Tidigare avgångar finns men är dyrare
+      ✅ Bokad &nbsp;·&nbsp; Frankfurt am Main Flughafen → Strasbourg &nbsp;·&nbsp; <strong>257,94 € totalt (6 pers)</strong>
     </div>
-    <a class="booking-link" href="https://int.bahn.de/en/" target="_blank">🔗 Boka tåg FRA → Strasbourg på int.bahn.de</a>
   </div>
 
   <h2 class="section-title">🏠 Hemresa – Strasbourg → Stockholm</h2>
@@ -569,14 +578,19 @@
           <td>Har gått upp ~1 000 kr senaste tiden</td>
         </tr>
         <tr>
-          <td>🚄 Tåg FRA ↔ Strasbourg</td>
-          <td>~1 020 kr</td>
-          <td>5 100 kr totalt, bokas på int.bahn.de</td>
+          <td>🚄 Tåg FRA Flughafen → Strasbourg ✅</td>
+          <td>~43 € / person</td>
+          <td>Bokad · 257,94 € totalt · 6 pers · 4 aug 13:51→16:05</td>
         </tr>
         <tr>
           <td>🚄 Tåg Strasbourg ↔ Colmar</td>
           <td>~340 kr</td>
           <td>1 700 kr totalt, bokas på sncf-connect.com</td>
+        </tr>
+        <tr>
+          <td>🚄 Tåg Strasbourg → FRA (hemresa)</td>
+          <td>~510 kr</td>
+          <td>Bokas på int.bahn.de</td>
         </tr>
         <tr>
           <td>🚴 Elcyklar (3 dagar)</td>
