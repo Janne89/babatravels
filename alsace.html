@@ -241,6 +241,36 @@
       vertical-align: middle;
     }
 
+    /* Transfer stop row – compact */
+    .transfer-stop {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #fdf6e8;
+      border-left: 3px solid var(--gold);
+      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      margin: 0.2rem 0;
+      font-size: 0.78rem;
+      color: #666;
+      font-family: sans-serif;
+    }
+    .transfer-stop .ts-time {
+      font-weight: bold;
+      color: var(--dark);
+      min-width: 40px;
+    }
+    .transfer-stop .ts-station {
+      flex: 1;
+    }
+    .transfer-stop .ts-train {
+      font-size: 0.72rem;
+      color: var(--mid);
+      background: var(--light);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+    }
+
     .info-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -457,6 +487,7 @@
     </div>
   </div>
 
+  <!-- ── HEMRESA ── -->
   <h2 class="section-title">🏠 Hemresa – Strasbourg → Stockholm</h2>
 
   <div class="trip-card">
@@ -465,29 +496,43 @@
       <span class="trip-date">Söndag 9 aug 2026</span>
     </div>
 
+    <!-- Tågsträcka med 2 byten -->
     <div class="leg">
       <div class="time-block">
-        <div class="time">09:22</div>
+        <div class="time">10:52</div>
         <div class="iata">SXB</div>
         <div class="city">Strasbourg</div>
       </div>
       <div class="leg-middle">
         <div class="leg-arrow">🚄 ──────── 🚄</div>
         <div class="leg-info">
-          <div class="flight-no">DB / SNCF</div>
-          <div>~1 tim 40 min</div>
-          <div>Strasbourg → Frankfurt</div>
+          <div class="flight-no">TER 87423 · ICE 372 · ICE 610 <span class="booked-badge">✅ BOKAD</span></div>
+          <div>2 byten · 2 tim 16 min</div>
+          <div>Strasbourg → Frankfurt Hbf</div>
+          <div style="margin-top:0.3rem; color: #4caf50; font-weight: bold;">329,34 € · 5 resenärer</div>
         </div>
       </div>
       <div class="time-block">
-        <div class="time">~11:38</div>
+        <div class="time">13:08</div>
         <div class="iata">FRA Hbf</div>
         <div class="city">Frankfurt</div>
       </div>
     </div>
 
+    <!-- Mellanstationer -->
+    <div class="transfer-stop">
+      <span class="ts-time">11:22</span>
+      <span class="ts-station">🔄 Byte i <strong>Offenburg</strong></span>
+      <span class="ts-train">TER 87423 → ICE 372</span>
+    </div>
+    <div class="transfer-stop">
+      <span class="ts-time">12:22</span>
+      <span class="ts-station">🔄 Byte i <strong>Mannheim Hbf</strong></span>
+      <span class="ts-train">ICE 372 → ICE 610</span>
+    </div>
+
     <div class="layover">
-      ✅ <span><strong>~2 tim 10 min</strong> marginal till flyget</span>
+      ✅ <span><strong>~3 tim 12 min</strong> marginal till flyget (avg. 16:20)</span>
     </div>
 
     <div class="leg">
@@ -512,7 +557,7 @@
     </div>
 
     <div class="total-duration">
-      Bekväm marginal utan att behöva ta dyra snabbtåg
+      ✅ Bokad &nbsp;·&nbsp; Strasbourg → Frankfurt Hbf (via Offenburg, Mannheim) &nbsp;·&nbsp; <strong>329,34 € totalt (6 pers)</strong>
     </div>
   </div>
 
@@ -555,7 +600,7 @@
     <div class="info-card">
       <h3>Colmar – Natt 1, 2 &amp; 3</h3>
       <p>Centralt hotell / lägenhet i centrala Colmar. Inom cykelavstånd från allt.</p>
-      <div class="price-tag">~15 000 kr totalt · ~3 000 kr / person (5 pers)</div>
+      <div class="price-tag">~15 000 kr totalt · ~3 000 kr / person (6 pers)</div>
     </div>
   </div>
 
@@ -588,9 +633,9 @@
           <td>1 700 kr totalt, bokas på sncf-connect.com</td>
         </tr>
         <tr>
-          <td>🚄 Tåg Strasbourg → FRA (hemresa)</td>
-          <td>~510 kr</td>
-          <td>Bokas på int.bahn.de</td>
+          <td>🚄 Tåg Strasbourg → FRA Hbf (hemresa) ✅</td>
+          <td>~55 € / person</td>
+          <td>Bokad · 329,34 € totalt · 6 pers · 9 aug 10:52→13:08 · via Offenburg &amp; Mannheim</td>
         </tr>
         <tr>
           <td>🚴 Elcyklar (3 dagar)</td>
