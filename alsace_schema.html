@@ -24,7 +24,6 @@
       color: var(--dark);
     }
 
-    /* ── Header ── */
     header {
       background: var(--wine);
       color: #fff;
@@ -72,7 +71,6 @@
 
     nav a:hover { color: var(--gold); }
 
-    /* ── Main ── */
     main {
       max-width: 960px;
       margin: 0 auto;
@@ -97,7 +95,6 @@
       margin-bottom: 2.5rem;
     }
 
-    /* ── Day grid ── */
     .days-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -165,7 +162,21 @@
       border-radius: 4px;
     }
 
-    /* ── Map ── */
+    /* Tidsstämplar – samma stil som Berlin */
+    .time-tag {
+      display: inline-block;
+      font-family: sans-serif;
+      font-weight: bold;
+      font-size: 0.75rem;
+      color: var(--wine);
+      background: var(--light);
+      padding: 0.05rem 0.45rem;
+      border-radius: 3px;
+      margin-right: 0.35rem;
+      border: 1px solid #d4c8b8;
+      white-space: nowrap;
+    }
+
     .section-title {
       font-size: 1.3rem;
       color: var(--wine);
@@ -249,11 +260,12 @@
     <div class="day-card travel">
       <h3>Dag 1 – Tisdag 4 aug<small>ARN → Frankfurt → Strasbourg</small></h3>
       <ul>
-        <li>✈ Flyg ARN → Frankfurt (VL801 09:55)</li>
-        <li>🚄 Tåg Frankfurt Flughafen Fernbahnhof → Strasbourg</li>
-        <li>Check-in: BOMA easy living hotel</li>
-        <li>🌆 Kväll: Petite France</li>
-        <li>🍷 Middag / vinbar</li>
+        <li><span class="time-tag">09:55</span>✈ Flyg avgår ARN (VL801)</li>
+        <li><span class="time-tag">12:05</span>🛬 Ankomst Frankfurt (FRA)</li>
+        <li><span class="time-tag">13:51</span>🚄 Tåg Frankfurt Flughafen → Strasbourg</li>
+        <li><span class="time-tag">16:05</span>🛬 Ankomst Strasbourg – check-in BOMA easy living hotel</li>
+        <li><span class="time-tag">17:00</span>🌆 Promenad i Petite France</li>
+        <li><span class="time-tag">19:00</span>🍷 Middag / vinbar</li>
       </ul>
       <span class="stay-badge">🏨 Strasbourg – natt 1</span>
     </div>
@@ -262,13 +274,14 @@
     <div class="day-card">
       <h3>Dag 2 – Onsdag 5 aug<small>Strasbourg → Colmar</small></h3>
       <ul>
-        <li>🌅 Lugn morgon i Strasbourg</li>
-        <li>⛪ Notre-Dame-katedralen</li>
-        <li>☕ Lunch / café</li>
-        <li>🚄 Tåg Strasbourg → Colmar (~30 min)</li>
-        <li>Check-in hotell i Colmar</li>
-        <li>🚴 Hämta elcyklar</li>
-        <li>🌆 Kort kvällstur eller middag i gamla stan</li>
+        <li><span class="time-tag">09:00</span>🌅 Lugn morgon i Strasbourg</li>
+        <li><span class="time-tag">10:00</span>⛪ Notre-Dame-katedralen</li>
+        <li><span class="time-tag">12:00</span>☕ Lunch / café</li>
+        <li><span class="time-tag">14:00</span>🚄 Tåg Strasbourg → Colmar (~30 min)</li>
+        <li><span class="time-tag">14:30</span>Check-in hotell i Colmar</li>
+        <li><span class="time-tag">15:30</span>🚴 Hämta elcyklar</li>
+        <li><span class="time-tag">17:00</span>🌆 Kort kvällstur i gamla stan</li>
+        <li><span class="time-tag">19:30</span>🍽️ Middag i Colmar</li>
       </ul>
       <span class="stay-badge">🏨 Colmar – natt 1</span>
     </div>
@@ -277,13 +290,14 @@
     <div class="day-card gold-top">
       <h3>Dag 3 – Torsdag 6 aug<small>Route des Vins – heldag</small></h3>
       <ul>
-        <li>🚴 Heldag med elcykel längs Route des Vins</li>
-        <li>&nbsp;&nbsp;🍇 <strong>Eguisheim</strong></li>
-        <li>&nbsp;&nbsp;🍇 <strong>Ribeauvillé</strong></li>
-        <li>&nbsp;&nbsp;🍇 <strong>Riquewihr</strong></li>
-        <li>🥂 Vinprovningar längs vägen</li>
-        <li>🥗 Lunch i vinby</li>
-        <li>🚴 Cykling mellan vingårdar</li>
+        <li><span class="time-tag">09:00</span>🚴 Avfärd med elcykel från Colmar</li>
+        <li><span class="time-tag">10:00</span>🍇 <strong>Eguisheim</strong> – byn i cirkel, vinprovning</li>
+        <li><span class="time-tag">11:30</span>🍇 <strong>Ribeauvillé</strong> – medeltida torn och vingårdar</li>
+        <li><span class="time-tag">13:00</span>🥗 Lunch i vinby</li>
+        <li><span class="time-tag">14:30</span>🍇 <strong>Riquewihr</strong> – sagobyn, vinprovning</li>
+        <li><span class="time-tag">16:30</span>🚴 Cykling tillbaka mot Colmar</li>
+        <li><span class="time-tag">18:00</span>🥂 Sista provning / aperitif</li>
+        <li><span class="time-tag">19:30</span>🍽️ Middag i Colmar</li>
       </ul>
       <span class="stay-badge">🏨 Colmar – natt 2</span>
     </div>
@@ -292,11 +306,13 @@
     <div class="day-card gold-top">
       <h3>Dag 4 – Fredag 7 aug<small>Kaysersberg / chilldag</small></h3>
       <ul>
-        <li>🚴 Kortare cykeltur</li>
-        <li>🏡 <strong>Kaysersberg</strong> – medeltida by med vinslott</li>
-        <li>🛍️ Vinshopping</li>
-        <li>🧖 Spa / lugn kväll i Colmar</li>
-        <li>🍽️ Avskedsmiddag</li>
+        <li><span class="time-tag">09:30</span>🚴 Kortare cykeltur mot Kaysersberg</li>
+        <li><span class="time-tag">10:30</span>🏡 <strong>Kaysersberg</strong> – medeltida by med vinslott</li>
+        <li><span class="time-tag">12:30</span>🥗 Lunch i Kaysersberg</li>
+        <li><span class="time-tag">14:00</span>🛍️ Vinshopping</li>
+        <li><span class="time-tag">16:00</span>🚴 Cykel tillbaka till Colmar</li>
+        <li><span class="time-tag">17:30</span>🧖 Spa / lugn kväll</li>
+        <li><span class="time-tag">19:30</span>🍽️ Avskedsmiddag i Colmar</li>
       </ul>
       <span class="stay-badge">🏨 Colmar – natt 3</span>
     </div>
@@ -305,12 +321,13 @@
     <div class="day-card">
       <h3>Dag 5 – Lördag 8 aug<small>Colmar → Strasbourg</small></h3>
       <ul>
-        <li>🌅 Lugn morgon</li>
-        <li>🥞 Brunch / sista promenad i Colmar</li>
-        <li>🚄 Tåg tillbaka till Strasbourg</li>
-        <li>🏘️ Petite France</li>
-        <li>🚣 Båttur eller middag</li>
-        <li>Hotell nära stationen</li>
+        <li><span class="time-tag">09:00</span>🌅 Lugn morgon</li>
+        <li><span class="time-tag">10:00</span>🥞 Brunch / sista promenad i Colmar</li>
+        <li><span class="time-tag">12:00</span>🚄 Tåg tillbaka till Strasbourg (~30 min)</li>
+        <li><span class="time-tag">13:00</span>Check-in hotell nära stationen</li>
+        <li><span class="time-tag">14:00</span>🏘️ Petite France – sista sväng</li>
+        <li><span class="time-tag">17:00</span>🚣 Båttur längs kanalerna</li>
+        <li><span class="time-tag">19:30</span>🍽️ Middag i Strasbourg</li>
       </ul>
       <span class="stay-badge">🏨 Strasbourg – natt 2</span>
     </div>
@@ -319,16 +336,20 @@
     <div class="day-card travel">
       <h3>Dag 6 – Söndag 9 aug<small>Hemresa – Strasbourg → ARN</small></h3>
       <ul>
-        <li>🚄 Tåg Strasbourg → Frankfurt Airport</li>
-        <li>✈ Flyg FRA → ARN (Lufthansa LH806 16:20)</li>
-        <li>Ankomst Stockholm ca 18:25</li>
+        <li><span class="time-tag">09:00</span>🥐 Frukost och utcheckning</li>
+        <li><span class="time-tag">10:52</span>🚄 Tåg avgår Strasbourg (TER 87423)</li>
+        <li><span class="time-tag">11:22</span>🔄 Byte i Offenburg (→ ICE 372)</li>
+        <li><span class="time-tag">12:22</span>🔄 Byte i Mannheim (→ ICE 610)</li>
+        <li><span class="time-tag">13:08</span>🛬 Ankomst Frankfurt Hbf</li>
+        <li><span class="time-tag">16:20</span>✈ Flyg avgår FRA (Lufthansa LH806)</li>
+        <li><span class="time-tag">18:25</span>🛬 Ankomst Stockholm ARN</li>
       </ul>
       <span class="stay-badge">🏠 Hemma</span>
     </div>
 
   </div>
 
-  <!-- ── Karta ── -->
+  <!-- Karta -->
   <div class="map-section">
     <h2 class="section-title">🗺️ Karta – Alsace-rutten</h2>
     <p class="map-note">Översikt: Frankfurt flygplats, Strasbourg, Colmar och vinbyarna längs Route des Vins.</p>
@@ -364,18 +385,16 @@
     { namn: "7. Kaysersberg",             lat: 48.1393, lng: 7.2625, color: '#c49a2a' },
   ];
 
-  // Rutt-linje
   const latlngs = stopp.map(p => [p.lat, p.lng]);
   L.polyline(latlngs, { color: '#6b2737', weight: 3, dashArray: '8,6' }).addTo(map);
 
-  // Elcykelrutt (Colmar → vinbyar, blå)
   const bikeRoute = [
-    [48.0793, 7.3586], // Colmar
-    [47.9767, 7.3079], // Eguisheim
-    [48.1669, 7.2989], // Riquewihr
-    [48.1944, 7.3225], // Ribeauvillé
-    [48.1393, 7.2625], // Kaysersberg
-    [48.0793, 7.3586], // tillbaka Colmar
+    [48.0793, 7.3586],
+    [47.9767, 7.3079],
+    [48.1669, 7.2989],
+    [48.1944, 7.3225],
+    [48.1393, 7.2625],
+    [48.0793, 7.3586],
   ];
   L.polyline(bikeRoute, { color: '#2980b9', weight: 2.5, dashArray: '5,7', opacity: 0.7 }).addTo(map);
 
@@ -389,7 +408,6 @@
     L.marker([p.lat, p.lng], { icon }).addTo(map).bindPopup(p.namn);
   });
 
-  // Kartlegend
   const legend = L.control({ position: 'bottomright' });
   legend.onAdd = () => {
     const d = L.DomUtil.create('div');
