@@ -232,11 +232,47 @@
       font-family: sans-serif;
     }
 
+    .info-btn {
+      display: inline-block;
+      margin-top: 0.3rem;
+      background-color: #f0e8d8;
+      border: 1px solid #d4c8b8;
+      color: var(--wine);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-family: sans-serif;
+    }
+
+    .info-btn:hover { background-color: #e4d8c4; }
+
+    .hotel-info {
+      display: none;
+      margin-top: 0.5rem;
+      background-color: #fdf6e8;
+      padding: 0.6rem 0.8rem;
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-family: sans-serif;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    .hotel-info strong { color: var(--dark); }
+
     @media (max-width: 500px) {
       header h1 { font-size: 1.7rem; }
       .map-container { height: 300px; }
     }
   </style>
+  <script>
+    function toggleHotelInfo(button) {
+      const info = button.nextElementSibling;
+      info.style.display = info.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
 </head>
 <body>
 
@@ -260,10 +296,39 @@
     <div class="day-card travel">
       <h3>Dag 1 – Tisdag 4 aug<small>ARN → Frankfurt → Strasbourg</small></h3>
       <ul>
-        <li><span class="time-tag">09:55</span>✈ Flyg avgår ARN (VL801)</li>
+        <li><span class="time-tag">09:55</span>✈ Flyg avgår ARN (VL801)
+          <button class="info-btn" onclick="toggleHotelInfo(this)">✈ Flyginfo</button>
+          <div class="hotel-info">
+            <strong>Flyg VL801 – Utresa</strong><br>
+            Avgång: 09:55 Stockholm-Arlanda (ARN)<br>
+            Ankomst: 12:05 Frankfurt (FRA)<br>
+            Flygbolag: [fylls i]<br>
+            Bokningsnummer: [fylls i]<br>
+            Terminal: [fylls i]
+          </div>
+        </li>
         <li><span class="time-tag">12:05</span>🛬 Ankomst Frankfurt (FRA)</li>
-        <li><span class="time-tag">13:51</span>🚄 Tåg Frankfurt Flughafen → Strasbourg</li>
-        <li><span class="time-tag">16:05</span>🛬 Ankomst Strasbourg – check-in BOMA easy living hotel</li>
+        <li><span class="time-tag">13:51</span>🚄 Tåg Frankfurt Flughafen → Strasbourg
+          <button class="info-btn" onclick="toggleHotelInfo(this)">🚄 Tåginfo</button>
+          <div class="hotel-info">
+            <strong>DB / SNCF ✅ BOKAD</strong><br>
+            Avgång: 13:51 Frankfurt Flughafen Fernbahnhof<br>
+            Ankomst: 16:05 Strasbourg<br>
+            Kostnad: 257,94 € totalt (6 pers)<br>
+            Bokningsnummer: [fylls i]
+          </div>
+        </li>
+        <li><span class="time-tag">16:05</span>🛬 Ankomst Strasbourg – check-in BOMA easy living hotel
+          <button class="info-btn" onclick="toggleHotelInfo(this)">🏨 Hotellinfo</button>
+          <div class="hotel-info">
+            <strong>BOMA easy living hotel Strasbourg</strong><br>
+            Adress: [fylls i]<br>
+            Check-in: Tisdag 4 aug, från kl. [fylls i]<br>
+            Check-out: Onsdag 5 aug, senast kl. [fylls i]<br>
+            Rum: [fylls i]<br>
+            Bokningsnummer: [fylls i]
+          </div>
+        </li>
         <li><span class="time-tag">17:00</span>🌆 Promenad i Petite France</li>
         <li><span class="time-tag">19:00</span>🍷 Middag / vinbar</li>
       </ul>
@@ -277,8 +342,29 @@
         <li><span class="time-tag">09:00</span>🌅 Lugn morgon i Strasbourg</li>
         <li><span class="time-tag">10:00</span>⛪ Notre-Dame-katedralen</li>
         <li><span class="time-tag">12:00</span>☕ Lunch / café</li>
-        <li><span class="time-tag">14:00</span>🚄 Tåg Strasbourg → Colmar (~30 min)</li>
-        <li><span class="time-tag">14:30</span>Check-in hotell i Colmar</li>
+        <li><span class="time-tag">14:00</span>🚄 Tåg Strasbourg → Colmar (~30 min)
+          <button class="info-btn" onclick="toggleHotelInfo(this)">🚄 Tåginfo</button>
+          <div class="hotel-info">
+            <strong>SNCF – Strasbourg → Colmar</strong><br>
+            Avgång: ca 14:00 Strasbourg<br>
+            Ankomst: ca 14:30 Colmar<br>
+            Bokas på: sncf-connect.com<br>
+            Kostnad: ~1 700 kr totalt (5 pers)<br>
+            Bokningsnummer: [fylls i]
+          </div>
+        </li>
+        <li><span class="time-tag">14:30</span>Check-in hotell i Colmar
+          <button class="info-btn" onclick="toggleHotelInfo(this)">🏨 Hotellinfo</button>
+          <div class="hotel-info">
+            <strong>Hotell Colmar</strong><br>
+            Adress: [fylls i]<br>
+            Check-in: Onsdag 5 aug, från kl. [fylls i]<br>
+            Check-out: Lördag 8 aug, senast kl. [fylls i]<br>
+            Rum: [fylls i]<br>
+            Kostnad: ~15 000 kr totalt (5 pers)<br>
+            Bokningsnummer: [fylls i]
+          </div>
+        </li>
         <li><span class="time-tag">15:30</span>🚴 Hämta elcyklar</li>
         <li><span class="time-tag">17:00</span>🌆 Kort kvällstur i gamla stan</li>
         <li><span class="time-tag">19:30</span>🍽️ Middag i Colmar</li>
@@ -323,8 +409,27 @@
       <ul>
         <li><span class="time-tag">09:00</span>🌅 Lugn morgon</li>
         <li><span class="time-tag">10:00</span>🥞 Brunch / sista promenad i Colmar</li>
-        <li><span class="time-tag">12:00</span>🚄 Tåg tillbaka till Strasbourg (~30 min)</li>
-        <li><span class="time-tag">13:00</span>Check-in hotell nära stationen</li>
+        <li><span class="time-tag">12:00</span>🚄 Tåg tillbaka till Strasbourg (~30 min)
+          <button class="info-btn" onclick="toggleHotelInfo(this)">🚄 Tåginfo</button>
+          <div class="hotel-info">
+            <strong>SNCF – Colmar → Strasbourg</strong><br>
+            Avgång: ca 12:00 Colmar<br>
+            Ankomst: ca 12:30 Strasbourg<br>
+            Bokas på: sncf-connect.com<br>
+            Bokningsnummer: [fylls i]
+          </div>
+        </li>
+        <li><span class="time-tag">13:00</span>Check-in hotell nära stationen
+          <button class="info-btn" onclick="toggleHotelInfo(this)">🏨 Hotellinfo</button>
+          <div class="hotel-info">
+            <strong>Hotell Strasbourg – natt 2</strong><br>
+            Adress: [fylls i]<br>
+            Check-in: Lördag 8 aug, från kl. [fylls i]<br>
+            Check-out: Söndag 9 aug, senast kl. [fylls i]<br>
+            Rum: [fylls i]<br>
+            Bokningsnummer: [fylls i]
+          </div>
+        </li>
         <li><span class="time-tag">14:00</span>🏘️ Petite France – sista sväng</li>
         <li><span class="time-tag">17:00</span>🚣 Båttur längs kanalerna</li>
         <li><span class="time-tag">19:30</span>🍽️ Middag i Strasbourg</li>
@@ -337,11 +442,31 @@
       <h3>Dag 6 – Söndag 9 aug<small>Hemresa – Strasbourg → ARN</small></h3>
       <ul>
         <li><span class="time-tag">09:00</span>🥐 Frukost och utcheckning</li>
-        <li><span class="time-tag">10:52</span>🚄 Tåg avgår Strasbourg (TER 87423)</li>
+        <li><span class="time-tag">10:52</span>🚄 Tåg avgår Strasbourg (TER 87423)
+          <button class="info-btn" onclick="toggleHotelInfo(this)">🚄 Tåginfo</button>
+          <div class="hotel-info">
+            <strong>TER 87423 · ICE 372 · ICE 610 ✅ BOKAD</strong><br>
+            Avgång: 10:52 Strasbourg<br>
+            11:22 Byte i Offenburg (→ ICE 372)<br>
+            12:22 Byte i Mannheim (→ ICE 610)<br>
+            Ankomst: 13:08 Frankfurt Hbf<br>
+            Kostnad: 274,45 € totalt (5 pers)<br>
+            Bokningsnummer: [fylls i]
+          </div>
+        </li>
         <li><span class="time-tag">11:22</span>🔄 Byte i Offenburg (→ ICE 372)</li>
         <li><span class="time-tag">12:22</span>🔄 Byte i Mannheim (→ ICE 610)</li>
         <li><span class="time-tag">13:08</span>🛬 Ankomst Frankfurt Hbf</li>
-        <li><span class="time-tag">16:20</span>✈ Flyg avgår FRA (Lufthansa LH806)</li>
+        <li><span class="time-tag">16:20</span>✈ Flyg avgår FRA (Lufthansa LH806)
+          <button class="info-btn" onclick="toggleHotelInfo(this)">✈ Flyginfo</button>
+          <div class="hotel-info">
+            <strong>Lufthansa LH806 – Hemresa</strong><br>
+            Avgång: 16:20 Frankfurt (FRA)<br>
+            Ankomst: 18:25 Stockholm-Arlanda (ARN)<br>
+            Bokningsnummer: [fylls i]<br>
+            Terminal: [fylls i]
+          </div>
+        </li>
         <li><span class="time-tag">18:25</span>🛬 Ankomst Stockholm ARN</li>
       </ul>
       <span class="stay-badge">🏠 Hemma</span>
