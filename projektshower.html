@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <title>Projekt Shower - Baba Travels</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    #countdown {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 1.5rem 0;
+      color: #d35400;
+    }
+
+    .calendar-button {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #2c3e50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .calendar-button:hover {
+      background-color: #34495e;
+    }
+
+    .surprise-box {
+      background-color: #f8f9fa;
+      border: 2px dashed #d35400;
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    .birthday-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .secret-info {
+      background-color: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 1rem;
+      margin: 2rem 0;
+      text-align: left;
+    }
+
+    .flight-info {
+      background-color: #d1ecf1;
+      border-left: 4px solid #17a2b8;
+      padding: 1rem;
+      margin: 2rem 0;
+      text-align: left;
+    }
+
+    .hotel-info {
+      margin-top: 0.5rem;
+      display: none;
+      background-color: #f0f0f0;
+      padding: 0.5rem;
+      border-left: 3px solid #888;
+    }
+
+    .info-btn {
+      margin-top: 0.3rem;
+      background-color: #eee;
+      padding: 0.3rem 0.6rem;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .pending {
+      color: #b8860b;
+      font-weight: bold;
+    }
+
+    #shower-map {
+      width: 100%;
+      height: 480px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 1rem 0 2rem 0;
+    }
+  </style>
+  <script>
+    function toggleHotelInfo(button) {
+      const info = button.nextElementSibling;
+      info.style.display = info.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Baba Travels</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="skottland.html">Skottland</a>
+      <a href="historik.html">Historik</a>
+      <a href="julbord.html">Julbord 2025</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="surprise-box">
+      <div class="birthday-icon">🍼</div>
+      <h2>🤫 Projekt Shower - HEMLIG ÖVERRASKNING FÖR LELLE! 🤫</h2>
+      <p><strong>Helt hemlig babyshower för Lennart "Lelle"</strong></p>
+      <p id="countdown">Laddar nedräkning…</p>
+    </div>
+
+    <div class="secret-info">
+      <h3>🤐 Hemligt uppdrag</h3>
+      <p>Lelle vet ingenting! Hela poängen är att han bara blir hämtad och sen rullar dagen på. Håll käft i alla gruppchattar utom den hemliga, och inga bilder på sociala medier förrän han själv vet vad som pågår.</p>
+    </div>
+
+    <h2 style="margin-top: 3rem;">🗓️ Schema för dagen</h2>
+
+    <div class="facts-grid">
+      <div class="fact-card">
+        <h3>Hela dagen<br><small>Stockholm – Söder &amp; Skanstull</small></h3>
+        <ul>
+          <li>10:30 – 11:45 – <strong>Starten: Överraskning, bärs och presenter</strong> på Båstadsvägen 19, Johanneshov.
+            <button class="info-btn" onclick="toggleHotelInfo(this)">🎁 Detaljer</button>
+            <div class="hotel-info">
+              <strong>Plats:</strong> Båstadsvägen 19, Johanneshov<br>
+              <a href="https://www.google.com/maps/search/?api=1&query=B%C3%A5stadsv%C3%A4gen%2019%20Johanneshov" target="_blank">📍 Visa på karta</a><br><br>
+              Vi smyger in, överraskar Lelle, drar igång med en öl direkt och kör en kort presentrunda innan vi behöver dra vidare.
+            </div>
+          </li>
+          <li>11:45 – 12:15 – <strong>Transport</strong>: Taxi eller T-bana till Söder.</li>
+          <li>12:15 – 14:30 – <strong>Lunch och Drinkar</strong> på Häktet (Hornsgatan 82).
+            <button class="info-btn" onclick="toggleHotelInfo(this)">🍽️ Bokningsinfo</button>
+            <div class="hotel-info">
+              <strong>Häktet</strong><br>
+              Hornsgatan 82, 118 21 Stockholm (Södermalm)<br>
+              <a href="https://www.google.com/maps/search/?api=1&query=H%C3%A4ktet%20Hornsgatan%2082%20Stockholm" target="_blank">📍 Visa på karta</a><br><br>
+              <span class="pending">⏳ Inväntar svar på bokning.</span> Gammal arrestlokal från 1700-talet, nu bistro &amp; bar med flera barer under samma tak – perfekt läge för en lång, skön lunch.
+            </div>
+          </li>
+          <li>14:30 – 17:45 – <strong>"The Beer Run"</strong>: Orienteringspromenad på Söder med 3–4 korta barstopp (ca 30–45 min/bar) och grenar längs vägen.
+            <button class="info-btn" onclick="toggleHotelInfo(this)">🍺 Om Beer Run</button>
+            <div class="hotel-info">
+              Vi rör oss i lugn takt över Söder och stannar till på 3–4 barer på vägen mot Skanstull. Mellan stoppen kör vi någon liten gren/utmaning – mer info kommer i den hemliga chatten närmare dagen.<br><br>
+              Tips: res lätt, ha bekväma skor och packa allt i ryggsäcken (se packlistan nedan)!
+            </div>
+          </li>
+          <li>17:45 – 18:00 – <strong>Transport</strong>: Vidare mot Skanstull.</li>
+          <li>18:00 – 20:30 – <strong>Målgång: Bastu och Dopp</strong> på Elements Spa, Clarion Hotel Skanstull.
+            <button class="info-btn" onclick="toggleHotelInfo(this)">🧖 Spa-info</button>
+            <div class="hotel-info">
+              <strong>Elements Spa – Clarion Hotel Skanstull</strong><br>
+              <a href="https://www.google.com/maps/search/?api=1&query=Clarion%20Hotel%20Skanstull%20Elements%20Spa" target="_blank">📍 Visa på karta</a><br><br>
+              Poolbar, bastu-öl och en skön dusch inför kvällen.<br><br>
+              <strong>🎟️ Bokningstyp:</strong> Spa Entrance | External Guest<br>
+              <strong>⏱️ Längd:</strong> 2 timmar 30 minuter<br>
+              <strong>💶 Pris:</strong> 345 kr / person<br><br>
+              <strong>✅ Det här ingår:</strong><br>
+              • Tillgång till inomhus- och utomhuspool, ång- och torrbastu, relaxrum och terrass<br>
+              • Tillgång till gym (i mån av plats)<br>
+              • Lån av morgonrock, handduk och tofflor<br>
+              • Te och frukt<br>
+              • Saltpeeling till kroppen<br><br>
+              <strong>🎒 Ta med själv:</strong> Badkläder och hänglås<br><br>
+              <strong>⏰ Obs tider:</strong> Spa-avdelningen stänger kl. 20:00, omklädningsrummen stänger kl. 20:30 – var ute i god tid!<br><br>
+              <span class="pending">⏳ Inväntar svar på bokning.</span>
+            </div>
+          </li>
+          <li>21:00 – Slut – <strong>Middag</strong>: Kvarnen eller Östgötakällaren.
+            <button class="info-btn" onclick="toggleHotelInfo(this)">🍻 Middagsinfo</button>
+            <div class="hotel-info">
+              Bokas så fort vi får svar på spat – val mellan <strong>Kvarnen</strong> och <strong>Östgötakällaren</strong>, båda klassiska Söder-krogar nära Skanstull/Medborgarplatsen.<br><br>
+              <span class="pending">⏳ Bokas snarast – uppdateras i den hemliga chatten.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 3rem;">🗺️ Karta över dagen</h2>
+    <p>Klicka på markörerna för mer info om varje stopp.</p>
+    <div id="shower-map"></div>
+
+    <h2 style="margin-top: 3rem;">🎒 Att ta med för ALLA</h2>
+    <p>Packa allt i en smidig ryggsäck som är lätt att gå med under öl-rundan!</p>
+
+    <div class="facts-grid">
+      <div class="fact-card">
+        <h3>🧳 Måste ha med</h3>
+        <ul>
+          <li>Badkläder</li>
+          <li>Hänglås (till spaskåpet)</li>
+          <li>Ombyte till middagen</li>
+        </ul>
+      </div>
+
+      <div class="fact-card">
+        <h3>🤫 Kom ihåg</h3>
+        <ul>
+          <li>Håll käften om planen – Lelle vet inget!</li>
+          <li>Mobilladdare/powerbank, det blir en lång dag</li>
+          <li>Kontanter – inte alla ställen på Söder tar kort</li>
+          <li>Bekväma skor för Beer Run-promenaden</li>
+        </ul>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="scripts/countdown-projektshower.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  initMap();
+});
+</script>
+<script>
+  function initMap() {
+    const map = L.map('shower-map').setView([59.310, 18.072], 14);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    const stopp = [
+      { nr: 1, namn: "1. Start – Båstadsvägen 19 (Johanneshov)", lat: 59.2972, lng: 18.0959 },
+      { nr: 2, namn: "2. Lunch & Drinkar – Häktet (Hornsgatan 82)", lat: 59.3160, lng: 18.0540 },
+      { nr: 3, namn: "3. The Beer Run – start på Söder", lat: 59.3149, lng: 18.0610 },
+      { nr: 4, namn: "4. The Beer Run – fortsättning", lat: 59.3110, lng: 18.0700 },
+      { nr: 5, namn: "5. Elements Spa – Clarion Hotel Skanstull", lat: 59.3046, lng: 18.0775 },
+      { nr: 6, namn: "6. Middag – Kvarnen / Östgötakällaren", lat: 59.3137, lng: 18.0738 },
+    ];
+
+    const farg = '#d35400';
+    const coords = stopp.map(p => [p.lat, p.lng]);
+    L.polyline(coords, { color: farg, weight: 3, dashArray: '8, 6' }).addTo(map);
+
+    function makeIcon(nr) {
+      return L.divIcon({
+        className: '',
+        html: `<div style="background:${farg};color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:12px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.4)">${nr}</div>`,
+        iconSize: [28, 28],
+        iconAnchor: [14, 14],
+      });
+    }
+
+    stopp.forEach(p => {
+      L.marker([p.lat, p.lng], { icon: makeIcon(p.nr) })
+        .addTo(map)
+        .bindPopup(`<strong>${p.namn}</strong>`);
+    });
+
+    const legende = L.control({ position: 'bottomright' });
+    legende.onAdd = function() {
+      const div = L.DomUtil.create('div', '');
+      div.style.cssText = 'background:white;padding:10px 14px;border-radius:8px;font-size:13px;box-shadow:0 2px 8px rgba(0,0,0,0.2);line-height:1.6';
+      div.innerHTML = `
+        <div><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:${farg};margin-right:6px;vertical-align:middle"></span>Projekt Shower – rutt för dagen</div>
+      `;
+      return div;
+    };
+    legende.addTo(map);
+  }
+</script>
+</body>
+</html>
