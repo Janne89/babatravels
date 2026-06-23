@@ -362,16 +362,18 @@
             Bokningsnummer: [fylls i]
           </div>
         </li>
-        <li><span class="time-tag">14:30</span>Check-in hotell i Colmar
+        <li><span class="time-tag">14:30</span>Check-in Hôtel Maison Turenne, Colmar
           <button class="info-btn" onclick="toggleHotelInfo(this)">🏨 Hotellinfo</button>
           <div class="hotel-info">
-            <strong>Hotell Colmar</strong><br>
-            Adress: [fylls i]<br>
-            Check-in: Onsdag 5 aug, från kl. [fylls i]<br>
-            Check-out: Lördag 8 aug, senast kl. [fylls i]<br>
-            Rum: [fylls i]<br>
-            Kostnad: ~15 000 kr totalt (5 pers)<br>
-            Bokningsnummer: [fylls i]
+            <strong>Hôtel Maison Turenne ✅ BOKAD</strong><br>
+            📍 10 route de Bâle, 68000 Colmar, Frankrike<br><br>
+            ✅ Incheckning: Onsdag 5 aug, från kl. 15:00<br>
+            👋 Utcheckning: Lördag 8 aug, senast kl. 11:00<br>
+            🌙 3 nätter · 6 vuxna · 3 rum<br><br>
+            🛏️ Rummen står bokade på:<br>
+            Oskar Karlsson (2 vuxna)<br>
+            Johannes Forsberg (2 vuxna)<br>
+            Jan Issa (2 vuxna)
           </div>
         </li>
         <li><span class="time-tag">15:30</span>🚴 Hämta elcyklar</li>
@@ -418,6 +420,20 @@
       <ul>
         <li><span class="time-tag">09:00</span>🌅 Lugn morgon</li>
         <li><span class="time-tag">10:00</span>🥞 Brunch / sista promenad i Colmar</li>
+        <li><span class="time-tag">11:00</span>👋 Utcheckning Hôtel Maison Turenne
+          <button class="info-btn" onclick="toggleHotelInfo(this)">🏨 Hotellinfo</button>
+          <div class="hotel-info">
+            <strong>Hôtel Maison Turenne ✅ BOKAD</strong><br>
+            📍 10 route de Bâle, 68000 Colmar, Frankrike<br><br>
+            ✅ Incheckning: Onsdag 5 aug, från kl. 15:00<br>
+            👋 Utcheckning: Lördag 8 aug, senast kl. 11:00<br>
+            🌙 3 nätter · 6 vuxna · 3 rum<br><br>
+            🛏️ Rummen står bokade på:<br>
+            Oskar Karlsson (2 vuxna)<br>
+            Johannes Forsberg (2 vuxna)<br>
+            Jan Issa (2 vuxna)
+          </div>
+        </li>
         <li><span class="time-tag">12:00</span>🚄 Tåg tillbaka till Strasbourg (~30 min)
           <button class="info-btn" onclick="toggleHotelInfo(this)">🚄 Tåginfo</button>
           <div class="hotel-info">
@@ -495,12 +511,12 @@
   <!-- Karta -->
   <div class="map-section">
     <h2 class="section-title">🗺️ Karta – Alsace-rutten</h2>
-    <p class="map-note">Översikt: Frankfurt flygplats, Strasbourg, Colmar och vinbyarna längs Route des Vins.</p>
+    <p class="map-note">Översikt: Frankfurt flygplats, Strasbourg, Colmar (inkl. Hôtel Maison Turenne) och vinbyarna längs Route des Vins.</p>
     <div class="map-container">
       <div id="alsace-map" style="width:100%; height:100%;"></div>
     </div>
     <div class="map-btn-wrap">
-      <a href="https://www.google.com/maps/dir/Frankfurt+Airport+FRA/Strasbourg+France/Colmar+France/Eguisheim+France/Ribeauville+France/Riquewihr+France/Kaysersberg+France" target="_blank">
+      <a href="https://www.google.com/maps/dir/Frankfurt+Airport+FRA/Strasbourg+France/Hotel+Maison+Turenne+Colmar/Eguisheim+France/Ribeauville+France/Riquewihr+France/Kaysersberg+France" target="_blank">
         🗺️ Öppna rutten i Google Maps
       </a>
     </div>
@@ -521,7 +537,7 @@
   const stopp = [
     { namn: "1. Frankfurt Airport (FRA)", lat: 50.0333, lng: 8.5706, color: '#888' },
     { namn: "2. Strasbourg",              lat: 48.5734, lng: 7.7521, color: '#6b2737' },
-    { namn: "3. Colmar",                  lat: 48.0793, lng: 7.3586, color: '#6b2737' },
+    { namn: "3. Colmar – Hôtel Maison Turenne", lat: 48.0735, lng: 7.3565, color: '#6b2737' },
     { namn: "4. Eguisheim",               lat: 47.9767, lng: 7.3079, color: '#c49a2a' },
     { namn: "5. Ribeauvillé",             lat: 48.1944, lng: 7.3225, color: '#c49a2a' },
     { namn: "6. Riquewihr",               lat: 48.1669, lng: 7.2989, color: '#c49a2a' },
@@ -532,12 +548,12 @@
   L.polyline(latlngs, { color: '#6b2737', weight: 3, dashArray: '8,6' }).addTo(map);
 
   const bikeRoute = [
-    [48.0793, 7.3586],
+    [48.0735, 7.3565],
     [47.9767, 7.3079],
     [48.1669, 7.2989],
     [48.1944, 7.3225],
     [48.1393, 7.2625],
-    [48.0793, 7.3586],
+    [48.0735, 7.3565],
   ];
   L.polyline(bikeRoute, { color: '#2980b9', weight: 2.5, dashArray: '5,7', opacity: 0.7 }).addTo(map);
 
