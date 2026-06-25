@@ -99,6 +99,31 @@
       font-weight: bold;
     }
 
+    .sub-schedule {
+      margin-top: 0.5rem;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .sub-schedule li {
+      padding: 0.35rem 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .sub-schedule li:last-child {
+      border-bottom: none;
+    }
+
+    .run-label {
+      color: #888;
+      font-style: italic;
+    }
+
+    .stop-label {
+      color: #d35400;
+      font-weight: bold;
+    }
+
     #shower-map {
       width: 100%;
       height: 480px;
@@ -153,7 +178,7 @@
             </div>
           </li>
           <li>11:45 – 12:15 – <strong>Transport</strong>: Taxi eller T-bana till Söder.</li>
-          <li>12:15 – 14:30 – <strong>Lunch och Drinkar</strong> på Häktet (Hornsgatan 82).
+          <li>12:15 – 14:15 – <strong>Lunch och Drinkar</strong> på Häktet (Hornsgatan 82).
             <button class="info-btn" onclick="toggleHotelInfo(this)">🍽️ Bokningsinfo</button>
             <div class="hotel-info">
               <strong>Häktet</strong><br>
@@ -163,14 +188,32 @@
               Gammal arrestlokal från 1700-talet, nu bistro & bar med flera barer under samma tak – perfekt läge för en lång, skön brunch.
             </div>
           </li>
-          <li>14:30 – 18:30 – <strong>"The Beer Run"</strong>: Orienteringspromenad på Söder med korta barstopp och grenar längs vägen.
-            <button class="info-btn" onclick="toggleHotelInfo(this)">🍺 Om Beer Run</button>
+          <li>14:15 – 18:45 – <strong>"The Beer Run"</strong>: Löprunda på Söder & Kungsholmen med korta barstopp längs vägen.
+            <button class="info-btn" onclick="toggleHotelInfo(this)">🍺 Detaljerat schema</button>
             <div class="hotel-info">
-              Vi rör oss i lugn takt över Söder och stannar till på några schyssta barer på vägen. Mellan stoppen kör vi någon liten gren/utmaning – mer info kommer i chatten närmare dagen.<br><br>
-              Tips: res lätt med, ha träningsskor och packa allt i ryggsäcken (se packlistan nedan)!
+              Vi rör oss i lugn takt från Söder, över Västerbron och vidare till Kungsholmen, med stopp på vägen. Packa lätt – träningsskor och allt i ryggsäcken!<br><br>
+              <ul class="sub-schedule">
+                <li><span class="run-label">RUN 1</span> · 14:15–14:20 — Häktet → Bar Central (~700 m)</li>
+                <li><span class="stop-label">STOPP 1</span> · 14:20–15:10 — <strong>Bar Central</strong> (Hornsgatan 72) – första öl, samla gruppen<br>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Bar%20Central%20Hornsgatan%2072%20Stockholm" target="_blank">📍 Visa på karta</a>
+                </li>
+                <li><span class="run-label">RUN 2</span> · 15:10–15:15 — Bar Central → Hornstull (~800 m)</li>
+                <li><span class="stop-label">STOPP 2</span> · 15:15–16:05 — <strong>Hornhuset</strong> (Hornstull) – huvudstopp Söder + uteservering<br>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Hornhuset%20L%C3%A5ngholmsgatan%2015b%20Stockholm" target="_blank">📍 Visa på karta</a>
+                </li>
+                <li><span class="run-label">RUN 3</span> · 16:05–16:20 — Hornstull → Västerbron start (~1.2 km), snabb pickup vid <strong>glasskiosken i Tantolunden</strong> på vägen, ingen sittning</li>
+                <li><span class="run-label">RUN 4</span> · 16:20–16:55 — Västerbron → Rålambshov (~1.5 km), kontrollerad klunga, ingen sprint</li>
+                <li><span class="stop-label">STOPP 3</span> · 16:55–17:50 — <strong>Boulebar Rålambshov</strong> – parkhäng, öl, längre paus<br>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Boulebar%20R%C3%A5lambshov%20Smedsuddsv%C3%A4gen%202%20Stockholm" target="_blank">📍 Visa på karta</a>
+                </li>
+                <li><span class="run-label">RUN 5</span> · 17:50–18:05 — Rålambshov → Eden (~600 m)</li>
+                <li><span class="stop-label">STOPP 4 (FINAL)</span> · 18:05–18:45 — <strong>Eden Utebar</strong> – nedvarvning + sista öl<br>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Eden%20Smedsuddsv%C3%A4gen%2023%20Stockholm" target="_blank">📍 Visa på karta</a>
+                </li>
+              </ul>
             </div>
           </li>
-          <li>18:30 – 19:00 – <strong>Transport</strong>: Vidare mot bastun på Kungsholmen.</li>
+          <li>18:45 – 19:00 – <strong>Övergång</strong>: Korta promenaden från Eden Utebar till Eden Bastu.</li>
           <li>19:00 – 20:30 – <strong>Målgång: Bastu och Dopp</strong> på Eden Bastu (Smedsudden).
             <button class="info-btn" onclick="toggleHotelInfo(this)">🧖 Spa-info</button>
             <div class="hotel-info">
@@ -239,7 +282,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 <script>
   function initMap() {
-    const map = L.map('shower-map').setView([59.313, 18.060], 13);
+    const map = L.map('shower-map').setView([59.317, 18.050], 13);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors'
@@ -248,10 +291,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const stopp = [
       { nr: 1, namn: "1. Start – Båstadsvägen 19 (Johanneshov)", lat: 59.2972, lng: 18.0959 },
       { nr: 2, namn: "2. Lunch & Drinkar – Häktet (Hornsgatan 82)", lat: 59.3160, lng: 18.0540 },
-      { nr: 3, namn: "3. The Beer Run – start på Söder", lat: 59.3149, lng: 18.0610 },
-      { nr: 4, namn: "4. The Beer Run – fortsättning", lat: 59.3110, lng: 18.0700 },
-      { nr: 5, namn: "5. Eden Bastu & Dopp (Smedsudden)", lat: 59.3218, lng: 18.0242 },
-      { nr: 6, namn: "6. Middag – Trattorian (Norr Mälarstrand)", lat: 59.3274, lng: 18.0435 },
+      { nr: 3, namn: "3. Beer Run – Bar Central (Hornsgatan 72)", lat: 59.3185, lng: 18.0584 },
+      { nr: 4, namn: "4. Beer Run – Hornhuset (Hornstull)", lat: 59.3167, lng: 18.0337 },
+      { nr: 5, namn: "5. Beer Run – Glasskiosk (Tantolunden)", lat: 59.3132, lng: 18.0491 },
+      { nr: 6, namn: "6. Beer Run – Boulebar Rålambshov", lat: 59.3286, lng: 18.0272 },
+      { nr: 7, namn: "7. Beer Run – Eden Utebar (final)", lat: 59.3255, lng: 18.0236 },
+      { nr: 8, namn: "8. Eden Bastu & Dopp (Smedsudden)", lat: 59.3218, lng: 18.0242 },
+      { nr: 9, namn: "9. Middag – Trattorian (Norr Mälarstrand)", lat: 59.3274, lng: 18.0435 },
     ];
 
     const farg = '#d35400';
