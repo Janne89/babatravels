@@ -256,6 +256,12 @@
       <div id="category-faniga"></div>
     </div>
 
+    <div class="category-section">
+      <h3>⭐ Bonuspinnar</h3>
+      <p style="font-size: 0.9rem; color: #666; margin-top: -0.3rem;">Imponerar någon på Jan – oavsett vad det handlar om – dela ut en bonuspinne på 1, 2 eller 3 poäng.</p>
+      <div id="category-bonus"></div>
+    </div>
+
     <h2>📜 Senaste poängen</h2>
     <div class="category-section log-section">
       <div id="logList"></div>
@@ -267,13 +273,13 @@
 
   <script>
     const gubbar = [
+      "Jan Issa",
       "Andreas Lindmark",
       "Eddie Andersson",
       "Johannes Forsberg",
       "Jonathan Hellman",
       "Pontus Lundin",
       "Alfred Jörgensson",
-      "Jag",
       "Lennart Johansson"
     ];
 
@@ -287,26 +293,28 @@
       { id: "selfie-framling", text: "Selfie med en främling som ler med", poang: 2, kategori: "foto" },
       { id: "bartender-pose", text: "Få en bartender/servitör att posera i bild", poang: 3, kategori: "foto" },
 
-      { id: "snabbast-glas", text: "Snabbast i glas", poang: 10, kategori: "bar" },
-      { id: "gissa-notan", text: "Gissa notan (närmast rätt)", poang: 10, kategori: "bar" },
+      { id: "snabbast-glas", text: "Snabbast i glas", poang: 3, kategori: "bar" },
+      { id: "gissa-notan", text: "Gissa notan (närmast rätt)", poang: 3, kategori: "bar" },
       { id: "kronan-pa-olen", text: "Sätter på kronan på ölen (ej beställaren)", poang: 2, kategori: "bar" },
-      { id: "bestalla-annat-sprak", text: "Beställa på engelska/annat språk och få det att fungera", poang: 2, kategori: "bar" },
+      { id: "bestalla-annat-sprak", text: "Beställa på ett helt främmande språk (ej svenska/engelska) och få det att fungera", poang: 2, kategori: "bar" },
       { id: "fa-bartender-skratta", text: "Få bartendern att skratta", poang: 2, kategori: "bar" },
       { id: "ny-drink-pa-menyn", text: "Beställa en öl/drink ingen i gänget provat förut", poang: 1, kategori: "bar" },
+      { id: "split-the-g", text: "Split the G", poang: 3, kategori: "bar" },
 
       { id: "vattenvakten", text: "Hämta vatten till minst 3 andra under ett stopp", poang: 3, kategori: "omtanksamhet" },
-      { id: "tacktalet", text: "Hålla ett kort tacktal till blivande pappan", poang: 15, kategori: "omtanksamhet" },
-      { id: "tacktalet-bonus", text: "Tacktalet – bonus om det får skratt från 3+ gubbar", poang: 5, kategori: "omtanksamhet" },
-      { id: "komplimangen", text: "Ge en oväntad komplimang till en främling (reaktion krävs)", poang: 5, kategori: "omtanksamhet" },
-      { id: "historieberattaren", text: "Berätta en pinsam/rolig grej om blivande pappan för en främling", poang: 10, kategori: "omtanksamhet" },
-      { id: "artiga-fragan", text: "Fråga en främling om vägen (även om ni redan vet) och tacka extra artigt", poang: 5, kategori: "omtanksamhet" },
-      { id: "refillaren", text: "Fylla på någon annans dricka innan de frågar (max 2 ggr/person)", poang: 5, kategori: "omtanksamhet" },
+      { id: "tacktalet", text: "Hålla ett kort tacktal till blivande pappan", poang: 5, kategori: "omtanksamhet" },
+      { id: "komplimangen", text: "Ge en oväntad komplimang till en främling (reaktion krävs)", poang: 2, kategori: "omtanksamhet" },
+      { id: "historieberattaren", text: "Berätta en pinsam/rolig grej om blivande pappan för en främling", poang: 2, kategori: "omtanksamhet" },
+      { id: "spontanstopp", text: "Spontanstopp på rundan som tas emot positivt", poang: 3, kategori: "omtanksamhet" },
 
-      { id: "foto-bingo", text: "Foto-bingo – genomfört bingo-foto (hund, superhjälte-tröja, cyklist utan hjälm, etc.)", poang: 5, kategori: "faniga" },
       { id: "fa-skala-pa-kommando", text: "Få minst 2 andra gubbar att skåla på kommando", poang: 1, kategori: "faniga" },
       { id: "nytt-ord", text: "Lära sig ett nytt ord på ett annat språk från en främling", poang: 2, kategori: "faniga" },
-      { id: "steg-gissaren", text: "Gissa exakt antal steg mellan två stopp (närmast rätt)", poang: 10, kategori: "faniga" },
-      { id: "turistguiden", text: "Bästa påhittade historia om ett landmärke man passerar", poang: 5, kategori: "faniga" }
+      { id: "steg-gissaren", text: "Gissa exakt antal steg mellan två stopp (närmast rätt)", poang: 3, kategori: "faniga" },
+      { id: "turistguiden", text: "Bästa påhittade historia om ett landmärke man passerar", poang: 3, kategori: "faniga" },
+
+      { id: "bonus-1p", text: "Bonuspinne – imponerade lite på Jan", poang: 1, kategori: "bonus" },
+      { id: "bonus-2p", text: "Bonuspinne – imponerade riktigt på Jan", poang: 2, kategori: "bonus" },
+      { id: "bonus-3p", text: "Bonuspinne – imponerade STORT på Jan", poang: 3, kategori: "bonus" }
     ];
 
     let scores = {};
@@ -362,7 +370,8 @@
         foto: document.getElementById('category-foto'),
         bar: document.getElementById('category-bar'),
         omtanksamhet: document.getElementById('category-omtanksamhet'),
-        faniga: document.getElementById('category-faniga')
+        faniga: document.getElementById('category-faniga'),
+        bonus: document.getElementById('category-bonus')
       };
 
       Object.values(kategorier).forEach(el => el.innerHTML = '');
