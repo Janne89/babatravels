@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poängtavla - Beer Run - Baba Travels</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <style>
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    .surprise-box {
+      background-color: #f8f9fa;
+      border: 2px dashed #d35400;
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .leader-name {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #d35400;
+    }
+
+    .leader-points {
+      font-size: 2.4rem;
+      font-weight: bold;
+      color: #2e7d32;
+    }
+
+    .scoreboard {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+
+    .scoreboard th, .scoreboard td {
+      border: 1px solid #e0e0e0;
+      padding: 0.5rem;
+      text-align: center;
+    }
+
+    .scoreboard th {
+      background-color: #2c3e50;
+      color: white;
+      position: sticky;
+      top: 0;
+    }
+
+    .scoreboard tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+
+    .scoreboard td.name-cell {
+      text-align: left;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .scoreboard td.total-cell {
+      font-weight: bold;
+      color: #d35400;
+      background-color: #fff3cd;
+    }
+
+    .rank-1 td.name-cell::before { content: "🥇 "; }
+    .rank-2 td.name-cell::before { content: "🥈 "; }
+    .rank-3 td.name-cell::before { content: "🥉 "; }
+
+    .table-scroll {
+      overflow-x: auto;
+      margin-bottom: 2rem;
+    }
+
+    .category-section {
+      text-align: left;
+      margin: 2rem 0;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+    }
+
+    .category-section h3 {
+      color: #2c3e50;
+      border-bottom: 2px solid #d35400;
+      padding-bottom: 0.5rem;
+    }
+
+    .gren-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #e8e8e8;
+      flex-wrap: wrap;
+    }
+
+    .gren-row:last-child {
+      border-bottom: none;
+    }
+
+    .gren-info {
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .gren-poang {
+      color: #888;
+      font-style: italic;
+      font-size: 0.85rem;
+    }
+
+    .gren-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    select.gubbe-select {
+      padding: 0.4rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 0.9rem;
+      max-width: 140px;
+    }
+
+    button.add-btn {
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background-color 0.2s;
+    }
+
+    button.add-btn:hover {
+      background-color: #34495e;
+    }
+
+    button.reset-btn {
+      background-color: #c0392b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 0.6rem 1.2rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+      margin-top: 1rem;
+    }
+
+    button.reset-btn:hover {
+      background-color: #a93226;
+    }
+
+    .log-section {
+      text-align: left;
+      margin-top: 2rem;
+    }
+
+    .log-entry {
+      font-size: 0.85rem;
+      color: #555;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .log-entry button {
+      background: none;
+      border: none;
+      color: #c0392b;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+
+    .empty-log {
+      color: #999;
+      font-style: italic;
+      padding: 0.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Baba Travels</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="skottland.html">Skottland</a>
+      <a href="historik.html">Historik</a>
+      <a href="julbord.html">Julbord 2025</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="surprise-box">
+      <div style="font-size: 2.5rem;">🏆</div>
+      <h2>Beer Run – Poängtavla</h2>
+      <p id="leaderDisplay">Inga poäng inlagda än – kom igång!</p>
+    </div>
+
+    <h2>📊 Ställning</h2>
+    <div class="table-scroll">
+      <table class="scoreboard" id="scoreboardTable">
+        <thead>
+          <tr>
+            <th>Gubbe</th>
+            <th>Poäng</th>
+          </tr>
+        </thead>
+        <tbody id="scoreboardBody">
+        </tbody>
+      </table>
+    </div>
+
+    <h2>🎯 Grenar</h2>
+    <p>Välj vem som klarade grenen och tryck "Ge poäng". Allt sparas automatiskt i den här webbläsaren.</p>
+
+    <div class="category-section">
+      <h3>🏃 Löpning mellan stopp</h3>
+      <div id="category-lopning"></div>
+    </div>
+
+    <div class="category-section">
+      <h3>📸 Foto & socialt</h3>
+      <div id="category-foto"></div>
+    </div>
+
+    <div class="category-section">
+      <h3>🍺 Bar-grenar</h3>
+      <div id="category-bar"></div>
+    </div>
+
+    <div class="category-section">
+      <h3>🤝 Omtänksamhet</h3>
+      <div id="category-omtanksamhet"></div>
+    </div>
+
+    <div class="category-section">
+      <h3>🤪 Lite fånigare</h3>
+      <div id="category-faniga"></div>
+    </div>
+
+    <h2>📜 Senaste poängen</h2>
+    <div class="category-section log-section">
+      <div id="logList"></div>
+    </div>
+
+    <button class="reset-btn" onclick="resetAll()">🔄 Nollställ allt</button>
+
+  </main>
+
+  <script>
+    const gubbar = [
+      "Andreas Lindmark",
+      "Eddie Andersson",
+      "Johannes Forsberg",
+      "Jonathan Hellman",
+      "Pontus Lundin",
+      "Alfred Jörgensson",
+      "Jag",
+      "Lennart Johansson"
+    ];
+
+    const grenar = [
+      { id: "snabbast-destination", text: "Snabbast till nästa destination", poang: 2, kategori: "lopning" },
+      { id: "baklanges-destination", text: "Baklänges till en destination (utan krock)", poang: 3, kategori: "lopning" },
+      { id: "sist-destination", text: "Sist till nästa destination", poang: -1, kategori: "lopning" },
+
+      { id: "gruppfoto-bast", text: "Gruppfoto på bästa stället (bästa bidraget)", poang: 3, kategori: "foto" },
+      { id: "gruppfoto-ovriga", text: "Gruppfoto – övriga som också tog en bild", poang: 1, kategori: "foto" },
+      { id: "selfie-framling", text: "Selfie med en främling som ler med", poang: 2, kategori: "foto" },
+      { id: "bartender-pose", text: "Få en bartender/servitör att posera i bild", poang: 3, kategori: "foto" },
+
+      { id: "snabbast-glas", text: "Snabbast i glas", poang: 10, kategori: "bar" },
+      { id: "gissa-notan", text: "Gissa notan (närmast rätt)", poang: 10, kategori: "bar" },
+      { id: "kronan-pa-olen", text: "Sätter på kronan på ölen (ej beställaren)", poang: 2, kategori: "bar" },
+      { id: "bestalla-annat-sprak", text: "Beställa på engelska/annat språk och få det att fungera", poang: 2, kategori: "bar" },
+      { id: "fa-bartender-skratta", text: "Få bartendern att skratta", poang: 2, kategori: "bar" },
+      { id: "ny-drink-pa-menyn", text: "Beställa en öl/drink ingen i gänget provat förut", poang: 1, kategori: "bar" },
+
+      { id: "vattenvakten", text: "Hämta vatten till minst 3 andra under ett stopp", poang: 3, kategori: "omtanksamhet" },
+      { id: "tacktalet", text: "Hålla ett kort tacktal till blivande pappan", poang: 15, kategori: "omtanksamhet" },
+      { id: "tacktalet-bonus", text: "Tacktalet – bonus om det får skratt från 3+ gubbar", poang: 5, kategori: "omtanksamhet" },
+      { id: "komplimangen", text: "Ge en oväntad komplimang till en främling (reaktion krävs)", poang: 5, kategori: "omtanksamhet" },
+      { id: "historieberattaren", text: "Berätta en pinsam/rolig grej om blivande pappan för en främling", poang: 10, kategori: "omtanksamhet" },
+      { id: "artiga-fragan", text: "Fråga en främling om vägen (även om ni redan vet) och tacka extra artigt", poang: 5, kategori: "omtanksamhet" },
+      { id: "refillaren", text: "Fylla på någon annans dricka innan de frågar (max 2 ggr/person)", poang: 5, kategori: "omtanksamhet" },
+
+      { id: "foto-bingo", text: "Foto-bingo – genomfört bingo-foto (hund, superhjälte-tröja, cyklist utan hjälm, etc.)", poang: 5, kategori: "faniga" },
+      { id: "fa-skala-pa-kommando", text: "Få minst 2 andra gubbar att skåla på kommando", poang: 1, kategori: "faniga" },
+      { id: "nytt-ord", text: "Lära sig ett nytt ord på ett annat språk från en främling", poang: 2, kategori: "faniga" },
+      { id: "steg-gissaren", text: "Gissa exakt antal steg mellan två stopp (närmast rätt)", poang: 10, kategori: "faniga" },
+      { id: "turistguiden", text: "Bästa påhittade historia om ett landmärke man passerar", poang: 5, kategori: "faniga" }
+    ];
+
+    let scores = {};
+    let log = [];
+
+    function loadData() {
+      try {
+        const savedScores = localStorage.getItem('beerrun-scores');
+        const savedLog = localStorage.getItem('beerrun-log');
+        scores = savedScores ? JSON.parse(savedScores) : {};
+        log = savedLog ? JSON.parse(savedLog) : [];
+      } catch (e) {
+        scores = {};
+        log = [];
+      }
+      gubbar.forEach(g => { if (!(g in scores)) scores[g] = 0; });
+    }
+
+    function saveData() {
+      try {
+        localStorage.setItem('beerrun-scores', JSON.stringify(scores));
+        localStorage.setItem('beerrun-log', JSON.stringify(log));
+      } catch (e) {
+        console.error('Kunde inte spara:', e);
+      }
+    }
+
+    function renderScoreboard() {
+      const body = document.getElementById('scoreboardBody');
+      const sorted = [...gubbar].sort((a, b) => scores[b] - scores[a]);
+      body.innerHTML = '';
+      sorted.forEach((g, i) => {
+        const tr = document.createElement('tr');
+        if (i === 0) tr.className = 'rank-1';
+        else if (i === 1) tr.className = 'rank-2';
+        else if (i === 2) tr.className = 'rank-3';
+        tr.innerHTML = `<td class="name-cell">${g}</td><td class="total-cell">${scores[g]}</td>`;
+        body.appendChild(tr);
+      });
+
+      const leader = sorted[0];
+      const leaderDisplay = document.getElementById('leaderDisplay');
+      if (scores[leader] === 0) {
+        leaderDisplay.textContent = 'Inga poäng inlagda än – kom igång!';
+      } else {
+        leaderDisplay.innerHTML = `<span class="leader-name">${leader}</span> leder med <span class="leader-points">${scores[leader]}</span> poäng`;
+      }
+    }
+
+    function renderGrenar() {
+      const kategorier = {
+        lopning: document.getElementById('category-lopning'),
+        foto: document.getElementById('category-foto'),
+        bar: document.getElementById('category-bar'),
+        omtanksamhet: document.getElementById('category-omtanksamhet'),
+        faniga: document.getElementById('category-faniga')
+      };
+
+      Object.values(kategorier).forEach(el => el.innerHTML = '');
+
+      grenar.forEach(gren => {
+        const row = document.createElement('div');
+        row.className = 'gren-row';
+
+        const sign = gren.poang > 0 ? '+' : '';
+        row.innerHTML = `
+          <div class="gren-info">
+            ${gren.text} <span class="gren-poang">(${sign}${gren.poang} p)</span>
+          </div>
+          <div class="gren-controls">
+            <select class="gubbe-select" id="select-${gren.id}">
+              ${gubbar.map(g => `<option value="${g}">${g}</option>`).join('')}
+            </select>
+            <button class="add-btn" onclick="givePoints('${gren.id}')">Ge poäng</button>
+          </div>
+        `;
+        kategorier[gren.kategori].appendChild(row);
+      });
+    }
+
+    function givePoints(grenId) {
+      const gren = grenar.find(g => g.id === grenId);
+      const select = document.getElementById(`select-${grenId}`);
+      const gubbe = select.value;
+
+      scores[gubbe] = (scores[gubbe] || 0) + gren.poang;
+
+      log.unshift({
+        gubbe: gubbe,
+        text: gren.text,
+        poang: gren.poang,
+        tid: new Date().toLocaleTimeString('sv-SE', { hour: '2-digit', minute: '2-digit' })
+      });
+
+      saveData();
+      renderScoreboard();
+      renderLog();
+    }
+
+    function removeLogEntry(index) {
+      const entry = log[index];
+      scores[entry.gubbe] = (scores[entry.gubbe] || 0) - entry.poang;
+      log.splice(index, 1);
+      saveData();
+      renderScoreboard();
+      renderLog();
+    }
+
+    function renderLog() {
+      const logList = document.getElementById('logList');
+      if (log.length === 0) {
+        logList.innerHTML = '<div class="empty-log">Inga poäng registrerade än.</div>';
+        return;
+      }
+      logList.innerHTML = log.slice(0, 30).map((entry, i) => {
+        const sign = entry.poang > 0 ? '+' : '';
+        return `<div class="log-entry">
+          <span>${entry.tid} — <strong>${entry.gubbe}</strong>: ${entry.text} (${sign}${entry.poang} p)</span>
+          <button onclick="removeLogEntry(${i})">Ångra</button>
+        </div>`;
+      }).join('');
+    }
+
+    function resetAll() {
+      if (confirm('Är du säker på att du vill nollställa alla poäng? Detta går inte att ångra.')) {
+        gubbar.forEach(g => scores[g] = 0);
+        log = [];
+        saveData();
+        renderScoreboard();
+        renderLog();
+      }
+    }
+
+    loadData();
+    renderScoreboard();
+    renderGrenar();
+    renderLog();
+  </script>
+</body>
+</html>
