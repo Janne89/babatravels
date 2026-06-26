@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projekt Shower – Orienteringskarta</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <style>
+    :root {
+      --of-purple: #c4007a; /* klassisk orienterings-magenta */
+      --of-dark: #2c3e50;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      background: #f4f1ea;
+      color: #222;
+    }
+
+    header {
+      background: var(--of-dark);
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    header h1 { margin: 0; font-size: 1.4rem; }
+    header p { margin: 0.3rem 0 0; font-size: 0.9rem; opacity: 0.85; }
+
+    .container {
+      max-width: 960px;
+      margin: 1.5rem auto;
+      padding: 0 1rem;
+    }
+
+    h2 { text-align: center; }
+
+    #orient-map {
+      width: 100%;
+      max-width: 1100px;
+      aspect-ratio: 297 / 210;   /* exakt A4 liggande – skärm = utskrift */
+      margin: 1rem auto 1.5rem;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid var(--of-purple);
+    }
+
+    /* Orienterings-symboler som divIcons */
+    .of-start {
+      width: 0; height: 0;
+      border-left: 14px solid transparent;
+      border-right: 14px solid transparent;
+      border-bottom: 24px solid var(--of-purple);
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4));
+    }
+
+    .of-control {
+      width: 26px; height: 26px;
+      border: 4px solid var(--of-purple);
+      border-radius: 50%;
+      background: transparent;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.35);
+    }
+
+    .of-finish {
+      width: 30px; height: 30px;
+      border: 4px solid var(--of-purple);
+      border-radius: 50%;
+      position: relative;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.35);
+    }
+    .of-finish::after {
+      content: "";
+      position: absolute;
+      top: 4px; left: 4px;
+      width: 14px; height: 14px;
+      border: 3px solid var(--of-purple);
+      border-radius: 50%;
+    }
+
+    .of-num {
+      color: var(--of-purple);
+      font-weight: 700;
+      font-size: 15px;
+      text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff;
+      white-space: nowrap;
+    }
+
+    .legend-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 1.5rem;
+    }
+
+    .legend-card h3 { margin-top: 0; }
+
+    table.controls {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+    table.controls th, table.controls td {
+      text-align: left;
+      padding: 0.5rem 0.6rem;
+      border-bottom: 1px solid #eee;
+    }
+    table.controls th { color: var(--of-purple); }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 6px;
+      border: 3px solid var(--of-purple);
+      border-radius: 50%;
+      color: var(--of-purple);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .badge.start { border-radius: 4px; }
+
+    .legend-symbols {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+      margin-top: 0.75rem;
+    }
+    .legend-symbols .item { display: flex; align-items: center; gap: 0.5rem; }
+    .sym-tri {
+      width: 0; height: 0;
+      border-left: 9px solid transparent;
+      border-right: 9px solid transparent;
+      border-bottom: 16px solid var(--of-purple);
+    }
+    .sym-circle {
+      width: 18px; height: 18px;
+      border: 3px solid var(--of-purple);
+      border-radius: 50%;
+    }
+    .sym-finish {
+      width: 20px; height: 20px;
+      border: 3px solid var(--of-purple);
+      border-radius: 50%;
+      position: relative;
+    }
+    .sym-finish::after {
+      content: "";
+      position: absolute;
+      top: 3px; left: 3px;
+      width: 8px; height: 8px;
+      border: 2px solid var(--of-purple);
+      border-radius: 50%;
+    }
+
+    /* Utskriftsknapp */
+    .print-btn {
+      display: inline-block;
+      margin: 0.5rem auto 0;
+      padding: 0.6rem 1.2rem;
+      background: var(--of-purple);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .print-btn:hover { filter: brightness(1.1); }
+    .print-hint { text-align: center; font-size: 0.85rem; color: #555; margin-top: 0.4rem; }
+
+    /* Teckenförklaring som ritas ovanpå kartan (syns i utskrift) */
+    .map-legend {
+      background: rgba(255,255,255,0.92);
+      border: 2px solid var(--of-purple);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 12px;
+      line-height: 1.6;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+    }
+    .map-legend b { color: var(--of-purple); }
+    .map-legend .row { display: flex; align-items: center; gap: 6px; }
+    .map-legend .sym-tri,
+    .map-legend .sym-circle,
+    .map-legend .sym-finish { flex: 0 0 auto; }
+
+    /* ====== UTSKRIFT: kartan fyller ett helt A4 ====== */
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+    @media print {
+      html, body { width: 297mm; background: #fff; }
+      header, h2, .print-btn, .print-hint, .legend-card { display: none !important; }
+      .container { max-width: none; margin: 0; padding: 0; }
+      #orient-map {
+        width: 297mm;            /* full A4-bredd liggande */
+        height: 210mm;           /* full A4-höjd liggande */
+        min-height: 0;
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        page-break-inside: avoid;
+      }
+      /* Kontrollbeskrivningen får en egen sida 2 */
+      #beskrivning-card {
+        display: block !important;
+        box-shadow: none;
+        border-radius: 0;
+        margin: 0;
+        padding: 12mm 14mm;
+        page-break-before: always;
+      }
+      #beskrivning-card h3 { font-size: 18pt; }
+      #beskrivning-card table.controls { font-size: 12pt; }
+      #beskrivning-card table.controls th,
+      #beskrivning-card table.controls td { padding: 0.55rem 0.7rem; }
+      /* Säkerställ att kartfärger skrivs ut som de visas */
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🧭 Projekt Shower – Orienteringskarta</h1>
+    <p>Klassisk bana: Start vid Häktet → kontroller 1–5 → Mål vid Eden</p>
+  </header>
+
+  <main class="container">
+    <h2>Banan</h2>
+    <div id="orient-map"></div>
+    <div style="text-align:center">
+      <button class="print-btn" onclick="window.print()">🖨️ Skriv ut / Spara som PDF (A4)</button>
+      <div class="print-hint">Tips: välj <strong>Liggande (Landscape)</strong> och aktivera <strong>Bakgrundsgrafik</strong> i utskriftsdialogen.</div>
+    </div>
+
+    <div class="legend-card">
+      <h3>Teckenförklaring</h3>
+      <div class="legend-symbols">
+        <div class="item"><span class="sym-tri"></span> Start (Häktet)</div>
+        <div class="item"><span class="sym-circle"></span> Kontroll</div>
+        <div class="item"><span class="sym-finish"></span> Mål</div>
+        <div class="item"><span style="display:inline-block;width:26px;height:0;border-top:3px solid var(--of-purple)"></span> Bansträcka</div>
+      </div>
+    </div>
+
+    <div class="legend-card" id="beskrivning-card">
+      <h3>Kontrollbeskrivning</h3>
+      <table class="controls">
+        <thead>
+          <tr><th>#</th><th>Plats</th><th>Beskrivning</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="badge start">S</span></td><td><strong>Start</strong></td><td>Samling &amp; avfärd</td></tr>
+          <tr><td><span class="badge">1</span></td><td><strong>🍺 Första ölet</strong></td><td>Samla gruppen</td></tr>
+          <tr><td><span class="badge">2</span></td><td><strong>🍺 Huvudstopp Söder</strong></td><td>Uteservering</td></tr>
+          <tr><td><span class="badge">3</span></td><td><strong>🍦 Glass &amp; kaffe</strong></td><td>Snabb pickup, ingen sittning</td></tr>
+          <tr><td><span class="badge">4</span></td><td><strong>🍺 Parkstopp</strong></td><td>Längre paus i parken</td></tr>
+          <tr><td><span class="badge">5</span></td><td><strong>🍺 Sista ölet</strong></td><td>Nedvarvning</td></tr>
+          <tr><td><span class="badge" style="border-radius:50%;box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 6px var(--of-purple)">M</span></td><td><strong>🏁 Mål</strong></td><td>Bastu &amp; dopp</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", initOrientMap);
+
+    function initOrientMap() {
+      const map = L.map('orient-map').setView([59.320, 18.041], 14);
+
+      L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        attribution: '© <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA) | © OpenStreetMap contributors',
+        maxZoom: 17,
+        maxNativeZoom: 17
+      }).addTo(map);
+
+      const purple = '#c4007a';
+
+      // Banan i ordning: Start (Häktet) -> kontroller 1-5 -> Mål (Eden)
+      const punkter = [
+        { typ: 'start',   nr: 'S', namn: 'Start',                      lat: 59.3160, lng: 18.0540 },
+        { typ: 'control', nr: 1,   namn: 'Kontroll 1 – 🍺 Första ölet', lat: 59.3185, lng: 18.0584 },
+        { typ: 'control', nr: 2,   namn: 'Kontroll 2 – 🍺 Huvudstopp Söder', lat: 59.3167, lng: 18.0337 },
+        { typ: 'control', nr: 3,   namn: 'Kontroll 3 – 🍦 Glass & kaffe', lat: 59.3107687, lng: 18.0418862 },
+        { typ: 'control', nr: 4,   namn: 'Kontroll 4 – 🍺 Parkstopp',   lat: 59.3286, lng: 18.0272 },
+        { typ: 'control', nr: 5,   namn: 'Kontroll 5 – 🍺 Sista ölet',  lat: 59.3255, lng: 18.0236 },
+        { typ: 'finish',  nr: 'M', namn: 'Mål – 🏁 Bastu & dopp',       lat: 59.3251, lng: 18.0230 },
+      ];
+
+      // Bansträckor – lila linjer mellan punkterna
+      const coords = punkter.map(p => [p.lat, p.lng]);
+      L.polyline(coords, { color: purple, weight: 3, opacity: 0.9 }).addTo(map);
+
+      // Teckenförklaring ovanpå kartan (följer med i utskriften)
+      const legend = L.control({ position: 'bottomright' });
+      legend.onAdd = function () {
+        const div = L.DomUtil.create('div', 'map-legend');
+        div.innerHTML =
+          '<div class="row"><span class="sym-tri"></span> Start (Häktet)</div>' +
+          '<div class="row"><span class="sym-circle"></span> Kontroll</div>' +
+          '<div class="row"><span class="sym-finish"></span> Mål</div>' +
+          '<div class="row"><span style="display:inline-block;width:24px;height:0;border-top:3px solid ' + purple + '"></span> Bansträcka</div>';
+        return div;
+      };
+      legend.addTo(map);
+
+      function startIcon() {
+        return L.divIcon({ className: '', html: '<div class="of-start"></div>', iconSize: [28, 24], iconAnchor: [14, 12] });
+      }
+      function controlIcon() {
+        return L.divIcon({ className: '', html: '<div class="of-control"></div>', iconSize: [26, 26], iconAnchor: [13, 13] });
+      }
+      function finishIcon() {
+        return L.divIcon({ className: '', html: '<div class="of-finish"></div>', iconSize: [30, 30], iconAnchor: [15, 15] });
+      }
+      function numLabel(text) {
+        return L.divIcon({ className: '', html: `<div class="of-num">${text}</div>`, iconSize: [40, 18], iconAnchor: [-16, 22] });
+      }
+
+      punkter.forEach(p => {
+        let icon;
+        if (p.typ === 'start') icon = startIcon();
+        else if (p.typ === 'finish') icon = finishIcon();
+        else icon = controlIcon();
+
+        L.marker([p.lat, p.lng], { icon })
+          .addTo(map)
+          .bindPopup(`<strong>${p.namn}</strong>`);
+
+        // Nummer-/bokstavsetikett bredvid symbolen
+        L.marker([p.lat, p.lng], { icon: numLabel(p.nr), interactive: false }).addTo(map);
+      });
+
+      // Anpassa vyn så hela banan syns
+      const banBounds = L.latLngBounds(coords).pad(0.04);
+      map.fitBounds(banBounds);
+
+      // När storleken ändras vid utskrift: rita om kartan och centrera banan
+      function reflow() {
+        map.invalidateSize();
+        map.fitBounds(banBounds);
+      }
+
+      // Behållaren får sin slutstorlek (aspect-ratio) först efter layout –
+      // rita om kartan så rutten fyller hela ytan, inte bara ett hörn.
+      requestAnimationFrame(reflow);
+      window.addEventListener('load', reflow);
+      if (window.ResizeObserver) {
+        new ResizeObserver(reflow).observe(document.getElementById('orient-map'));
+      }
+      window.addEventListener('beforeprint', reflow);
+      window.addEventListener('afterprint', reflow);
+      if (window.matchMedia) {
+        const mq = window.matchMedia('print');
+        if (mq.addEventListener) mq.addEventListener('change', reflow);
+      }
+    }
+  </script>
+</body>
+</html>
