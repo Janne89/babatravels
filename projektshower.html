@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!-- saved from url=(0056)https://janne89.github.io/babatravels/projektshower.html -->
-<html lang="sv"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
   <title>Projekt Shower - Baba Travels</title>
-  <link rel="stylesheet" href="./Projekt_Shower_files/style.css">
-  <link rel="icon" href="https://janne89.github.io/babatravels/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="./Projekt_Shower_files/leaflet.css">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     .container {
       max-width: 800px;
@@ -143,10 +143,10 @@
   <header>
     <h1>Baba Travels</h1>
     <nav>
-      <a href="https://janne89.github.io/babatravels/index.html">Home</a>
-      <a href="https://janne89.github.io/babatravels/skottland.html">Skottland</a>
-      <a href="https://janne89.github.io/babatravels/historik.html">Historik</a>
-      <a href="https://janne89.github.io/babatravels/julbord.html">Julbord 2025</a>
+      <a href="index.html">Home</a>
+      <a href="skottland.html">Skottland</a>
+      <a href="historik.html">Historik</a>
+      <a href="julbord.html">Julbord 2025</a>
     </nav>
   </header>
 
@@ -154,22 +154,22 @@
     <div class="surprise-box">
       <div class="birthday-icon">🍼</div>
       <h2>🤫 Projekt Shower 🤫</h2>
-      <p id="countdown">⏳ 1d 2h 20m 48s kvar till Projekt Shower!</p>
+      <p id="countdown">Laddar nedräkning…</p>
     </div>
 
     <h2 style="margin-top: 3rem;">🗓️ Schema för dagen</h2>
 
     <div class="facts-grid">
       <div class="fact-card">
-        <h3>Hela dagen<br><small>Stockholm – Söder &amp; Kungsholmen</small></h3>
+        <h3>Hela dagen<br><small>Stockholm – Söder & Kungsholmen</small></h3>
         <ul>
           <li>10:30 – 11:45 – <strong>Starten: Överraskning, bärs och presenter</strong> på Båstadsvägen 19, Johanneshov.
             <button class="info-btn" onclick="toggleHotelInfo(this)">🎁 Detaljer</button>
             <div class="hotel-info">
               <strong>Plats:</strong> Båstadsvägen 19, Johanneshov<br>
-              <a href="https://www.google.com/maps/search/?api=1&amp;query=B%C3%A5stadsv%C3%A4gen%2019%20Johanneshov" target="_blank">📍 Visa på karta</a><br><br>
+              <a href="https://www.google.com/maps/search/?api=1&query=B%C3%A5stadsv%C3%A4gen%2019%20Johanneshov" target="_blank">📍 Visa på karta</a><br><br>
               Vi smyger in, överraskar Lelle, drar igång med en öl direkt och kör en kort presentrunda innan vi behöver dra vidare.<br><br>
-              <strong>🎒 Väska &amp; bil:</strong><br>
+              <strong>🎒 Väska & bil:</strong><br>
               Här hos Lennart dumpar alla sin väska med handduk, badkläder och kvällskläder. Vi tar oss vidare i bara träningskläder. <strong>Hellman</strong> kör bilen med alla väskor och parkerar vid Eden – han kommer dumpa bilen vid eden när vi drar på första rundan och ta voien in och möta upp oss.
             </div>
           </li>
@@ -179,32 +179,32 @@
             <div class="hotel-info">
               <strong>Häktet</strong><br>
               Hornsgatan 82, 118 21 Stockholm (Södermalm)<br>
-              <a href="https://www.google.com/maps/search/?api=1&amp;query=H%C3%A4ktet%20Hornsgatan%2082%20Stockholm" target="_blank">📍 Visa på karta</a><br><br>
+              <a href="https://www.google.com/maps/search/?api=1&query=H%C3%A4ktet%20Hornsgatan%2082%20Stockholm" target="_blank">📍 Visa på karta</a><br><br>
               <span class="confirmed">✅ BOKAT OCH KLART!</span><br>
-              Gammal arrestlokal från 1700-talet, nu bistro &amp; bar med flera barer under samma tak – perfekt läge för en lång, skön brunch.
+              Gammal arrestlokal från 1700-talet, nu bistro & bar med flera barer under samma tak – perfekt läge för en lång, skön brunch.
             </div>
           </li>
-          <li>14:15 – 18:45 – <strong>"Den förbaskade ölorienteringen"</strong>: Löprunda på Söder &amp; Kungsholmen med korta barstopp längs vägen.
+          <li>14:15 – 18:45 – <strong>"Den förbaskade ölorienteringen"</strong>: Löprunda på Söder & Kungsholmen med korta barstopp längs vägen.
             <button class="info-btn" onclick="toggleHotelInfo(this)">🍺 Detaljerat schema</button>
-            <div class="hotel-info" style="display: block;">
+            <div class="hotel-info">
               Vi rör oss i lugn takt från Söder, över Västerbron och vidare till Kungsholmen, med stopp på vägen. Väskan med ombyte är redan dumpad i Hellmans bil – under rundan går vi bara i träningskläder, så bara en lättare sak (typ ett bälte/liten väska för plånbok och mobil) behövs på dig.<br><br>
               <ul class="sub-schedule">
                 <li><span class="run-label">RUN 1</span> · 14:15–14:20 — Häktet → Bar Central (~700 m)</li>
                 <li><span class="stop-label">STOPP 1</span> · 14:20–15:10 — <strong>Bar Central</strong> (Hornsgatan 72) – första öl, samla gruppen<br>
-                  <a href="https://www.google.com/maps/search/?api=1&amp;query=Bar%20Central%20Hornsgatan%2072%20Stockholm" target="_blank">📍 Visa på karta</a>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Bar%20Central%20Hornsgatan%2072%20Stockholm" target="_blank">📍 Visa på karta</a>
                 </li>
                 <li><span class="run-label">RUN 2</span> · 15:10–15:15 — Bar Central → Hornstull (~800 m)</li>
                 <li><span class="stop-label">STOPP 2</span> · 15:15–16:05 — <strong>Hornhuset</strong> (Hornstull) – huvudstopp Söder + uteservering<br>
-                  <a href="https://www.google.com/maps/search/?api=1&amp;query=Hornhuset%20L%C3%A5ngholmsgatan%2015b%20Stockholm" target="_blank">📍 Visa på karta</a>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Hornhuset%20L%C3%A5ngholmsgatan%2015b%20Stockholm" target="_blank">📍 Visa på karta</a>
                 </li>
-                <li><span class="run-label">RUN 3</span> · 16:05–16:20 — Hornstull → Västerbron start (~1.2 km), snabb pickup vid <strong>Håll Struten</strong> (Tantogatan 85) på vägen, ingen sittning</li>
+                <li><span class="run-label">RUN 3</span> · 16:05–16:20 — Hornstull → Västerbron start (~1.2 km), snabb pickup vid <strong>glasskiosken i Tantolunden</strong> på vägen, ingen sittning</li>
                 <li><span class="run-label">RUN 4</span> · 16:20–16:55 — Västerbron → Rålambshov (~1.5 km), kontrollerad klunga, ingen sprint</li>
                 <li><span class="stop-label">STOPP 3</span> · 16:55–17:50 — <strong>Boulebar Rålambshov</strong> – parkhäng, öl, längre paus<br>
-                  <a href="https://www.google.com/maps/search/?api=1&amp;query=Boulebar%20R%C3%A5lambshov%20Smedsuddsv%C3%A4gen%202%20Stockholm" target="_blank">📍 Visa på karta</a>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Boulebar%20R%C3%A5lambshov%20Smedsuddsv%C3%A4gen%202%20Stockholm" target="_blank">📍 Visa på karta</a>
                 </li>
                 <li><span class="run-label">RUN 5</span> · 17:50–18:05 — Rålambshov → Eden (~600 m)</li>
                 <li><span class="stop-label">STOPP 4 (FINAL)</span> · 18:05–18:45 — <strong>Eden Utebar</strong> – nedvarvning + sista öl<br>
-                  <a href="https://www.google.com/maps/search/?api=1&amp;query=Eden%20Smedsuddsv%C3%A4gen%2023%20Stockholm" target="_blank">📍 Visa på karta</a>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Eden%20Smedsuddsv%C3%A4gen%2023%20Stockholm" target="_blank">📍 Visa på karta</a>
                 </li>
               </ul>
             </div>
@@ -215,11 +215,11 @@
             <div class="hotel-info">
               <strong>Eden Bastu</strong><br>
               Smedsuddsleden 23, 112 35 Stockholm<br>
-              <a href="https://www.google.com/maps/search/?api=1&amp;query=Eden%20Bastu%20Smedsuddsleden%2023%20Stockholm" target="_blank">📍 Visa på karta</a><br><br>
+              <a href="https://www.google.com/maps/search/?api=1&query=Clarion%20Hotel%20Skanstull%20Elements%20Spa" target="_blank">📍 Visa på karta</a><br><br>
               <span class="confirmed">✅ BOKAT OCH KLART!</span><br>
               Skön bastu och svalkande dopp inför kvällen.<br><br>
               <strong>🚗 Väskorna:</strong> Vi plockar upp väskor (handduk, badkläder, kvällskläder) här vid Eden där Hellmans bil ish kommer va. Närmare ryska ambassaden men i närheten.<br><br>
-              <strong>🎒 Bra att veta &amp; Ta med:</strong><br>
+              <strong>🎒 Bra att veta & Ta med:</strong><br>
               • Skåp och utomhusdusch finns på plats.<br>
               • Ta med egen <strong>handduk</strong> och <strong>badkläder</strong>!
             </div>
@@ -229,7 +229,7 @@
             <div class="hotel-info">
               <strong>Trattorian</strong><br>
               Norr Mälarstrand, Kajplats 464, 112 20 Stockholm<br>
-              <a href="https://maps.google.com/?q=Trattorian+Norr+M%C3%A4larstrand+Stockholm" target="_blank">📍 Visa på karta</a><br><br>
+              <a href="https://maps.google.com/?q=Trattorian+Norr+Mälarstrand+Stockholm" target="_blank">📍 Visa på karta</a><br><br>
               <span class="confirmed">✅ BOKAT OCH KLART!</span><br>
               <strong>⏱️ Tid:</strong> Lördag 27 jun, kl. 21:15 - 23:15<br>
               <strong>👥 Antal:</strong> 8 personer<br>
@@ -242,9 +242,7 @@
 
     <h2 style="margin-top: 3rem;">🗺️ Karta över dagen</h2>
     <p>Klicka på markörerna för mer info om varje stopp.</p>
-    <div id="shower-map" class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0" style="position: relative;"><div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 16; transform: translate3d(-1190px, -504px, 0px) scale(4);"></div><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt="" src="./Projekt_Shower_files/2409.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(186px, -28px, 0px); opacity: 1;"><img alt="" src="./Projekt_Shower_files/2409(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(442px, -28px, 0px); opacity: 1;"><img alt="" src="./Projekt_Shower_files/2410.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(186px, 228px, 0px); opacity: 1;"><img alt="" src="./Projekt_Shower_files/2410(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(442px, 228px, 0px); opacity: 1;"><img alt="" src="./Projekt_Shower_files/2409(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-70px, -28px, 0px); opacity: 1;"><img alt="" src="./Projekt_Shower_files/2409(3).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(698px, -28px, 0px); opacity: 1;"><img alt="" src="./Projekt_Shower_files/2410(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-70px, 228px, 0px); opacity: 1;"><img alt="" src="./Projekt_Shower_files/2410(3).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(698px, 228px, 0px); opacity: 1;"></div></div></div><div class="leaflet-pane leaflet-overlay-pane"><svg pointer-events="none" class="leaflet-zoom-animated" width="960" height="576" viewBox="-80 -48 960 576" style="transform: translate3d(-80px, -48px, 0px);"><g><path class="leaflet-interactive" stroke="#d35400" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8, 6" fill="none" d="M386 383L142 168L168 140L24 160L114 200L-14 24L-35 60L-31 102L81 38"></path></g></svg></div><div class="leaflet-pane leaflet-shadow-pane"></div><div class="leaflet-pane leaflet-marker-pane"><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -14px; margin-top: -14px; width: 28px; height: 28px; transform: translate3d(386px, 383px, 0px); z-index: 383;"><div style="background:#d35400;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:12px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.4)">1</div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -14px; margin-top: -14px; width: 28px; height: 28px; transform: translate3d(142px, 168px, 0px); z-index: 168;"><div style="background:#d35400;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:12px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.4)">2</div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -14px; margin-top: -14px; width: 28px; height: 28px; transform: translate3d(168px, 140px, 0px); z-index: 140;"><div style="background:#d35400;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:12px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.4)">3</div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -14px; margin-top: -14px; width: 28px; height: 28px; transform: translate3d(24px, 160px, 0px); z-index: 160;"><div style="background:#d35400;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:12px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.4)">4</div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -14px; margin-top: -14px; width: 28px; height: 28px; transform: translate3d(114px, 200px, 0px); z-index: 200;"><div style="background:#d35400;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:12px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.4)">5</div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -14px; margin-top: -14px; width: 28px; height: 28px; transform: translate3d(-14px, 24px, 0px); z-index: 24;"><div style="background:#d35400;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:12px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.4)">6</div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -14px; margin-top: -14px; width: 28px; height: 28px; transform: translate3d(-35px, 60px, 0px); z-index: 60;"><div style="background:#d35400;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:12px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.4)">7</div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -14px; margin-top: -14px; width: 28px; height: 28px; transform: translate3d(-31px, 102px, 0px); z-index: 102;"><div style="background:#d35400;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:12px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.4)">8</div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -14px; margin-top: -14px; width: 28px; height: 28px; transform: translate3d(81px, 38px, 0px); z-index: 38;"><div style="background:#d35400;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:12px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.4)">9</div></div></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(1.15401e+06px, 616972px, 0px) scale(4096);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="https://janne89.github.io/babatravels/projektshower.html#" title="Zoom in" role="button" aria-label="Zoom in" aria-disabled="false"><span aria-hidden="true">+</span></a><a class="leaflet-control-zoom-out" href="https://janne89.github.io/babatravels/projektshower.html#" title="Zoom out" role="button" aria-label="Zoom out" aria-disabled="false"><span aria-hidden="true">−</span></a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control" style="background: white; padding: 10px 14px; border-radius: 8px; font-size: 13px; box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px; line-height: 1.6;">
-        <div><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#d35400;margin-right:6px;vertical-align:middle"></span>Projekt Shower – rutt för dagen</div>
-      </div><div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com/" title="A JavaScript library for interactive maps"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" class="leaflet-attribution-flag"><path fill="#4C7BE1" d="M0 0h12v4H0z"></path><path fill="#FFD500" d="M0 4h12v3H0z"></path><path fill="#E0BC00" d="M0 7h12v1H0z"></path></svg> Leaflet</a> <span aria-hidden="true">|</span> © OpenStreetMap contributors</div></div></div></div>
+    <div id="shower-map"></div>
 
     <h2 style="margin-top: 3rem;">🎒 Att ta med för ALLA</h2>
     <p>Packa badkläder, handduk och ombyte till middagen i en väska som dumpas hos Lennart (Båstadsvägen 19) redan vid start. Hellman tar bilen med alla väskor och möter upp vid Eden. Under själva Beer Runen går vi bara i träningskläder, så res lätt!</p>
@@ -271,8 +269,8 @@
 
   </main>
 
-  <script src="./Projekt_Shower_files/countdown-projektshower.js.ladda ned"></script>
-  <script src="./Projekt_Shower_files/leaflet.js.ladda ned"></script>
+  <script src="scripts/countdown-projektshower.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -292,10 +290,10 @@ document.addEventListener("DOMContentLoaded", function () {
       { nr: 2, namn: "2. Lunch & Drinkar – Häktet (Hornsgatan 82)", lat: 59.3160, lng: 18.0540 },
       { nr: 3, namn: "3. Beer Run – Bar Central (Hornsgatan 72)", lat: 59.3185, lng: 18.0584 },
       { nr: 4, namn: "4. Beer Run – Hornhuset (Hornstull)", lat: 59.3167, lng: 18.0337 },
-      { nr: 5, namn: "5. Beer Run – Håll Struten (Tantogatan 85)", lat: 59.3107687, lng: 18.0418862 },
+      { nr: 5, namn: "5. Beer Run – Glasskiosk (Tantolunden)", lat: 59.3132, lng: 18.0491 },
       { nr: 6, namn: "6. Beer Run – Boulebar Rålambshov", lat: 59.3286, lng: 18.0272 },
       { nr: 7, namn: "7. Beer Run – Eden Utebar (final)", lat: 59.3255, lng: 18.0236 },
-      { nr: 8, namn: "8. Eden Bastu & Dopp (Smedsudden)", lat: 59.3251, lng: 18.0230 },
+      { nr: 8, namn: "8. Eden Bastu & Dopp (Smedsudden)", lat: 59.3218, lng: 18.0242 },
       { nr: 9, namn: "9. Middag – Trattorian (Norr Mälarstrand)", lat: 59.3274, lng: 18.0435 },
     ];
 
@@ -330,6 +328,5 @@ document.addEventListener("DOMContentLoaded", function () {
     legende.addTo(map);
   }
 </script>
-
-
-</body></html>
+</body>
+</html>
