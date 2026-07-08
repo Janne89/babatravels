@@ -177,6 +177,20 @@
       white-space: nowrap;
     }
 
+    .pending-tag {
+      display: inline-block;
+      font-family: sans-serif;
+      font-weight: bold;
+      font-size: 0.7rem;
+      color: #8a5a00;
+      background: #fdf0d5;
+      padding: 0.05rem 0.45rem;
+      border-radius: 3px;
+      margin-left: 0.3rem;
+      border: 1px solid #e8c874;
+      white-space: nowrap;
+    }
+
     .section-title {
       font-size: 1.3rem;
       color: var(--wine);
@@ -422,6 +436,15 @@
           </div>
         </li>
         <li><span class="time-tag">14:30</span>🍇 <strong>Eguisheim</strong> – cykeltur, byn i cirkel (ca 25–35 km t/r)</li>
+        <li><span class="time-tag">14:30</span>🍷 Ev. provning – Domaine Josmeyer <span class="pending-tag">⏳ Inväntar svar</span>
+          <button class="info-btn" onclick="toggleHotelInfo(this)">🍷 Provningsinfo</button>
+          <div class="hotel-info">
+            <strong>Domaine Josmeyer, Wintzenheim ⏳ EJ BOKAD – inväntar svar</strong><br>
+            📅 Ons 5 aug 2026, ca kl. 14:30 (preliminärt, ej bekräftat)<br><br>
+            Bokning görs via kontaktformulär – väntar på svar från vingården:<br>
+            <a href="https://www.domaine-josmeyer.com/contactez-nous/?idform=contact" target="_blank">🔗 Boka/kontakta Domaine Josmeyer</a>
+          </div>
+        </li>
         <li><span class="time-tag">16:30</span>🍷 Vinprovning – Domaine Emile Beyer
           <button class="info-btn" onclick="toggleHotelInfo(this)">🍷 Provningsinfo</button>
           <div class="hotel-info">
@@ -453,8 +476,38 @@
       <ul>
         <li><span class="time-tag">09:00</span>🚴 Avfärd med elcykel från Colmar (ca 45–60 km totalt)</li>
         <li><span class="time-tag">10:30</span>🍇 <strong>Ribeauvillé</strong> – medeltida torn och vingårdar</li>
+        <li><span class="time-tag">10:30</span>🍷 Förslag: Domaine Marcel Deiss <span class="pending-tag">📋 Förslag – ej bokad</span>
+          <button class="info-btn" onclick="toggleHotelInfo(this)">🍷 Provningsinfo</button>
+          <div class="hotel-info">
+            <strong>Domaine Marcel Deiss, Bergheim 📋 Förslag – ej bokad</strong><br>
+            📅 Tors 6 aug 2026, kl. 10:30–11:45 (förslag)<br><br>
+            <strong>Bokning:</strong> Kontaktformulär på hemsidan<br>
+            <a href="https://www.domaine-marceldeiss.com/en/contact/" target="_blank">🔗 Domaine Marcel Deiss – Contact us</a><br><br>
+            <strong>Gör så här:</strong> Fyll i kontaktformuläret, välj datum och tid, ange att ni är en grupp på 6 personer som vill boka en provning.
+          </div>
+        </li>
+        <li><span class="time-tag">12:00</span>🍷 Förslag: Gustave Lorentz <span class="pending-tag">📋 Förslag – ej bokad</span>
+          <button class="info-btn" onclick="toggleHotelInfo(this)">🍷 Provningsinfo</button>
+          <div class="hotel-info">
+            <strong>Gustave Lorentz 📋 Förslag – ej bokad</strong><br>
+            📅 Tors 6 aug 2026, kl. 12:00–13:00 (förslag)<br><br>
+            <strong>Bokning:</strong> Se "Tasting Cellar"-info på hemsidan<br>
+            <a href="https://www.gustavelorentz.com/en/visit-us/" target="_blank">🔗 Visit us – Gustave Lorentz</a><br><br>
+            <strong>Gör så här:</strong> För grupper vill de att man mailar direkt till info@gustavelorentz.com eller ringer +33 3 89 73 88 07.
+          </div>
+        </li>
         <li><span class="time-tag">12:30</span>🥗 Lunch i vinby</li>
         <li><span class="time-tag">14:00</span>🍇 <strong>Riquewihr</strong> – sagobyn, vinprovning</li>
+        <li><span class="time-tag">15:00</span>🍷 Förslag: Trimbach <span class="pending-tag">📋 Förslag – ej bokad</span>
+          <button class="info-btn" onclick="toggleHotelInfo(this)">🍷 Provningsinfo</button>
+          <div class="hotel-info">
+            <strong>Trimbach 📋 Förslag – ej bokad</strong><br>
+            📅 Tors 6 aug 2026, kl. 15:00–16:30 (förslag)<br><br>
+            <strong>Bokning:</strong> Kontaktformulär på hemsidan<br>
+            <a href="https://www.trimbach.fr/en/contact/" target="_blank">🔗 Trimbach – Contact</a><br><br>
+            <strong>Gör så här:</strong> Använd kontaktformuläret för att skicka en förfrågan om ert besök.
+          </div>
+        </li>
         <li><span class="time-tag">16:30</span>🚴 Cykling tillbaka mot Colmar</li>
         <li><span class="time-tag">18:00</span>🥂 Sista provning / aperitif</li>
         <li><span class="time-tag">19:30</span>🍽️ Middag i Colmar</li>
@@ -469,6 +522,15 @@
       <ul>
         <li><span class="time-tag">09:30</span>🚴 Kortare cykeltur mot Kaysersberg (ca 20–35 km totalt)</li>
         <li><span class="time-tag">10:30</span>🏡 <strong>Kaysersberg</strong> – medeltida by med vinslott</li>
+        <li><span class="time-tag">10:30</span>🍷 Förslag: Domaine Weinbach <span class="pending-tag">📋 Förslag – ej bokad</span>
+          <button class="info-btn" onclick="toggleHotelInfo(this)">🍷 Provningsinfo</button>
+          <div class="hotel-info">
+            <strong>Domaine Weinbach 📋 Förslag – ej bokad</strong><br>
+            📅 Fre 7 aug 2026, kl. 10:30–12:15 (förslag)<br><br>
+            <strong>Bokning:</strong> Ingen renodlad bokningsmodul – tar emot förfrågningar via mail/telefon<br>
+            Skicka mail till oenotourisme@domaineweinbach.com eller ring +33 3 89 47 13 21
+          </div>
+        </li>
         <li><span class="time-tag">12:30</span>🥗 Lunch i Kaysersberg</li>
         <li><span class="time-tag">14:00</span>🛍️ Vinshopping</li>
         <li><span class="time-tag">16:00</span>🚴 Cykel tillbaka till Colmar</li>
