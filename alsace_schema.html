@@ -205,6 +205,20 @@
       white-space: nowrap;
     }
 
+    .unbooked-tag {
+      display: inline-block;
+      font-family: sans-serif;
+      font-weight: bold;
+      font-size: 0.7rem;
+      color: #a02020;
+      background: #fbe4e4;
+      padding: 0.05rem 0.45rem;
+      border-radius: 3px;
+      margin-left: 0.3rem;
+      border: 1px solid #e8a8a8;
+      white-space: nowrap;
+    }
+
     .section-title {
       font-size: 1.3rem;
       color: var(--wine);
@@ -290,6 +304,69 @@
 
     .hotel-info strong { color: var(--dark); }
 
+    .assistant-section { margin-top: 3rem; }
+
+    .assistant-intro {
+      font-size: 0.88rem;
+      color: var(--mid);
+      font-family: sans-serif;
+      margin-bottom: 1.3rem;
+      line-height: 1.6;
+    }
+
+    .assistant-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .assistant-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.1rem 1.3rem;
+      box-shadow: 0 2px 10px var(--shadow);
+      border-left: 4px solid var(--gold);
+    }
+
+    .assistant-card h4 {
+      font-size: 0.92rem;
+      color: var(--wine);
+      font-weight: normal;
+      margin-bottom: 0.5rem;
+    }
+
+    .assistant-name {
+      display: inline-block;
+      font-family: sans-serif;
+      font-weight: bold;
+      font-size: 0.85rem;
+      color: var(--wine);
+      background: var(--light);
+      padding: 0.15rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.7rem;
+    }
+
+    .assistant-card p {
+      font-size: 0.82rem;
+      font-family: sans-serif;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    .assistant-card ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 0.3rem;
+    }
+
+    .assistant-card li {
+      font-size: 0.82rem;
+      font-family: sans-serif;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
     @media (max-width: 500px) {
       header h1 { font-size: 1.7rem; }
       .map-container { height: 300px; }
@@ -336,6 +413,7 @@
           </div>
         </li>
         <li><span class="time-tag">12:05</span>🛬 Ankomst Frankfurt (FRA)</li>
+        <li><span class="time-tag">12:30</span>🥗 Lunch på/vid Frankfurt flygplats <span class="unbooked-tag">❌ EJ BOKAD</span></li>
         <li><span class="time-tag">13:51</span>🚄 Tåg Frankfurt Flughafen → Strasbourg
           <button class="info-btn" onclick="toggleHotelInfo(this)">🚄 Tåginfo</button>
           <div class="hotel-info">
@@ -425,7 +503,7 @@
             💡 Incheckning öppnar 15:00 – dumpa väskorna och hämta nycklar senare, eller fråga om tidig bagageförvaring
           </div>
         </li>
-        <li><span class="time-tag">13:00</span>🥗 Lunch i Colmar</li>
+        <li><span class="time-tag">13:00</span>🥗 Lunch i Colmar <span class="unbooked-tag">❌ EJ BOKAD</span></li>
         <li><span class="time-tag">14:00</span>🚴 Hämta elcyklar – Le Vélo Libre, 37 Rue Turenne
           <button class="info-btn" onclick="toggleHotelInfo(this)">🚴 Elcykelinfo</button>
           <div class="hotel-info">
@@ -482,7 +560,7 @@
           </div>
         </li>
         <li><span class="time-tag">18:00</span>🚴 Tillbaka till Colmar</li>
-        <li><span class="time-tag">19:30</span>🍽️ Middag i Colmar</li>
+        <li><span class="time-tag">19:30</span>🍽️ Middag i Colmar <span class="unbooked-tag">❌ EJ BOKAD</span></li>
         <li><span class="time-tag">22:00</span>🔋 Lossa batterier från cyklarna, ställ cyklarna i hotellets cykelgarage, ladda batterierna på rummet över natten</li>
       </ul>
       <span class="stay-badge">🏨 Colmar – natt 1</span>
@@ -518,7 +596,7 @@
             <strong>Gör så här:</strong> För grupper vill de att man mailar direkt till info@gustavelorentz.com eller ringer +33 3 89 73 88 07.
           </div>
         </li>
-        <li><span class="time-tag">12:30</span>🥗 Lunch i vinby</li>
+        <li><span class="time-tag">12:30</span>🥗 Lunch i vinby <span class="unbooked-tag">❌ EJ BOKAD</span></li>
         <li><span class="time-tag">14:00</span>🍇 <strong>Riquewihr</strong> – sagobyn, vinprovning</li>
         <li><span class="time-tag">16:00</span>🍷 Discovery Tour – Louis Sipp <span class="booked-tag">✅ BOKAD</span>
           <button class="info-btn" onclick="toggleHotelInfo(this)">🍷 Provningsinfo</button>
@@ -534,7 +612,7 @@
         </li>
         <li><span class="time-tag">16:30</span>🚴 Cykling tillbaka mot Colmar</li>
         <li><span class="time-tag">18:00</span>🥂 Sista provning / aperitif</li>
-        <li><span class="time-tag">19:30</span>🍽️ Middag i Colmar</li>
+        <li><span class="time-tag">19:30</span>🍽️ Middag i Colmar <span class="unbooked-tag">❌ EJ BOKAD</span></li>
         <li><span class="time-tag">22:00</span>🔋 Lossa batterier, ställ cyklarna i hotellets cykelgarage, ladda batterierna på rummet över natten</li>
       </ul>
       <span class="stay-badge">🏨 Colmar – natt 2</span>
@@ -560,11 +638,11 @@
             Bekräftat via mail av Catherine Faller.
           </div>
         </li>
-        <li><span class="time-tag">12:30</span>🥗 Lunch i Kaysersberg</li>
+        <li><span class="time-tag">12:30</span>🥗 Lunch i Kaysersberg <span class="unbooked-tag">❌ EJ BOKAD</span></li>
         <li><span class="time-tag">14:00</span>🛍️ Vinshopping</li>
         <li><span class="time-tag">16:00</span>🚴 Cykel tillbaka till Colmar</li>
         <li><span class="time-tag">17:30</span>🧖 Spa / lugn kväll</li>
-        <li><span class="time-tag">19:30</span>🍽️ Avskedsmiddag i Colmar</li>
+        <li><span class="time-tag">19:30</span>🍽️ Avskedsmiddag i Colmar <span class="unbooked-tag">❌ EJ BOKAD</span></li>
         <li><span class="time-tag">21:00</span>🚴 Sista cykling till Le Vélo Libre, 37 Rue Turenne</li>
         <li><span class="time-tag">21:30</span>🔚 Återlämning elcyklar – senast nu! Foto av cykeln (2 bilder) → maila photos@levelolibre.fr
           <button class="info-btn" onclick="toggleHotelInfo(this)">🚴 Återlämningsinfo</button>
@@ -586,7 +664,7 @@
       <h3>Dag 5 – Lördag 8 aug<small>Colmar → Strasbourg</small></h3>
       <ul>
         <li><span class="time-tag">09:00</span>🌅 Lugn morgon</li>
-        <li><span class="time-tag">10:00</span>🥞 Brunch / sista promenad i Colmar</li>
+        <li><span class="time-tag">10:00</span>🥞 Brunch / sista promenad i Colmar <span class="unbooked-tag">❌ EJ BOKAD</span></li>
         <li><span class="time-tag">11:00</span>👋 Utcheckning Hôtel Maison Turenne
           <button class="info-btn" onclick="toggleHotelInfo(this)">🏨 Hotellinfo</button>
           <div class="hotel-info">
@@ -634,7 +712,7 @@
         </li>
         <li><span class="time-tag">14:00</span>🏘️ Petite France – sista sväng</li>
         <li><span class="time-tag">17:00</span>🚣 Båttur längs kanalerna</li>
-        <li><span class="time-tag">19:30</span>🍽️ Middag i Strasbourg</li>
+        <li><span class="time-tag">19:30</span>🍽️ Middag i Strasbourg <span class="unbooked-tag">❌ EJ BOKAD</span></li>
       </ul>
       <span class="stay-badge">🏨 Strasbourg – natt 2</span>
     </div>
@@ -668,6 +746,7 @@
         <li><span class="time-tag">11:22</span>🔄 Byte i Offenburg (→ ICE 372)</li>
         <li><span class="time-tag">12:22</span>🔄 Byte i Mannheim (→ ICE 610)</li>
         <li><span class="time-tag">13:08</span>🛬 Ankomst Frankfurt Hbf</li>
+        <li><span class="time-tag">14:00</span>🥗 Lunch i Frankfurt (Hbf/flygplatsen) <span class="unbooked-tag">❌ EJ BOKAD</span></li>
         <li><span class="time-tag">16:20</span>✈ Flyg avgår FRA (Lufthansa LH806)
           <button class="info-btn" onclick="toggleHotelInfo(this)">✈ Flyginfo</button>
           <div class="hotel-info">
@@ -696,6 +775,76 @@
       <a href="https://www.google.com/maps/dir/Frankfurt+Airport+FRA/Strasbourg+France/Hotel+Maison+Turenne+Colmar/Eguisheim+France/Ribeauville+France/Riquewihr+France/Kaysersberg+France" target="_blank">
         🗺️ Öppna rutten i Google Maps
       </a>
+    </div>
+  </div>
+
+  <!-- Planeringsassistenter -->
+  <div class="assistant-section">
+    <h2 class="section-title">👥 Planeringsassistenter</h2>
+    <p class="assistant-intro">Jag har planerat och bokat det mesta, men varje dag har en utsedd assistent som hjälper till att boka det som fortfarande står som <span class="unbooked-tag">❌ EJ BOKAD</span>, om vi vill boka detta. Annars kör vi lite spontant.</p>
+    <div class="assistant-grid">
+
+      <div class="assistant-card">
+        <h4>Dag 1 – Tisdag 4 aug (ARN → Strasbourg)</h4>
+        <span class="assistant-name">Pontus</span>
+        <p>Transportdag, det mesta redan bokat. Håller koll på flyget och tåget, samt att gruppen hittar rätt till hotellet och middagen.</p>
+        <p>Ej bokat som går att boka om man vill:</p>
+        <ul>
+          <li>🥗 Lunch på/vid Frankfurt flygplats</li>
+        </ul>
+      </div>
+
+      <div class="assistant-card">
+        <h4>Dag 2 – Onsdag 5 aug (Strasbourg → Colmar → Eguisheim)</h4>
+        <span class="assistant-name">Kalle</span>
+        <p>Ej bokat som går att boka om man vill:</p>
+        <ul>
+          <li>🥗 Lunch i Colmar</li>
+          <li>🍽️ Middag i Colmar</li>
+        </ul>
+      </div>
+
+      <div class="assistant-card">
+        <h4>Dag 3 – Torsdag 6 aug (Ribeauvillé & Riquewihr)</h4>
+        <span class="assistant-name">Hellman</span>
+        <p>Ej bokat som går att boka om man vill:</p>
+        <ul>
+          <li>🥗 Lunch i vinby</li>
+          <li>🍷 Gustave Lorentz (12:00) – förslag, ej bokad, har mailat men de har ej svarat. Antingen kör vi på det eller så kan du välja annan eller skippa en till vinprovning.</li>
+          <li>🍽️ Middag i Colmar</li>
+        </ul>
+      </div>
+
+      <div class="assistant-card">
+        <h4>Dag 4 – Fredag 7 aug (Kaysersberg)</h4>
+        <span class="assistant-name">Oskar</span>
+        <p>Ej bokat som går att boka om man vill:</p>
+        <ul>
+          <li>🥗 Lunch i Kaysersberg</li>
+          <li>🍽️ Avskedsmiddag i Colmar</li>
+        </ul>
+      </div>
+
+      <div class="assistant-card">
+        <h4>Dag 5 – Lördag 8 aug (Colmar → Strasbourg)</h4>
+        <span class="assistant-name">Johannes</span>
+        <p>Ej bokat som går att boka om man vill:</p>
+        <ul>
+          <li>🥞 Brunch i Colmar</li>
+          <li>🍽️ Middag i Strasbourg</li>
+        </ul>
+      </div>
+
+      <div class="assistant-card">
+        <h4>Dag 6 – Söndag 9 aug (Hemresa)</h4>
+        <span class="assistant-name">Pontus</span>
+        <p>Transportdag, det mesta redan bokat. Håller koll på tåg- och flygbytena hem.</p>
+        <p>Ej bokat som går att boka om man vill:</p>
+        <ul>
+          <li>🥗 Lunch i Frankfurt (Hbf/flygplatsen)</li>
+        </ul>
+      </div>
+
     </div>
   </div>
 
