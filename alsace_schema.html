@@ -407,9 +407,9 @@
             <strong>Flyg VL801 – Utresa</strong><br>
             Avgång: 09:55 Stockholm-Arlanda (ARN)<br>
             Ankomst: 12:05 Frankfurt (FRA)<br>
-            Flygbolag: [fylls i]<br>
-            Bokningsnummer: [fylls i]<br>
-            Terminal: [fylls i]
+            Flygbolag: Lufthansa<br>
+            Flyg: VL801<br>
+            Terminal: Terminal 5
           </div>
         </li>
         <li><span class="time-tag">12:05</span>🛬 Ankomst Frankfurt (FRA)</li>
@@ -560,7 +560,15 @@
           </div>
         </li>
         <li><span class="time-tag">18:00</span>🚴 Tillbaka till Colmar</li>
-        <li><span class="time-tag">19:30</span>🍽️ Middag i Colmar <span class="unbooked-tag">❌ EJ BOKAD</span></li>
+        <li><span class="time-tag">19:45</span>🍽️ Middag på Utopie i Colmar <span class="booked-tag">✅ BOKAD</span>
+          <button class="info-btn" onclick="toggleHotelInfo(this)">🍽️ Restauranginfo</button>
+          <div class="hotel-info">
+            <strong>Utopie ✅ BOKAD</strong><br>
+            📍 Colmar<br><br>
+            📅 Onsdag 5 aug 2026, kl. 19:45<br>
+            👥 6 personer
+          </div>
+        </li>
         <li><span class="time-tag">22:00</span>🔋 Lossa batterier från cyklarna, ställ cyklarna i hotellets cykelgarage, ladda batterierna på rummet över natten</li>
       </ul>
       <span class="stay-badge">🏨 Colmar – natt 1</span>
@@ -611,7 +619,15 @@
         </li>
         <li><span class="time-tag">16:30</span>🚴 Cykling tillbaka mot Colmar</li>
         <li><span class="time-tag">18:00</span>🥂 Sista provning / aperitif</li>
-        <li><span class="time-tag">19:30</span>🍽️ Middag i Colmar <span class="unbooked-tag">❌ EJ BOKAD</span></li>
+        <li><span class="time-tag">19:30</span>🍽️ Middag på Cocotte de Grand Mère i Colmar <span class="booked-tag">✅ BOKAD</span>
+          <button class="info-btn" onclick="toggleHotelInfo(this)">🍽️ Restauranginfo</button>
+          <div class="hotel-info">
+            <strong>Cocotte de Grand Mère ✅ BOKAD</strong><br>
+            📍 Colmar<br><br>
+            📅 Torsdag 6 aug 2026, kl. 19:30<br>
+            👥 6 personer
+          </div>
+        </li>
         <li><span class="time-tag">22:00</span>🔋 Lossa batterier, ställ cyklarna i hotellets cykelgarage, ladda batterierna på rummet över natten</li>
       </ul>
       <span class="stay-badge">🏨 Colmar – natt 2</span>
@@ -642,7 +658,15 @@
         <li><span class="time-tag">14:00</span>🛍️ Vinshopping</li>
         <li><span class="time-tag">16:00</span>🚴 Cykel tillbaka till Colmar</li>
         <li><span class="time-tag">17:30</span>🧖 Spa / lugn kväll</li>
-        <li><span class="time-tag">19:30</span>🍽️ Avskedsmiddag i Colmar <span class="unbooked-tag">❌ EJ BOKAD</span></li>
+        <li><span class="time-tag">19:30</span>🍽️ Avskedsmiddag på Le Cercle des Arômes i Colmar <span class="booked-tag">✅ BOKAD</span>
+          <button class="info-btn" onclick="toggleHotelInfo(this)">🍽️ Restauranginfo</button>
+          <div class="hotel-info">
+            <strong>Le Cercle des Arômes, Colmar ✅ BOKAD</strong><br>
+            📍 Colmar<br><br>
+            📅 Fredag 7 aug 2026, kl. 19:30<br>
+            👥 6 personer
+          </div>
+        </li>
         <li><span class="time-tag">21:00</span>🚴 Sista cykling till Le Vélo Libre, 37 Rue Turenne</li>
         <li><span class="time-tag">21:30</span>🔚 Återlämning elcyklar – senast nu! Foto av cykeln (2 bilder) → maila photos@levelolibre.fr
           <button class="info-btn" onclick="toggleHotelInfo(this)">🚴 Återlämningsinfo</button>
@@ -712,7 +736,15 @@
         </li>
         <li><span class="time-tag">14:00</span>🏘️ Petite France – sista sväng</li>
         <li><span class="time-tag">17:00</span>🚣 Båttur längs kanalerna</li>
-        <li><span class="time-tag">19:30</span>🍽️ Middag i Strasbourg <span class="unbooked-tag">❌ EJ BOKAD</span></li>
+        <li><span class="time-tag">21:15</span>🍽️ Middag på l'Oignon i Strasbourg <span class="booked-tag">✅ BOKAD</span>
+          <button class="info-btn" onclick="toggleHotelInfo(this)">🍽️ Restauranginfo</button>
+          <div class="hotel-info">
+            <strong>l'Oignon ✅ BOKAD</strong><br>
+            📍 Strasbourg<br><br>
+            📅 Lördag 8 aug 2026, kl. 21:15<br>
+            👥 6 personer
+          </div>
+        </li>
       </ul>
       <span class="stay-badge">🏨 Strasbourg – natt 2</span>
     </div>
@@ -800,7 +832,6 @@
         <p>Ej bokat som går att boka om man vill:</p>
         <ul>
           <li>🥗 Lunch i Colmar</li>
-          <li>🍽️ Middag i Colmar</li>
         </ul>
       </div>
 
@@ -810,7 +841,6 @@
         <p>Ej bokat som går att boka om man vill:</p>
         <ul>
           <li>🥗 Lunch – Winstub La Flammerie, Ribeauvillé (+33 3 89 73 61 08)</li>
-          <li>🍽️ Middag i Colmar</li>
         </ul>
       </div>
 
@@ -820,7 +850,6 @@
         <p>Ej bokat som går att boka om man vill:</p>
         <ul>
           <li>🥗 Lunch i Kaysersberg. Winstub du Chambard (fancy) eller Bratschall Manala (klassiskt och bra, troligen bästa alt.) eller Le Tire-Bouchon (centralt och uteservering)</li>
-          <li>🍽️ Avskedsmiddag i Colmar</li>
         </ul>
       </div>
 
@@ -830,7 +859,6 @@
         <p>Ej bokat som går att boka om man vill:</p>
         <ul>
           <li>🥞 Brunch/Frulle/kaffe i Colmar innan utcheckning</li>
-          <li>🍽️ Middag i Strasbourg</li>
         </ul>
       </div>
 
