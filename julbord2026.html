@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <title>Julbord 2026</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    iframe {
+      width: 100%;
+      border: none;
+      display: block;
+      margin: 0 auto;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    #countdown {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 1.5rem 0;
+      color: #b22222; /* julröd */
+    }
+
+    .chart-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .chart-inner {
+      width: 600px;
+      max-width: 100%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      padding: 0 1rem;
+    }
+
+    .calendar-button {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #b22222;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .calendar-button:hover {
+      background-color: #800000;
+    }
+
+    .info-btn {
+      display: inline-block;
+      margin-left: 0.5rem;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.9rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .names-list {
+      display: none;
+      text-align: left;
+      margin: 0.5rem auto 1rem auto;
+      max-width: 700px;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      background: #fafafa;
+      box-shadow: 0 0 6px rgba(0,0,0,0.03);
+    }
+    .names-list.show {
+      display: block;
+    }
+    .left-align {
+      text-align: left;
+      max-width: 700px;
+      margin: 0.25rem auto 1rem auto;
+    }
+
+    /* Röstningssektion */
+    .poll-box {
+      max-width: 700px;
+      margin: 0.5rem auto 1.5rem auto;
+      padding: 1.25rem 1.5rem;
+      border-radius: 10px;
+      background: #fff7f0;
+      border: 1px solid #f0d9c8;
+      text-align: left;
+    }
+
+    .poll-box p {
+      margin: 0.4rem 0;
+    }
+
+    .poll-buttons {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+
+    .vote-button {
+      display: inline-block;
+      padding: 0.6rem 1.1rem;
+      background-color: #b22222;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .vote-button:hover {
+      background-color: #800000;
+    }
+
+    .results-button {
+      display: inline-block;
+      padding: 0.6rem 1.1rem;
+      background: #fff;
+      color: #b22222;
+      border: 2px solid #b22222;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .results-button:hover {
+      background-color: #b22222;
+      color: #fff;
+    }
+
+    .poll-note {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body class="christmas">
+  <header>
+    <h1>Baba Travels</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="skottland.html">Skottland</a>
+      <a href="alsace.html">Alsace</a>
+      <a href="julbord.html">Julbord 2025</a>
+      <a href="julbord2026.html" class="active">Julbord 2026</a>
+      <a href="historik.html">Historik</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>🎄 Julbord 2026 - Datum meddelas snart.</h2>
+    <p id="countdown">Laddar nedräkning…</p>
+
+    <!-- Röstning -->
+    <h2 style="margin-top: 3rem;">🗳️ Rösta om julbordet</h2>
+    <div class="poll-box">
+      <p>Innan vi kan spika detaljerna behöver vi veta vad ni tycker! Har du inte röstat än tar det bara någon minut.</p>
+      <p><strong>Har du inte röstat ännu? Gör det nu — det tar under en minut! ⏳</strong></p>
+      <div class="poll-buttons">
+        <a class="vote-button" href="https://pollify.retea.se/poll/UTEJ8A/respond" target="_blank" rel="noopener noreferrer">Rösta nu</a>
+        <a class="results-button" href="https://pollify.retea.se/poll/UTEJ8A/results" target="_blank" rel="noopener noreferrer">Se resultat</a>
+      </div>
+      <p class="poll-note">Ingen registrering krävs — klicka bara på länken ovan och rösta direkt.</p>
+    </div>
+
+    <!-- Julklappslek -->
+    <h2 style="margin-top: 3rem;">🎁 Julklappslek</h2>
+    <p>Alla tar med sig <strong>2 julklappar</strong> vardera, med ett ackumulerat värde på cirka <strong>200 kr</strong>.</p>
+
+    <!-- Matfördelning -->
+    <h2 style="margin-top: 3rem;">🍽️ Matfördelning</h2>
+    <div class="left-align">
+      <p>
+        Dryck: Medtag egen dryck. Det kommer finnas glögg och lite i spritskåpet att rensa ur mot småtimmarna om intresse finns.
+      </p>
+      <p>Jag fixar i vanlig ordning:</p>
+      <ul>
+        <li>Janssons frestelse</li>
+        <li>Glögg och tillbehör (pepparkakor, skumtomtar)</li>
+        <li>Lite snacks</li>
+      </ul>
+      <p>I övrigt kör vi knytis — ta med det ni vill bidra med. Det är helt okej med inköpta rätter som tillagas här hemma hos mig.</p>
+
+      <p style="margin-top:0.25rem;">Inspo från förra året: <button class="info-btn" onclick="toggleNames(this)">Visa fördelning</button></p>
+      <div class="names-list" aria-hidden="true">
+        <ul>
+          <li>Sill (Jonathan Hellman)</li>
+          <li>Prinskörv + köttbullar (Emil Nilsson)</li>
+          <li>Gravlax och hovmästarsås (Johannes Forsberg)</li>
+          <li>Julvört / kex och ostar (Andreas Lindmark)</li>
+          <li>Rödbetssallad / grönkålssallad + smör (Pontus Lundin)</li>
+          <li>Julskinka (Eddie Andersson)</li>
+          <li>Ägghalvor + kokt potatis + gräddfil och gräslök (Lennart Johansson)</li>
+          <li>Veganskt alt (Karl Eriksson)</li>
+        </ul>
+      </div>
+
+      <p style="margin-top:0.25rem;">Fyll i årets bidrag här: <a class="info-btn" href="LÄNK_TILL_ÅRETS_KALKYLARK" target="_blank" rel="noopener noreferrer">Redigera i kalkylark</a></p>
+    </div>
+
+    <!-- Kalenderimport -->
+    <h2 style="margin-top: 3rem;">📅 Lägg till i kalender</h2>
+    <p>Klicka på knappen för att lägga till julbordet i din kalender, ej aktuellt först datum satt:</p>
+    <a href="julbord2026.ics" download="Julbord_2026.ics" class="calendar-button">Lägg till i kalendern</a>
+  </main>
+
+  <script>
+    function toggleNames(btn) {
+      var info = btn.parentElement.nextElementSibling;
+      if (!info) return;
+      info.classList.toggle('show');
+      var shown = info.classList.contains('show');
+      btn.textContent = shown ? 'Dölj namn' : 'Visa namn';
+      info.setAttribute('aria-hidden', shown ? 'false' : 'true');
+    }
+  </script>
+
+  <script src="scripts/countdown-julbord2026.js"></script>
+</body>
+</html>
