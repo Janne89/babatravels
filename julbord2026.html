@@ -156,6 +156,18 @@
       color: #555;
       margin-top: 0.5rem;
     }
+
+    .poll-closed-badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.8rem;
+      font-weight: bold;
+      background: #eee;
+      color: #555;
+      border-radius: 4px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
   </style>
 </head>
 <body class="christmas">
@@ -172,18 +184,16 @@
   </header>
 
   <main class="container">
-    <h2>🎄 Julbord 2026 - Datum meddelas snart.</h2>
+    <h2>🎄 Julbord 2026 - Fredag 11 december</h2>
     <p id="countdown">Laddar nedräkning…</p>
 
     <!-- Röstning -->
-    <h2 style="margin-top: 3rem;">🗳️ Rösta om julbordet</h2>
+    <h2 style="margin-top: 3rem;">🗳️ Röstning avslutad<span class="poll-closed-badge">STÄNGD</span></h2>
     <div class="poll-box">
-      <p>Innan vi kan spika detaljerna behöver vi veta vad ni tycker. Har du inte röstat än tar det bara någon minut! ⏳</p>
+      <p>Tack alla som röstade! Datumet är nu spikat till <strong>fredag 11 december</strong>. Röstningen är stängd, men ni kan fortfarande se hur det gick.</p>
       <div class="poll-buttons">
-        <a class="vote-button" href="https://pollify.retea.se/poll/UTEJ8A/respond" target="_blank" rel="noopener noreferrer">Rösta nu</a>
         <a class="results-button" href="https://pollify.retea.se/poll/UTEJ8A/results" target="_blank" rel="noopener noreferrer">Se resultat</a>
       </div>
-      <p class="poll-note">Ingen registrering krävs — klicka bara på länken ovan och rösta direkt.</p>
     </div>
     
     <!-- Julklappslek -->
@@ -223,7 +233,7 @@
 
     <!-- Kalenderimport -->
     <h2 style="margin-top: 3rem;">📅 Lägg till i kalender</h2>
-    <p>Klicka på knappen för att lägga till julbordet i din kalender, ej aktuellt först datum satt:</p>
+    <p>Klicka på knappen för att lägga till julbordet i din kalender:</p>
     <a href="julbord2026.ics" download="Julbord_2026.ics" class="calendar-button">Lägg till i kalendern</a>
   </main>
 
