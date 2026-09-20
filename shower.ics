@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Baba Travels//Shower 2026//SV
+BEGIN:VEVENT
+UID:shower2026@example.com
+DTSTAMP:20260920T120000Z
+DTSTART:20261121T100000
+DTEND:20261121T233000
+SUMMARY:Shower#? - Baba Travels
+DESCRIPTION:Babyshower nummer okänt. Preliminärt upplägg:\n10:00 Överraskning\n11:30 Brunch/lunch\n14:00 Aktivitet\n19:30 Middag\n\nTa med ombyte och presenter. Vi håller detta för oss själva.
+LOCATION:Stockholm
+STATUS:CONFIRMED
+SEQUENCE:1
+END:VEVENT
+END:VCALENDAR

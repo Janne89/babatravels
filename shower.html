@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shower#? - Baba Travels</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    #countdown {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 1.5rem 0;
+      color: #d35400;
+    }
+
+    .calendar-button {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #2c3e50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .calendar-button:hover {
+      background-color: #34495e;
+    }
+
+    .surprise-box {
+      background-color: #f8f9fa;
+      border: 2px dashed #d35400;
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    .birthday-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hash {
+      color: #d35400;
+    }
+
+    .hotel-info {
+      margin-top: 0.5rem;
+      display: none;
+      background-color: #f0f0f0;
+      padding: 0.5rem;
+      border-left: 3px solid #888;
+    }
+
+    .info-btn {
+      margin-top: 0.3rem;
+      background-color: #eee;
+      padding: 0.3rem 0.6rem;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .pending {
+      color: #b8860b;
+      font-weight: bold;
+    }
+
+    .confirmed {
+      color: #2e7d32;
+      font-weight: bold;
+    }
+
+    .time {
+      display: inline-block;
+      min-width: 5.5rem;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .fact-card li {
+      padding: 0.45rem 0;
+      border-bottom: 1px solid #e6e6e6;
+      text-align: left;
+    }
+
+    .fact-card li:last-child {
+      border-bottom: none;
+    }
+
+    .note {
+      font-style: italic;
+      color: #777;
+    }
+  </style>
+  <script>
+    function toggleHotelInfo(button) {
+      const info = button.nextElementSibling;
+      info.style.display = info.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Baba Travels</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="skottland.html">Skottland</a>
+      <a href="historik.html">Historik</a>
+      <a href="julbord.html">Julbord 2025</a>
+      <a href="julbord2026.html">Julbord 2026</a>
+      <a href="shower.html">Shower#?</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="surprise-box">
+      <div class="birthday-icon">🍼</div>
+      <h2>🤫 Shower<span class="hash">#?</span> 🤫</h2>
+      <p>Lördag 21 november 2026 · Stockholm · ca 10 gubbar</p>
+      <p class="note">Vi har tappat räkningen på hur många babyshowers det blivit. Därav <strong>#?</strong>.</p>
+      <p id="countdown">Laddar nedräkning…</p>
+      <a class="calendar-button" href="shower.ics" download>📅 Lägg till i kalendern</a>
+    </div>
+
+    <h2 style="margin-top: 3rem;">🗓️ Löst schema för dagen</h2>
+    <p class="note">Preliminärt – tider och platser spikas närmare. Håll dagen fri från morgon till sent.</p>
+
+    <div class="facts-grid">
+      <div class="fact-card">
+        <h3>Lördag 21 november<br><small>Stockholm</small></h3>
+        <ul>
+          <li><span class="time">10:00</span> <strong>Överraskningen</strong> – vi smyger in, kör igång med en bärs och en kort presentrunda.
+            <button class="info-btn" onclick="toggleHotelInfo(this)">🎁 Detaljer</button>
+            <div class="hotel-info">
+              <strong>Plats:</strong> TBD<br>
+              <span class="pending">⏳ Ej spikat</span><br><br>
+              Alla på plats <strong>senast 09:45</strong> – ingen kommer indassande efteråt.<br>
+              Här dumpar vi också väskorna med ombyte för resten av dagen.
+            </div>
+          </li>
+          <li><span class="time">11:30</span> <strong>Brunch / lunch</strong> – ordentligt med mat innan resten av dagen.
+            <button class="info-btn" onclick="toggleHotelInfo(this)">🍽️ Bokningsinfo</button>
+            <div class="hotel-info">
+              <strong>Restaurang:</strong> TBD<br>
+              <span class="pending">⏳ Bokning ej klar</span><br><br>
+              Ca 10 personer. Sitter vi till ca 13:30 hinner vi vidare i lugn takt.
+            </div>
+          </li>
+          <li><span class="time">14:00</span> <strong>Aktiviteten</strong> – dagens huvudnummer.
+            <button class="info-btn" onclick="toggleHotelInfo(this)">🎯 Detaljer</button>
+            <div class="hotel-info">
+              <strong>Vad:</strong> TBD<br>
+              <span class="pending">⏳ Ej spikat</span><br><br>
+              Kläder och utrustning meddelas när aktiviteten är bokad.
+            </div>
+          </li>
+          <li><span class="time">18:00</span> <strong>Ombyte & omladdning</strong> – en lugn lucka innan middagen.</li>
+          <li><span class="time">19:30</span> <strong>Middag</strong> – gemensam avslutning.
+            <button class="info-btn" onclick="toggleHotelInfo(this)">🍻 Middagsinfo</button>
+            <div class="hotel-info">
+              <strong>Restaurang:</strong> TBD<br>
+              <span class="pending">⏳ Bokning ej klar</span><br><br>
+              <strong>👥 Antal:</strong> ca 10 personer
+            </div>
+          </li>
+          <li><span class="time">Sent</span> <strong>Fortsättning</strong> – för den som orkar.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 3rem;">🎒 Att ta med</h2>
+
+    <div class="facts-grid">
+      <div class="fact-card">
+        <h3>🧳 I väskan</h3>
+        <ul>
+          <li>Ombyte till middagen</li>
+          <li>Kläder efter aktiviteten (besked kommer)</li>
+          <li>Mobilladdare – det blir en lång dag</li>
+          <li>Kontanter/Swish till gemensamma notor</li>
+        </ul>
+      </div>
+
+      <div class="fact-card">
+        <h3>🤫 Kom ihåg</h3>
+        <ul>
+          <li>Inget läcker till huvudpersonen</li>
+          <li>Var på plats 09:45 – inte 10:00</li>
+          <li>Presenter tas med till överraskningen</li>
+          <li>Håll hela dagen fri</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="note" style="margin-top: 2rem;">Karta och exakta adresser läggs in här när allt är bokat.</p>
+
+  </main>
+
+  <script>
+    (function () {
+      const target = new Date(2026, 10, 21, 10, 0, 0); // 21 nov 2026, 10:00
+      const el = document.getElementById('countdown');
+
+      function update() {
+        const diff = target - new Date();
+
+        if (diff <= 0) {
+          el.textContent = '🍼 Idag är dagen!';
+          return;
+        }
+
+        const dagar = Math.floor(diff / 86400000);
+        const timmar = Math.floor((diff % 86400000) / 3600000);
+        const minuter = Math.floor((diff % 3600000) / 60000);
+        const sekunder = Math.floor((diff % 60000) / 1000);
+
+        el.textContent = `${dagar} dagar, ${timmar} tim, ${minuter} min, ${sekunder} sek kvar`;
+      }
+
+      update();
+      setInterval(update, 1000);
+    })();
+  </script>
+</body>
+</html>
