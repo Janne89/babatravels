@@ -195,7 +195,20 @@
       font-style: italic;
       padding: 0.5rem 0;
     }
+
+    .sync-status {
+      font-size: 0.85rem;
+      color: #b22222;
+      min-height: 1em;
+      margin: 0.3rem 0 0;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.min.js"></script>
 </head>
 <body>
   <header>
@@ -207,7 +220,8 @@
     <div class="surprise-box">
       <div style="font-size: 2.5rem;">🏆</div>
       <h2>Beer Run – Poängtavla</h2>
-      <p id="leaderDisplay">Inga poäng inlagda än – kom igång!</p>
+      <p id="leaderDisplay">Laddar ställningen…</p>
+      <p id="syncStatus" class="sync-status"></p>
     </div>
 
     <h2>📊 Ställning</h2>
@@ -225,7 +239,7 @@
     </div>
 
     <h2>🎯 Grenar</h2>
-    <p>Välj vem som klarade grenen och tryck "Ge poäng". Allt sparas automatiskt i den här webbläsaren.</p>
+    <p>Välj vem som klarade grenen och tryck "Ge poäng". Allt sparas direkt och syns på allas telefoner.</p>
 
     <div class="category-section">
       <h3>🏃 Löpning mellan stopp</h3>
@@ -313,29 +327,48 @@
       { id: "bonus-3p", text: "Bonuspinne – imponerade STORT på Janne", poang: 3, kategori: "bonus" }
     ];
 
-    let scores = {};
-    let log = [];
+    // Poängen sparas i Supabase så att alla telefoner ser samma ställning.
+    // Nyckeln är publik och får synas – databasen skyddas av RLS-regler
+    // (bara läsa, lägga till och ta bort poängrader är tillåtet).
+    const SUPABASE_URL = 'https://uzsapdhydpfxjyufzgji.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_NcK3F9nMRgBuKm0LxL0L6g_7TK9D8zd';
+    const EVENT = 'beer-run-2026';
+    const db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    function loadData() {
-      try {
-        const savedScores = localStorage.getItem('beerrun-scores');
-        const savedLog = localStorage.getItem('beerrun-log');
-        scores = savedScores ? JSON.parse(savedScores) : {};
-        log = savedLog ? JSON.parse(savedLog) : [];
-      } catch (e) {
-        scores = {};
-        log = [];
-      }
-      gubbar.forEach(g => { if (!(g in scores)) scores[g] = 0; });
+    let scores = {};
+    let log = [];   // rader från databasen, nyast först
+
+    function esc(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
     }
 
-    function saveData() {
-      try {
-        localStorage.setItem('beerrun-scores', JSON.stringify(scores));
-        localStorage.setItem('beerrun-log', JSON.stringify(log));
-      } catch (e) {
-        console.error('Kunde inte spara:', e);
+    function showStatus(text) {
+      document.getElementById('syncStatus').textContent = text;
+    }
+
+    async function loadData() {
+      const { data, error } = await db
+        .from('poang')
+        .select('*')
+        .eq('event', EVENT)
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        console.error(error);
+        showStatus('⚠️ Kunde inte hämta poängen – kolla nätet och ladda om.');
+        return;
       }
+      showStatus('');
+
+      log = data;
+      scores = {};
+      gubbar.forEach(g => scores[g] = 0);
+      log.forEach(r => scores[r.gubbe] = (scores[r.gubbe] || 0) + r.poang);
+
+      renderScoreboard();
+      renderLog();
     }
 
     function renderScoreboard() {
@@ -347,7 +380,7 @@
         if (i === 0) tr.className = 'rank-1';
         else if (i === 1) tr.className = 'rank-2';
         else if (i === 2) tr.className = 'rank-3';
-        tr.innerHTML = `<td class="name-cell">${g}</td><td class="total-cell">${scores[g]}</td>`;
+        tr.innerHTML = `<td class="name-cell">${esc(g)}</td><td class="total-cell">${scores[g]}</td>`;
         body.appendChild(tr);
       });
 
@@ -356,7 +389,7 @@
       if (scores[leader] === 0) {
         leaderDisplay.textContent = 'Inga poäng inlagda än – kom igång!';
       } else {
-        leaderDisplay.innerHTML = `<span class="leader-name">${leader}</span> leder med <span class="leader-points">${scores[leader]}</span> poäng`;
+        leaderDisplay.innerHTML = `<span class="leader-name">${esc(leader)}</span> leder med <span class="leader-points">${scores[leader]}</span> poäng`;
       }
     }
 
@@ -385,39 +418,42 @@
             <select class="gubbe-select" id="select-${gren.id}">
               ${gubbar.map(g => `<option value="${g}">${g}</option>`).join('')}
             </select>
-            <button class="add-btn" onclick="givePoints('${gren.id}')">Ge poäng</button>
+            <button class="add-btn" onclick="givePoints('${gren.id}', this)">Ge poäng</button>
           </div>
         `;
         kategorier[gren.kategori].appendChild(row);
       });
     }
 
-    function givePoints(grenId) {
+    async function givePoints(grenId, button) {
       const gren = grenar.find(g => g.id === grenId);
-      const select = document.getElementById(`select-${grenId}`);
-      const gubbe = select.value;
+      const gubbe = document.getElementById(`select-${grenId}`).value;
 
-      scores[gubbe] = (scores[gubbe] || 0) + gren.poang;
-
-      log.unshift({
+      button.disabled = true;
+      const { error } = await db.from('poang').insert({
+        event: EVENT,
         gubbe: gubbe,
-        text: gren.text,
-        poang: gren.poang,
-        tid: new Date().toLocaleTimeString('sv-SE', { hour: '2-digit', minute: '2-digit' })
+        gren: gren.text,
+        poang: gren.poang
       });
+      button.disabled = false;
 
-      saveData();
-      renderScoreboard();
-      renderLog();
+      if (error) {
+        console.error(error);
+        showStatus('⚠️ Poängen sparades inte – försök igen.');
+        return;
+      }
+      await loadData();
     }
 
-    function removeLogEntry(index) {
-      const entry = log[index];
-      scores[entry.gubbe] = (scores[entry.gubbe] || 0) - entry.poang;
-      log.splice(index, 1);
-      saveData();
-      renderScoreboard();
-      renderLog();
+    async function removeLogEntry(id) {
+      const { error } = await db.from('poang').delete().eq('id', id);
+      if (error) {
+        console.error(error);
+        showStatus('⚠️ Kunde inte ångra – försök igen.');
+        return;
+      }
+      await loadData();
     }
 
     function renderLog() {
@@ -426,29 +462,38 @@
         logList.innerHTML = '<div class="empty-log">Inga poäng registrerade än.</div>';
         return;
       }
-      logList.innerHTML = log.slice(0, 30).map((entry, i) => {
+      logList.innerHTML = log.slice(0, 30).map(entry => {
         const sign = entry.poang > 0 ? '+' : '';
+        const tid = new Date(entry.created_at).toLocaleTimeString('sv-SE', { hour: '2-digit', minute: '2-digit' });
         return `<div class="log-entry">
-          <span>${entry.tid} — <strong>${entry.gubbe}</strong>: ${entry.text} (${sign}${entry.poang} p)</span>
-          <button onclick="removeLogEntry(${i})">Ångra</button>
+          <span>${tid} — <strong>${esc(entry.gubbe)}</strong>: ${esc(entry.gren)} (${sign}${entry.poang} p)</span>
+          <button onclick="removeLogEntry(${entry.id})">Ångra</button>
         </div>`;
       }).join('');
     }
 
-    function resetAll() {
+    async function resetAll() {
       if (confirm('Är du säker på att du vill nollställa alla poäng? Detta går inte att ångra.')) {
-        gubbar.forEach(g => scores[g] = 0);
-        log = [];
-        saveData();
-        renderScoreboard();
-        renderLog();
+        const { error } = await db.from('poang').delete().eq('event', EVENT);
+        if (error) {
+          console.error(error);
+          showStatus('⚠️ Kunde inte nollställa – försök igen.');
+          return;
+        }
+        await loadData();
       }
     }
 
-    loadData();
-    renderScoreboard();
+    // Uppdatera direkt när någon annan ger poäng, och när telefonen vaknar.
+    db.channel('poang-' + EVENT)
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'poang' }, () => loadData())
+      .subscribe();
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) loadData();
+    });
+
     renderGrenar();
-    renderLog();
+    loadData();
   </script>
 </body>
 </html>
