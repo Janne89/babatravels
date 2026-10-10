@@ -8,6 +8,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const now = new Date();
     const diff = eventTime - now;
 
+    // Resan var 12–14 juni – efter det är den över.
+    if (now >= new Date("2026-06-15T00:00:00")) {
+      countdownElement.textContent = "✅ Projekt 35 genomfördes 12–14 juni 2026 🎂";
+      return;
+    }
+
     if (diff <= 0) {
       countdownElement.textContent = "🎉 Projekt 35 har börjat! 🎂";
       return;

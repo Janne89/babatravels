@@ -7,6 +7,12 @@ function uppdateraNedrakning() {
   const el = document.getElementById("countdown");
   if (!el) return;
 
+  // Dagen efter är det över.
+  if (nu >= new Date("2026-06-28T00:00:00")) {
+    el.textContent = "✅ Projekt Shower genomfördes 27 juni 2026 🎉";
+    return;
+  }
+
   if (skillnad <= 0) {
     el.textContent = "🎉 Det är idag! Lycka till med överraskningen! 🎉";
     return;

@@ -160,6 +160,12 @@
       function update() {
         const diff = target - new Date();
 
+        // Dagen efter är det över.
+        if (new Date() >= new Date(2026, 10, 22)) {
+          el.textContent = '✅ Genomfördes 21 november 2026 🍼';
+          return;
+        }
+
         if (diff <= 0) {
           el.textContent = '🍼 Idag är dagen!';
           return;
