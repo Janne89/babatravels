@@ -2,6 +2,7 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
+  <meta name="robots" content="noindex">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projekt Shower – Orienteringskarta</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
@@ -29,6 +30,18 @@
 
     header h1 { margin: 0; font-size: 1.4rem; }
     header p { margin: 0.3rem 0 0; font-size: 0.9rem; opacity: 0.85; }
+
+    header nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.4rem 1.2rem;
+      margin-top: 0.6rem;
+      font-size: 0.85rem;
+    }
+    header nav a { color: rgba(255,255,255,0.85); text-decoration: none; }
+    header nav a:hover, header nav a.active { color: #fff; text-decoration: underline; }
+    header nav.subnav { margin-top: 0.3rem; }
 
     .container {
       max-width: 960px;
@@ -231,6 +244,7 @@
   <header>
     <h1>🧭 Projekt Shower – Orienteringskarta</h1>
     <p>Klassisk bana: Start vid Häktet → kontroller 1–5 → Mål</p>
+    <script src="scripts/nav.js"></script>
   </header>
 
   <main class="container">

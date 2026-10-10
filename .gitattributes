@@ -1,0 +1,8 @@
+# Alla textfiler lagras och checkas ut med LF-radslut
+* text=auto eol=lf
+
+# Binärfiler – rör inte
+*.pdf binary
+*.png binary
+*.jpg binary
+*.ico binary

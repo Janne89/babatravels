@@ -69,7 +69,12 @@
       transition: color 0.2s;
     }
 
-    nav a:hover { color: var(--gold); }
+    nav a:hover, nav a.active { color: var(--gold); }
+
+    nav.subnav {
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding: 0.6rem 0 0;
+    }
 
     main {
       max-width: 960px;
@@ -384,11 +389,7 @@
 <header>
   <h1>Alsace 2026</h1>
   <p class="subtitle">Strasbourg · Colmar · Route des Vins</p>
-  <nav>
-    <a href="alsace.html">Översikt</a>
-    <a href="alsace_schema.html">Schema</a>
-    <a href="julbord2026.html">Julbord 2026</a>
-  </nav>
+  <script src="scripts/nav.js"></script>
 </header>
 
 <main>
