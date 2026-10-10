@@ -2,9 +2,9 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8" />
-  <title>Julbord 2026</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <title>Julbord 2025</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
   <style>
     .container {
       max-width: 800px;
@@ -63,7 +63,6 @@
     .calendar-button:hover {
       background-color: #800000;
     }
-
     .info-btn {
       display: inline-block;
       margin-left: 0.5rem;
@@ -93,102 +92,18 @@
       max-width: 700px;
       margin: 0.25rem auto 1rem auto;
     }
-
-    /* Röstningssektion */
-    .poll-box {
-      max-width: 700px;
-      margin: 0.5rem auto 1.5rem auto;
-      padding: 1.25rem 1.5rem;
-      border-radius: 10px;
-      background: #fff7f0;
-      border: 1px solid #f0d9c8;
-      text-align: left;
-    }
-
-    .poll-box p {
-      margin: 0.4rem 0;
-    }
-
-    .poll-buttons {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      margin-top: 0.75rem;
-    }
-
-    .vote-button {
-      display: inline-block;
-      padding: 0.6rem 1.1rem;
-      background-color: #b22222;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .vote-button:hover {
-      background-color: #800000;
-    }
-
-    .results-button {
-      display: inline-block;
-      padding: 0.6rem 1.1rem;
-      background: #fff;
-      color: #b22222;
-      border: 2px solid #b22222;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    .results-button:hover {
-      background-color: #b22222;
-      color: #fff;
-    }
-
-    .poll-note {
-      font-size: 0.9rem;
-      color: #555;
-      margin-top: 0.5rem;
-    }
-
-    .poll-closed-badge {
-      display: inline-block;
-      padding: 0.2rem 0.6rem;
-      font-size: 0.8rem;
-      font-weight: bold;
-      background: #eee;
-      color: #555;
-      border-radius: 4px;
-      margin-left: 0.5rem;
-      vertical-align: middle;
-    }
   </style>
 </head>
 <body class="christmas">
   <header>
     <h1>Baba Travels</h1>
-    <script src="scripts/nav.js"></script>
+    <script src="../assets/js/nav.js"></script>
   </header>
 
   <main class="container">
-    <h2>🎄 Julbord 2026 - Fredag 11 december</h2>
+    <h2>🎄 Julbord 2025 - Fredag 12e Dec. 17:00.</h2>
     <p id="countdown">Laddar nedräkning…</p>
 
-    <!-- Röstning -->
-    <h2 style="margin-top: 3rem;">🗳️ Röstning avslutad<span class="poll-closed-badge">STÄNGD</span></h2>
-    <div class="poll-box">
-      <p>Tack alla som röstade! Datumet är nu spikat till <strong>fredag 11 december</strong>. Röstningen är stängd, men ni kan fortfarande se hur det gick.</p>
-      <div class="poll-buttons">
-        <a class="results-button" href="https://pollify.retea.se/poll/UTEJ8A/results" target="_blank" rel="noopener noreferrer">Se resultat</a>
-      </div>
-    </div>
-    
     <!-- Julklappslek -->
     <h2 style="margin-top: 3rem;">🎁 Julklappslek</h2>
     <p>Alla tar med sig <strong>2 julklappar</strong> vardera, med ett ackumulerat värde på cirka <strong>200 kr</strong>.</p>
@@ -227,7 +142,21 @@
     <!-- Kalenderimport -->
     <h2 style="margin-top: 3rem;">📅 Lägg till i kalender</h2>
     <p>Klicka på knappen för att lägga till julbordet i din kalender:</p>
-    <a href="julbord2026.ics" download="Julbord_2026.ics" class="calendar-button">Lägg till i kalendern</a>
+    <a href="julbord-2025.ics" download="Julbord_2025.ics" class="calendar-button">Lägg till i kalendern</a>
+
+    <!-- Tidigare röstning -->
+    <h2 style="margin-top: 3rem;">📊 Resultat av tidigare röstning</h2>
+    <div class="chart-wrapper">
+      <div class="chart-inner">
+        <iframe 
+          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSTcNr4tjJcqExlqGOi7zNmf73x6bh-M6wO19oZVzBHeesVDWAhj73KJtTA--udN6cpq42sF9LQdQGA/pubchart?oid=1667534772&amp;format=interactive" 
+          width="600" 
+          height="400" 
+          frameborder="0" 
+          scrolling="no">
+        </iframe>
+      </div>
+    </div>
   </main>
 
   <script>
@@ -241,6 +170,6 @@
     }
   </script>
 
-  <script src="scripts/countdown-julbord2026.js"></script>
+  <script src="countdown.js"></script>
 </body>
 </html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Sidan finns inte – Baba Travels</title>
+  <script>
+    // GitHub Pages visar den här sidan för alla adresser som inte finns.
+    // Gamla adresser (från innan sajten delades upp i mappar) skickas vidare.
+    (function () {
+      var MOVED = {
+        'skottland.html': 'skottland/',
+        'goodtoknow.html': 'skottland/good-to-know.html',
+        'packlista.html': 'skottland/packlista.html',
+        'skottland_schema.html': 'skottland/schema.html',
+        'pdf/kyletaxi.pdf': 'skottland/pdf/kyle-taxi.pdf',
+        'pdf/talisker.pdf': 'skottland/pdf/talisker.pdf',
+
+        'alsace.html': 'alsace/',
+        'alsace_schema.html': 'alsace/schema.html',
+        'biljetter/alla_tur_del1_mannheim.pdf': 'alsace/biljetter/alla-tur-del1-frankfurt-mannheim.pdf',
+        'biljetter/alla_retur_del2.pdf': 'alsace/biljetter/alla-retur-del2-offenburg-frankfurt.pdf',
+        'biljetter/johannes_retur_del2.pdf': 'alsace/biljetter/johannes-retur-del2-offenburg-frankfurt.pdf',
+        'biljetter/jan_tur_stras.pdf': 'alsace/biljetter/jan-tur-del2-mannheim-strasbourg.pdf',
+        'biljetter/hellman_tur_stras.pdf': 'alsace/biljetter/hellman-tur-del2-mannheim-strasbourg.pdf',
+        'biljetter/johannes_tur_stras.pdf': 'alsace/biljetter/johannes-tur-del2-mannheim-strasbourg.pdf',
+        'biljetter/karl_tur_stras.pdf': 'alsace/biljetter/karl-tur-del2-mannheim-strasbourg.pdf',
+        'biljetter/Oskar_tur_stras.pdf': 'alsace/biljetter/oskar-tur-del2-mannheim-strasbourg.pdf',
+        'biljetter/pontus_tur_stras.pdf': 'alsace/biljetter/pontus-tur-del2-mannheim-strasbourg.pdf',
+        'biljetter/jan_retur_biljett.pdf': 'alsace/biljetter/jan-retur-del1-strasbourg-offenburg.pdf',
+        'biljetter/hellman_retur_biljett.pdf': 'alsace/biljetter/hellman-retur-del1-strasbourg-offenburg.pdf',
+        'biljetter/Johannes_retur_biljett.pdf': 'alsace/biljetter/johannes-retur-del1-strasbourg-offenburg.pdf',
+        'biljetter/karl_retur_biljett.pdf': 'alsace/biljetter/karl-retur-del1-strasbourg-offenburg.pdf',
+        'biljetter/oskar_retur_biljett.pdf': 'alsace/biljetter/oskar-retur-del1-strasbourg-offenburg.pdf',
+        'biljetter/pontus_retur_biljett.pdf': 'alsace/biljetter/pontus-retur-del1-strasbourg-offenburg.pdf',
+
+        'julbord.html': 'julbord-2025/',
+        'julbord.ics': 'julbord-2025/julbord-2025.ics',
+        'julbord2026.html': 'julbord-2026/',
+        'julbord2026.ics': 'julbord-2026/julbord-2026.ics',
+
+        'projektshower.html': 'projekt-shower/',
+        'orientering.html': 'projekt-shower/orientering.html',
+        'poangtavla.html': 'projekt-shower/poangtavla.html',
+        'projekt35.html': 'projekt-35/',
+        'projekt35.ics': 'projekt-35/projekt-35.ics',
+        'shower.html': 'shower/',
+        'shower.ics': 'shower/shower.ics'
+      };
+
+      // Sajtens rot: "/babatravels/" på github.io, annars "/".
+      var parts = location.pathname.split('/');
+      var root = /\.github\.io$/.test(location.hostname) ? '/' + parts[1] + '/' : '/';
+      var path = decodeURI(location.pathname).slice(root.length);
+
+      // GitHub Pages tillåter adresser utan .html (t.ex. /skottland_schema).
+      var target = MOVED[path] || MOVED[path + '.html'];
+      if (target) location.replace(root + target + location.hash);
+
+      window.SITE_ROOT = root;
+    })();
+  </script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    a { color: #2c3e50; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Sidan finns inte</h1>
+  <p><a id="home" href="/">Till startsidan</a></p>
+  <script>document.getElementById('home').href = window.SITE_ROOT;</script>
+</body>
+</html>
