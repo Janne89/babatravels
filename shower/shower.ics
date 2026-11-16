@@ -3,13 +3,13 @@ VERSION:2.0
 PRODID:-//Baba Travels//Shower 2026//SV
 BEGIN:VEVENT
 UID:shower2026@example.com
-DTSTAMP:20261101T150000Z
-DTSTART:20261121T100000
+DTSTAMP:20261116T120000Z
+DTSTART:20261121T103000
 DTEND:20261121T233000
 SUMMARY:Shower#? - Baba Travels
-DESCRIPTION:Babyshower nummer okänt. Upplägg:\n10:00 Överraskning\n12:00–13:30 Brunch på Boqueria\, Jakobsbergsgatan 17 (bokat)\n13:30–14:00 Promenad/taxi till Djurgården\n14:00–16:00 Djurgårdsbastun (förfrågan skickad) – ta med badkläder och handduk\n19:00 Middag\n\nTa med ombyte och presenter. Vi håller detta för oss själva.
+DESCRIPTION:Babyshower nummer okänt. Upplägg:\nca 10:30 Överraskning\n12:00–14:00 Brunch/lunch på Boqueria\, Jakobsbergsgatan 17 (bokat)\n14:00–15:15 Promenad till Djurgården – ev. ölstopp om vi hinner\n15:15–17:30 Djurgårdsbastun\, Bastun 1897 (bokat) – ta med badkläder och handduk\n19:30 Ölprovning och middag på Mikkeller Södermalm\, Östgötagatan 33 (bokat)\n\nTa med ombyte och presenter. Vi håller detta för oss själva.
 LOCATION:Stockholm
 STATUS:CONFIRMED
-SEQUENCE:2
+SEQUENCE:3
 END:VEVENT
 END:VCALENDAR

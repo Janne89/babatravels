@@ -133,33 +133,40 @@
     </div>
 
     <h2 style="margin-top: 3rem;">🗓️ Löst schema för dagen</h2>
-    <p class="note">Preliminärt – tider och platser spikas närmare. Håll dagen fri från morgon till sent.</p>
+    <p class="note">Preliminärt – tider och platser spikas närmare. Håll dagen fri från morgon till sent. Vi blir 8 personer.</p>
 
     <div class="facts-grid">
       <div class="fact-card">
         <h3>Lördag 21 november<br><small>Stockholm</small></h3>
         <ul>
-          <li><span class="time">10:00</span> 🍼 <strong>Överraskning</strong></li>
-          <li><span class="time">12:00–13:30</span> 🥘 <strong>Brunch på Boqueria</strong> – Jakobsbergsgatan 17
+          <li><span class="time">ca 10:30</span> 🍼 <strong>Överraskning</strong></li>
+          <li><span class="time">12:00–14:00</span> 🥘 <strong>Brunch/lunch på Boqueria</strong> – Jakobsbergsgatan 17
             <span class="confirmed">✅ Bokat</span>
             <button class="info-btn" onclick="toggleHotelInfo(this)">📍 Mer info</button>
             <div class="hotel-info">
-              Lördagsbrunch för 9 personer på Boqueria vid Stureplan/Biblioteksstan.<br>
+              Brunch/lunch för gänget (8 personer) på Boqueria vid Stureplan/Biblioteksstan, 12:00–14:00. Kontantfri krog.<br>
               <a href="https://www.google.com/maps/search/?api=1&query=Boqueria%20Jakobsbergsgatan%2017%20Stockholm" target="_blank">🗺️ Visa på kartan</a>
             </div>
           </li>
-          <li><span class="time">13:30–14:00</span> 🚶 <strong>Promenad/taxi till Djurgården</strong> – ca 30 min</li>
-          <li><span class="time">14:00–16:00</span> 🧖 <strong>Djurgårdsbastun</strong> – hela bastun, med öl och snacks
-            <span class="pending">⏳ Förfrågan skickad</span>
+          <li><span class="time">14:00–15:15</span> 🚶 <strong>Promenad till Djurgården</strong> – ev. ölstopp på vägen om vi hinner</li>
+          <li><span class="time">15:15–17:30</span> 🧖 <strong>Djurgårdsbastun</strong> – Bastun 1897, med öl och snacks
+            <span class="confirmed">✅ Bokat</span>
             <button class="info-btn" onclick="toggleHotelInfo(this)">📍 Mer info</button>
             <div class="hotel-info">
-              Hela bastun i två timmar för gänget, med hinkar öl, chips och marconamandlar beställda som tillval. Ta med badkläder och handduk.<br>
+              Hela Bastun 1897 bokad för gänget, 15:15–17:30, med hinkar öl, chips och marconamandlar som tillval. Ta med badkläder och handduk.<br>
               <a href="https://djurgardsbastun.se/" target="_blank">🔗 djurgardsbastun.se</a> ·
               <a href="https://www.google.com/maps/search/?api=1&query=Djurg%C3%A5rdsbastun%20Stockholm" target="_blank">🗺️ Visa på kartan</a>
             </div>
           </li>
-          <li><span class="time">17:00–18:30</span> 🍸 <strong>Hernö Gin-provning om han ej testat?</strong> <span class="note">(ej bokat – kanske)</span></li>
-          <li><span class="time">19:00</span> 🍽️ <strong>Middag</strong></li>
+          <li><span class="time">19:30</span> 🍺 <strong>Ölprovning &amp; middag på Mikkeller Södermalm</strong> – Östgötagatan 33
+            <span class="confirmed">✅ Bokat</span>
+            <button class="info-btn" onclick="toggleHotelInfo(this)">📍 Mer info</button>
+            <div class="hotel-info">
+              Beer tasting med mat för gänget (8 personer). Start runt 19:30. Närmaste tunnelbana: Medborgarplatsen.<br>
+              <a href="https://mikkeller.com/locations/mikkeller-soedermalm" target="_blank">🔗 mikkeller.com</a> ·
+              <a href="https://www.google.com/maps/search/?api=1&query=Mikkeller%20S%C3%B6dermalm%20%C3%96stg%C3%B6tagatan%2033%20Stockholm" target="_blank">🗺️ Visa på kartan</a>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
@@ -170,7 +177,7 @@
 
   <script>
     (function () {
-      const target = new Date(2026, 10, 21, 10, 0, 0); // 21 nov 2026, 10:00
+      const target = new Date(2026, 10, 21, 10, 30, 0); // 21 nov 2026, 10:30
       const el = document.getElementById('countdown');
 
       function update() {
